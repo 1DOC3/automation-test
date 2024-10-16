@@ -33,6 +33,55 @@ ${CONTUNIAR_CON_CORREO_BUTTON}       //android.widget.ImageView[@content-desc="I
 # Main Page Locator (Notificaciones)
 ${NOTIFICATION_BUTTON}    //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]
 
+
+*** Test Cases ***
+
+Login Empresa en BrowserStack
+    [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en BrowserStack.
+    [Tags]    smoke
+    Abrir Aplicación BrowserStack
+    Esperar Elemento    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Clic en Continuar Empresa
+    Esperar Elemento    ${LOGIN_EMPRESA_FIELD}
+    Ingresar Empresa
+    Seleccionar Empresa
+    Clic en Continuar
+    Esperar Elemento    ${EMAIL_FIELD}
+    Ingresar Correo    ${USER1_DETAILS}
+    Clic en Verificar
+    Esperar Elemento    ${CONTUNIAR_CON_CORREO_BUTTON}
+    Click en    ${CONTUNIAR_CON_CORREO_BUTTON}
+    Ingresar Correo    ${USER1_DETAILS}
+    Clic en Continuar
+    Esperar Campos de Verificación
+    Ingresar Código Verificación    1111
+    Clic en Verificar
+    Cerrar Aplicación
+
+
+
+Login Empresa Local
+    [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en un dispositivo local.
+    [Tags]    smoke
+    Abrir Aplicación Local
+    Esperar Elemento    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Clic en Continuar Empresa
+    Esperar Elemento    ${LOGIN_EMPRESA_FIELD}
+    Ingresar Empresa
+    Seleccionar Empresa
+    Clic en Continuar
+    Esperar Elemento    ${EMAIL_FIELD}
+    Ingresar Correo    ${USER1_DETAILS}
+    Clic en Verificar
+    Esperar Elemento    ${CONTUNIAR_CON_CORREO_BUTTON}
+    Click en    ${CONTUNIAR_CON_CORREO_BUTTON}
+    Ingresar Correo    ${USER1_DETAILS}
+    Clic en Continuar
+    Esperar Campos de Verificación
+    Ingresar Código Verificación    1111
+    Clic en Verificar
+
+
 *** Keywords ***
 Abrir Aplicación BrowserStack
     [Arguments]    ${platform}=${PLATFORM_NAME}    ${device}=${DEVICE_NAME}    ${app}=${APP}    ${automation}=${AUTOMATION_NAME}
@@ -96,52 +145,3 @@ Ingresar Código Verificación
     Input Text    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[2]    ${codigo[1]}
     Input Text    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[3]    ${codigo[2]}
     Input Text    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[4]    ${codigo[3]}
-
-
-*** Test Cases ***
-
-Login Empresa en BrowserStack
-    [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en BrowserStack.
-    [Tags]    smoke
-    Abrir Aplicación BrowserStack
-    Esperar Elemento    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
-    Clic en Continuar Empresa
-    Esperar Elemento    ${LOGIN_EMPRESA_FIELD}
-    Ingresar Empresa
-    Seleccionar Empresa
-    Clic en Continuar
-    Esperar Elemento    ${EMAIL_FIELD}
-    Ingresar Correo    ${USER1_DETAILS}
-    Clic en Verificar
-    Esperar Elemento    ${CONTUNIAR_CON_CORREO_BUTTON}
-    Click en    ${CONTUNIAR_CON_CORREO_BUTTON}
-    Ingresar Correo    ${USER1_DETAILS}
-    Clic en Continuar
-    Esperar Campos de Verificación
-    Ingresar Código Verificación    1111
-    Clic en Verificar
-    Cerrar Aplicación
-
-
-
-Login Empresa Local
-    [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en un dispositivo local.
-    [Tags]    smoke
-    Abrir Aplicación Local
-    Esperar Elemento    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
-    Clic en Continuar Empresa
-    Esperar Elemento    ${LOGIN_EMPRESA_FIELD}
-    Ingresar Empresa
-    Seleccionar Empresa
-    Clic en Continuar
-    Esperar Elemento    ${EMAIL_FIELD}
-    Ingresar Correo    ${USER1_DETAILS}
-    Clic en Verificar
-    Esperar Elemento    ${CONTUNIAR_CON_CORREO_BUTTON}
-    Click en    ${CONTUNIAR_CON_CORREO_BUTTON}
-    Ingresar Correo    ${USER1_DETAILS}
-    Clic en Continuar
-    Esperar Campos de Verificación
-    Ingresar Código Verificación    1111
-    Clic en Verificar
-
