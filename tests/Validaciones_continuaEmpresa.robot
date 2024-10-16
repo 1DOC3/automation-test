@@ -22,12 +22,16 @@ ${LOGIN_SUBMIT_BUTTON_CONTINUAR}     //android.widget.Button[@content-desc="Cont
 ${MENSAJE_ERROR_ELEGIR_COMPANY}      //android.view.View[@content-desc="Selecciona una empresa"]
 ${MENSAJE_ERROR_ELEGIR_COMPANY2}     //android.view.View[@content-desc="Para continuar selecciona de la lista el nombre de la empresa a la que perteneces."]
 ${COMPANY_SELECTOR}                   Empresa pruebas    # accessibility_id para la empresa
-${ERROR_ESCRIBIR_NOMBRE_COMPANY2}     //android.view.View[@content-desc="Busca tu empresa Escribe el nombre de tu empresa para continuar."]
+${ERROR_ESCRIBIR_NOMBRE_COMPANY2}     //android.view.View[contains(@content-desc,"Escribe el nombre de tu empresa para continuar.")]
 ${EMAIL_FIELD}                       //android.widget.EditText  # Localizador para el campo de correo
 ${VERIFICAR_BUTTON_}                 //android.widget.Button[@content-desc="Verificar"]
 ${BORRAR_NOMBRE_COMPANY}            //android.widget.EditText[@text="Empresa pruebas"]/android.view.View
-${CERRAR_CLOSE}                     //android.view.View[@content-desc="Busca tu empresa Escribe el nombre de tu empresa para continuar."]/android.view.View[1]
-${NO_ENCONTRAR_EMPRESA}             xpath=//android.view.View[contains(@content-desc, "No encontramos esta empresa.")]
+${CERRAR_CLOSE}                     //android.view.View[contains(@content-desc, "Escribe el nombre de tu empresa para continuar.")]/android.view.View[1]
+${NO_ENCONTRAR_EMPRESA}             //android.view.View[contains(@content-desc, "No encontramos esta empresa.")]
+${ELEGIR_COMPANY}                   //android.widget.ImageView[@content-desc="Empresa pruebas"]
+${PAGE_VERIFY_USER}                 //android.view.View[@content-desc="Verifica tu usuario"]
+${BOTON_ATRAS}                      //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]
+${PAGE_FOUND_COMPANY}               //android.view.View[@content-desc="Busca tu empresa"]
 
 
 
@@ -56,7 +60,26 @@ Test validación no encontrar empresa
   Seleccionar el btn Continuar con tu empresa
   Ingresar nombre de empresa no existente
   Ver mensaje de no encontrar empresa
-  
+
+Test ir a vista verifica tu usuario
+  Abrir la aplicación en BrowserStack
+  Esperar para ver que este el btn Continua con tu empresa
+  Seleccionar el btn Continuar con tu empresa
+  Ingresar el nombre de una empresa
+  Seleccionar empresa
+  Seleccionar el botón Continuar
+  Ver vista de Verifica tu usuario  
+
+Ir a la vista anterior de Busca tu empresa
+  Abrir la aplicación en BrowserStack
+  Esperar para ver que este el btn Continua con tu empresa
+  Seleccionar el btn Continuar con tu empresa
+  Ingresar el nombre de una empresa
+  Seleccionar empresa
+  Seleccionar el botón Continuar
+  Seleccionar botón atrás
+
+
 
 *** Keywords ***
 Abrir la aplicación en BrowserStack
@@ -101,3 +124,17 @@ Cerrar el close de la vista
 
 Ver mensaje de no encontrar empresa
 ...        AppiumLibrary.Wait Until Element is visible   ${NO_ENCONTRAR_EMPRESA}   timeout=120s 
+
+Seleccionar empresa
+...    Click Element  ${ELEGIR_COMPANY} 
+
+Ver vista de Verifica tu usuario  
+...  AppiumLibrary.Wait Until Page Contains Element  ${PAGE_VERIFY_USER}  timeout=120s  
+     ${content_desc} =    Get element attribute   //android.view.View[contains(@content-desc,"Ahora, ingresa tu correo electrónico y verifícate en Empresa pruebas.")]   contentDescription
+     Log To Console    El texto obtenido es: ${content_desc}
+     Should Be Equal As Strings    ${content_desc}   Ahora, ingresa tu correo electrónico y verifícate en Empresa pruebas.
+     
+Seleccionar botón atrás
+    Click Element   ${BOTON_ATRAS}   
+    AppiumLibrary.Wait Until Page Contains Element   ${PAGE_FOUND_COMPANY}  timeout=120s 
+
