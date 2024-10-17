@@ -5,7 +5,7 @@ Este proyecto contiene una suite de pruebas automatizadas para la aplicación m�
 **Estructura del proyecto**
 
 /[docs](https://github.com/1DOC3/automation-test/tree/main/docs) :  Contiene la documentación del proyecto  
-/tests :  Casos de prueba agrupados por funcionalidades o módulos de la aplicación.
+/[tests](https://github.com/1DOC3/automation-test/tree/main/tests) :  Casos de prueba agrupados por funcionalidades o módulos de la aplicación.
 
 **Requisitos**  
 Antes de ejecutar las pruebas, asegúrate de cumplir con los siguientes requisitos: 
