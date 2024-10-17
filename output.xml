@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.12.3 on win32)" generated="2024-10-16T19:47:13.008124" rpa="false" schemaversion="5">
+<suite id="s1" name="Validaciones continuaEmpresa &amp; Validaciones continuaEmpresa">
+<suite id="s1-s1" name="Validaciones continuaEmpresa" source="c:\Users\LENOVOPC\Desktop\automation-test\Tests\Validaciones_continuaEmpresa.robot">
+<test id="s1-s1-t1" name="Test Validación mensaje de error elegir empresa" line="39">
+<kw name="Abrir la aplicación en BrowserStack">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${BROWSERSTACK_URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>app=${APP}</arg>
+<arg>automationName=${AUTOMATION_NAME}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2024-10-16T19:47:13.628571" elapsed="40.626764"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:47:13.627568" elapsed="40.628766"/>
+</kw>
+<kw name=" Esperar para ver que este el btn Continua con tu empresa">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T19:47:55.319775" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Continua con tu empresa"]</msg>
+<arg>${LOGIN_SUBMIT_CONTINUACONEMPRESA}</arg>
+<arg>timeout=60s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T19:47:54.259433" elapsed="1.069623"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:47:54.258036" elapsed="1.072531"/>
+</kw>
+<kw name="Seleccionar el btn Continuar con tu empresa">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T19:47:55.341343" level="INFO">Clicking element '//android.widget.Button[@content-desc="Continua con tu empresa"]'.</msg>
+<msg time="2024-10-16T19:47:56.975804" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Continua con tu empresa"]</msg>
+<arg>${LOGIN_SUBMIT_CONTINUACONEMPRESA}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T19:47:55.335306" elapsed="1.641493"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:47:55.332945" elapsed="1.643854"/>
+</kw>
+<kw name="Ingresar el nombre de una empresa">
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-10-16T19:47:56.998640" level="INFO">Typing text 'Empresa pruebas' into text field '//android.widget.EditText'</msg>
+<msg time="2024-10-16T19:47:57.422438" level="INFO">xpath criteria: //android.widget.EditText</msg>
+<arg>${LOGIN_EMPRESA_FIELD}</arg>
+<arg>${NAME_COMPANY}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T19:47:56.981004" elapsed="0.442522"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:47:56.979789" elapsed="0.443737"/>
+</kw>
+<kw name="Seleccionar el botón Continuar">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T19:47:57.434786" level="INFO">Clicking element '//android.widget.Button[@content-desc="Continuar"]'.</msg>
+<msg time="2024-10-16T19:47:58.757480" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Continuar"]</msg>
+<arg>${LOGIN_SUBMIT_BUTTON_CONTINUAR}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T19:47:57.426771" elapsed="1.330709"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:47:57.424769" elapsed="1.332711"/>
+</kw>
+<kw name="Ver mensaje de error de elegir empresa">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T19:47:58.967010" level="INFO">xpath criteria: //android.view.View[@content-desc="Selecciona una empresa"]</msg>
+<arg>${MENSAJE_ERROR_ELEGIR_COMPANY}</arg>
+<arg>timeout=120s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T19:47:58.759474" elapsed="0.208534"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T19:47:59.162021" level="INFO">xpath criteria: //android.view.View[@content-desc="Para continuar selecciona de la lista el nombre de la empresa a la que perteneces."]</msg>
+<arg>${MENSAJE_ERROR_ELEGIR_COMPANY2}</arg>
+<arg>timeout=120s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T19:47:58.968008" elapsed="0.195007"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:47:58.758478" elapsed="0.404537"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:47:13.626160" elapsed="45.537821"/>
+</test>
+<status status="PASS" start="2024-10-16T19:47:13.061358" elapsed="46.108477"/>
+</suite>
+<suite id="s1-s2" name="Validaciones continuaEmpresa" source="c:\Users\LENOVOPC\Desktop\automation-test\tests\Validaciones_continuaEmpresa.robot">
+<test id="s1-s2-t1" name="Test Validación mensaje de error elegir empresa" line="39">
+<kw name="Abrir la aplicación en BrowserStack">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${BROWSERSTACK_URL}</arg>
+<arg>platformName=${PLATFORM_NAME}</arg>
+<arg>deviceName=${DEVICE_NAME}</arg>
+<arg>app=${APP}</arg>
+<arg>automationName=${AUTOMATION_NAME}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2024-10-16T19:47:59.188935" elapsed="26.118278"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:47:59.187940" elapsed="26.120220"/>
+</kw>
+<kw name=" Esperar para ver que este el btn Continua con tu empresa">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T19:48:26.343310" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Continua con tu empresa"]</msg>
+<arg>${LOGIN_SUBMIT_CONTINUACONEMPRESA}</arg>
+<arg>timeout=60s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T19:48:25.312653" elapsed="1.033304"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:48:25.310352" elapsed="1.036164"/>
+</kw>
+<kw name="Seleccionar el btn Continuar con tu empresa">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T19:48:26.367580" level="INFO">Clicking element '//android.widget.Button[@content-desc="Continua con tu empresa"]'.</msg>
+<msg time="2024-10-16T19:48:28.073430" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Continua con tu empresa"]</msg>
+<arg>${LOGIN_SUBMIT_CONTINUACONEMPRESA}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T19:48:26.351088" elapsed="1.723337"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:48:26.349067" elapsed="1.725358"/>
+</kw>
+<kw name="Ingresar el nombre de una empresa">
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-10-16T19:48:28.088990" level="INFO">Typing text 'Empresa pruebas' into text field '//android.widget.EditText'</msg>
+<msg time="2024-10-16T19:48:28.458313" level="INFO">xpath criteria: //android.widget.EditText</msg>
+<arg>${LOGIN_EMPRESA_FIELD}</arg>
+<arg>${NAME_COMPANY}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T19:48:28.079115" elapsed="0.380195"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:48:28.077109" elapsed="0.383201"/>
+</kw>
+<kw name="Seleccionar el botón Continuar">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-16T19:48:28.480749" level="INFO">Clicking element '//android.widget.Button[@content-desc="Continuar"]'.</msg>
+<msg time="2024-10-16T19:48:29.863559" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Continuar"]</msg>
+<arg>${LOGIN_SUBMIT_BUTTON_CONTINUAR}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-16T19:48:28.465010" elapsed="1.399535"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:48:28.462651" elapsed="1.402899"/>
+</kw>
+<kw name="Ver mensaje de error de elegir empresa">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T19:48:30.135653" level="INFO">xpath criteria: //android.view.View[@content-desc="Selecciona una empresa"]</msg>
+<arg>${MENSAJE_ERROR_ELEGIR_COMPANY}</arg>
+<arg>timeout=120s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T19:48:29.869026" elapsed="0.267622"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-16T19:48:30.342978" level="INFO">xpath criteria: //android.view.View[@content-desc="Para continuar selecciona de la lista el nombre de la empresa a la que perteneces."]</msg>
+<arg>${MENSAJE_ERROR_ELEGIR_COMPANY2}</arg>
+<arg>timeout=120s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-16T19:48:30.137647" elapsed="0.205331"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:48:29.867800" elapsed="0.476174"/>
+</kw>
+<status status="PASS" start="2024-10-16T19:47:59.186950" elapsed="31.159386"/>
+</test>
+<status status="PASS" start="2024-10-16T19:47:59.175412" elapsed="31.176864"/>
+</suite>
+<status status="PASS" start="2024-10-16T19:47:13.017567" elapsed="77.343667"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Validaciones continuaEmpresa &amp; Validaciones continuaEmpresa">Validaciones continuaEmpresa &amp; Validaciones continuaEmpresa</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Validaciones continuaEmpresa">Validaciones continuaEmpresa &amp; Validaciones continuaEmpresa.Validaciones continuaEmpresa</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s2" name="Validaciones continuaEmpresa">Validaciones continuaEmpresa &amp; Validaciones continuaEmpresa.Validaciones continuaEmpresa</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
