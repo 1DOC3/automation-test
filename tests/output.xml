@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.4 on win32)" generated="2024-10-17T10:34:18.285995" rpa="false" schemaversion="5">
+<suite id="s1" name="Happy path login-BrowserStack" source="C:\Users\Usuario\Documents\automation-test\tests\Happy_path_login-BrowserStack.robot">
+<test id="s1-t1" name="Login Empresa en BrowserStack" line="34">
+<kw name="Abrir Aplicación BrowserStack">
+<kw name="Open Application" owner="AppiumLibrary">
+<arg>${BROWSERSTACK_URL}</arg>
+<arg>platformName=${platform}</arg>
+<arg>deviceName=${device}</arg>
+<arg>app=${app}</arg>
+<arg>automationName=${automation}</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://appium.io/docs/en/2.1/cli/args/
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |
+| strict_ssl          | No     | allows you to send commands to an invalid certificate host like a self-signed one. |</doc>
+<status status="PASS" start="2024-10-17T10:34:18.665228" elapsed="36.899311"/>
+</kw>
+<doc>Abre la aplicación en BrowserStack.</doc>
+<status status="PASS" start="2024-10-17T10:34:18.664525" elapsed="36.900014"/>
+</kw>
+<kw name="Esperar Elemento">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:34:56.663513" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Continua con tu empresa"]</msg>
+<arg>${element_locator}</arg>
+<arg>timeout=60s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-17T10:34:55.565308" elapsed="1.099180"/>
+</kw>
+<arg>${LOGIN_SUBMIT_CONTINUACONEMPRESA}</arg>
+<doc>Espera hasta que un elemento esté presente en la pantalla.</doc>
+<status status="PASS" start="2024-10-17T10:34:55.565308" elapsed="1.099381"/>
+</kw>
+<kw name="Clic en Continuar Empresa">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:34:56.669557" level="INFO">Clicking element '//android.widget.Button[@content-desc="Continua con tu empresa"]'.</msg>
+<msg time="2024-10-17T10:34:58.188844" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Continua con tu empresa"]</msg>
+<arg>${LOGIN_SUBMIT_CONTINUACONEMPRESA}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:34:56.665464" elapsed="1.523380"/>
+</kw>
+<doc>Da clic en el botón para continuar con tu empresa.</doc>
+<status status="PASS" start="2024-10-17T10:34:56.665464" elapsed="1.523380"/>
+</kw>
+<kw name="Esperar Elemento">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:34:58.378409" level="INFO">xpath criteria: //android.widget.EditText</msg>
+<arg>${element_locator}</arg>
+<arg>timeout=60s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-17T10:34:58.189820" elapsed="0.188589"/>
+</kw>
+<arg>${LOGIN_EMPRESA_FIELD}</arg>
+<doc>Espera hasta que un elemento esté presente en la pantalla.</doc>
+<status status="PASS" start="2024-10-17T10:34:58.189820" elapsed="0.189566"/>
+</kw>
+<kw name="Ingresar Empresa">
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-10-17T10:34:58.384265" level="INFO">Typing text 'Empresa pruebas' into text field '//android.widget.EditText'</msg>
+<msg time="2024-10-17T10:34:58.704922" level="INFO">xpath criteria: //android.widget.EditText</msg>
+<arg>${LOGIN_EMPRESA_FIELD}</arg>
+<arg>${NAME_COMPANY}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:34:58.380783" elapsed="0.324454"/>
+</kw>
+<doc>Ingresa el nombre de la empresa en el campo correspondiente.</doc>
+<status status="PASS" start="2024-10-17T10:34:58.380361" elapsed="0.324876"/>
+</kw>
+<kw name="Seleccionar Empresa">
+<kw name="Wait Until Element Is Visible" owner="AppiumLibrary">
+<arg>accessibility_id=${COMPANY_SELECTOR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" start="2024-10-17T10:34:58.706873" elapsed="0.738968"/>
+</kw>
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:34:59.450715" level="INFO">Clicking element 'accessibility_id=Empresa pruebas'.</msg>
+<arg>accessibility_id=${COMPANY_SELECTOR}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:34:59.445841" elapsed="0.407001"/>
+</kw>
+<doc>Selecciona la empresa correcta utilizando el `accessibility_id`.</doc>
+<status status="PASS" start="2024-10-17T10:34:58.706873" elapsed="1.145969"/>
+</kw>
+<kw name="Clic en Continuar">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:34:59.861627" level="INFO">Clicking element '//android.widget.Button[@content-desc="Continuar"]'.</msg>
+<msg time="2024-10-17T10:35:01.336432" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Continuar"]</msg>
+<arg>${LOGIN_SUBMIT_BUTTON_CONTINUAR}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:34:59.855781" elapsed="1.480651"/>
+</kw>
+<doc>Da clic en el botón continuar.</doc>
+<status status="PASS" start="2024-10-17T10:34:59.855141" elapsed="1.481291"/>
+</kw>
+<kw name="Esperar Elemento">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:01.555594" level="INFO">xpath criteria: //android.widget.EditText</msg>
+<arg>${element_locator}</arg>
+<arg>timeout=60s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-17T10:35:01.338107" elapsed="0.217487"/>
+</kw>
+<arg>${EMAIL_FIELD}</arg>
+<doc>Espera hasta que un elemento esté presente en la pantalla.</doc>
+<status status="PASS" start="2024-10-17T10:35:01.337427" elapsed="0.218167"/>
+</kw>
+<kw name="Ingresar Correo">
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:01.559532" level="INFO">Typing text 'chayan@yopmail.com' into text field '//android.widget.EditText'</msg>
+<msg time="2024-10-17T10:35:01.921792" level="INFO">xpath criteria: //android.widget.EditText</msg>
+<arg>${EMAIL_FIELD}</arg>
+<arg>${correo}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:35:01.557545" elapsed="0.364247"/>
+</kw>
+<arg>${USER1_DETAILS}</arg>
+<doc>Ingresa el correo electrónico en el campo correspondiente.</doc>
+<status status="PASS" start="2024-10-17T10:35:01.556799" elapsed="0.364993"/>
+</kw>
+<kw name="Clic en Verificar">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:01.924724" level="INFO">Clicking element '//android.widget.Button[@content-desc="Verificar"]'.</msg>
+<msg time="2024-10-17T10:35:03.327474" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Verificar"]</msg>
+<arg>${VERIFICAR_BUTTON_}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:35:01.922885" elapsed="1.405604"/>
+</kw>
+<doc>Da clic en el botón verificar.</doc>
+<status status="PASS" start="2024-10-17T10:35:01.922885" elapsed="1.405604"/>
+</kw>
+<kw name="Esperar Elemento">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:04.420489" level="INFO">xpath criteria: //android.widget.ImageView[@content-desc="Inicia sesión con correo"]</msg>
+<arg>${element_locator}</arg>
+<arg>timeout=60s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-17T10:35:03.329434" elapsed="1.091055"/>
+</kw>
+<arg>${CONTUNIAR_CON_CORREO_BUTTON}</arg>
+<doc>Espera hasta que un elemento esté presente en la pantalla.</doc>
+<status status="PASS" start="2024-10-17T10:35:03.328489" elapsed="1.092000"/>
+</kw>
+<kw name="Click en">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:04.422614" level="INFO">Clicking element '//android.widget.ImageView[@content-desc="Inicia sesión con correo"]'.</msg>
+<msg time="2024-10-17T10:35:05.954495" level="INFO">xpath criteria: //android.widget.ImageView[@content-desc="Inicia sesión con correo"]</msg>
+<arg>${element_locator}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:35:04.421507" elapsed="1.532988"/>
+</kw>
+<arg>${CONTUNIAR_CON_CORREO_BUTTON}</arg>
+<doc>Click en el elemento.</doc>
+<status status="PASS" start="2024-10-17T10:35:04.421507" elapsed="1.533964"/>
+</kw>
+<kw name="Ingresar Correo">
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:05.962580" level="INFO">Typing text 'chayan@yopmail.com' into text field '//android.widget.EditText'</msg>
+<msg time="2024-10-17T10:35:06.303401" level="INFO">xpath criteria: //android.widget.EditText</msg>
+<arg>${EMAIL_FIELD}</arg>
+<arg>${correo}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:35:05.957421" elapsed="0.346964"/>
+</kw>
+<arg>${USER1_DETAILS}</arg>
+<doc>Ingresa el correo electrónico en el campo correspondiente.</doc>
+<status status="PASS" start="2024-10-17T10:35:05.956446" elapsed="0.348191"/>
+</kw>
+<kw name="Clic en Continuar">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:06.308665" level="INFO">Clicking element '//android.widget.Button[@content-desc="Continuar"]'.</msg>
+<msg time="2024-10-17T10:35:07.867037" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Continuar"]</msg>
+<arg>${LOGIN_SUBMIT_BUTTON_CONTINUAR}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:35:06.305358" elapsed="1.561679"/>
+</kw>
+<doc>Da clic en el botón continuar.</doc>
+<status status="PASS" start="2024-10-17T10:35:06.305358" elapsed="1.561679"/>
+</kw>
+<kw name="Esperar Campos de Verificación">
+<kw name="Wait Until Page Contains Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:09.471193" level="INFO">xpath criteria: //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[1]</msg>
+<arg>//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[1]</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until element specified with `locator` appears on current page.</doc>
+<status status="PASS" start="2024-10-17T10:35:07.869057" elapsed="1.602136"/>
+</kw>
+<doc>Espera hasta que los campos de verificación estén visibles.</doc>
+<status status="PASS" start="2024-10-17T10:35:07.868076" elapsed="1.604260"/>
+</kw>
+<kw name="Ingresar Código Verificación">
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:09.479459" level="INFO">Typing text '1' into text field '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[1]'</msg>
+<msg time="2024-10-17T10:35:09.847250" level="INFO">xpath criteria: //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[1]</msg>
+<arg>//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[1]</arg>
+<arg>${codigo[0]}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:35:09.475107" elapsed="0.372885"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:09.856841" level="INFO">Typing text '1' into text field '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[2]'</msg>
+<msg time="2024-10-17T10:35:10.769424" level="INFO">xpath criteria: //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[2]</msg>
+<arg>//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[2]</arg>
+<arg>${codigo[1]}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:35:09.847992" elapsed="0.921432"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:10.777370" level="INFO">Typing text '1' into text field '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[3]'</msg>
+<msg time="2024-10-17T10:35:11.708357" level="INFO">xpath criteria: //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[3]</msg>
+<arg>//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[3]</arg>
+<arg>${codigo[2]}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:35:10.770398" elapsed="0.937959"/>
+</kw>
+<kw name="Input Text" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:11.712348" level="INFO">Typing text '1' into text field '//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[4]'</msg>
+<msg time="2024-10-17T10:35:12.624695" level="INFO">xpath criteria: //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[4]</msg>
+<arg>//android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[4]</arg>
+<arg>${codigo[3]}</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:35:11.708357" elapsed="0.917106"/>
+</kw>
+<arg>1111</arg>
+<status status="PASS" start="2024-10-17T10:35:09.473147" elapsed="3.152316"/>
+</kw>
+<kw name="Clic en Verificar">
+<kw name="Click Element" owner="AppiumLibrary">
+<msg time="2024-10-17T10:35:12.627412" level="INFO">Clicking element '//android.widget.Button[@content-desc="Verificar"]'.</msg>
+<msg time="2024-10-17T10:35:14.207239" level="INFO">xpath criteria: //android.widget.Button[@content-desc="Verificar"]</msg>
+<arg>${VERIFICAR_BUTTON_}</arg>
+<doc>Click element identified by `locator`.</doc>
+<status status="PASS" start="2024-10-17T10:35:12.625463" elapsed="1.581776"/>
+</kw>
+<doc>Da clic en el botón verificar.</doc>
+<status status="PASS" start="2024-10-17T10:35:12.625463" elapsed="1.581776"/>
+</kw>
+<kw name="Cerrar Aplicación">
+<kw name="Close Application" owner="AppiumLibrary">
+<doc>Closes the current application and also close webdriver session.</doc>
+<status status="PASS" start="2024-10-17T10:35:14.208922" elapsed="0.427591"/>
+</kw>
+<doc>Cierra la aplicación.</doc>
+<status status="PASS" start="2024-10-17T10:35:14.208215" elapsed="0.428298"/>
+</kw>
+<doc>Verifica que el usuario puede iniciar sesión con su empresa en BrowserStack.</doc>
+<tag>smoke</tag>
+<status status="PASS" start="2024-10-17T10:34:18.663277" elapsed="55.974953"/>
+</test>
+<status status="PASS" start="2024-10-17T10:34:18.289129" elapsed="56.351894"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">smoke</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Happy path login-BrowserStack">Happy path login-BrowserStack</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

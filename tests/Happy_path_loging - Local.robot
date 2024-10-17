@@ -2,15 +2,11 @@
 Library    AppiumLibrary
 
 *** Variables ***
-# BrowserStack Config
-${BROWSERSTACK_URL}      https://danielcamilotorr_wIDGbh:zCh9X6DwuYf6WTLji5HP@hub-cloud.browserstack.com/wd/hub
-${PLATFORM_NAME}         Android
-${DEVICE_NAME}           Samsung Galaxy S22 Ultra
-${AUTOMATION_NAME}       UIAutomator2
-${APP}                   bs://f9f0c5e79f25e55f2ef8c000044068c82d12c271
 
 # Appium Config (Local Server)
 ${APPIUM_SERVER}         http://127.0.0.1:4723
+${PLATFORM_NAME}         Android
+${AUTOMATION_NAME}       UIAutomator2
 ${LOCAL_DEVICE_NAME}     ZY236923PJ
 ${APP_PACKAGE}           com.app1doc3.app1doc3dev
 ${APP_ACTIVITY}          com.app1doc3.app1doc3.MainActivity
@@ -36,29 +32,6 @@ ${NOTIFICATION_BUTTON}    //android.widget.Button[@resource-id="com.android.perm
 
 *** Test Cases ***
 
-Login Empresa en BrowserStack
-    [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en BrowserStack.
-    [Tags]    smoke
-    Abrir Aplicación BrowserStack
-    Esperar Elemento    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
-    Clic en Continuar Empresa
-    Esperar Elemento    ${LOGIN_EMPRESA_FIELD}
-    Ingresar Empresa
-    Seleccionar Empresa
-    Clic en Continuar
-    Esperar Elemento    ${EMAIL_FIELD}
-    Ingresar Correo    ${USER1_DETAILS}
-    Clic en Verificar
-    Esperar Elemento    ${CONTUNIAR_CON_CORREO_BUTTON}
-    Click en    ${CONTUNIAR_CON_CORREO_BUTTON}
-    Ingresar Correo    ${USER1_DETAILS}
-    Clic en Continuar
-    Esperar Campos de Verificación
-    Ingresar Código Verificación    1111
-    Clic en Verificar
-    Cerrar Aplicación
-
-
 
 Login Empresa Local
     [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en un dispositivo local.
@@ -83,10 +56,6 @@ Login Empresa Local
 
 
 *** Keywords ***
-Abrir Aplicación BrowserStack
-    [Arguments]    ${platform}=${PLATFORM_NAME}    ${device}=${DEVICE_NAME}    ${app}=${APP}    ${automation}=${AUTOMATION_NAME}
-    [Documentation]    Abre la aplicación en BrowserStack.
-    Open Application    ${BROWSERSTACK_URL}    platformName=${platform}    deviceName=${device}    app=${app}    automationName=${automation}
 
 Abrir Aplicación Local
     [Arguments]    ${platform}=${PLATFORM_NAME}    ${device}=${LOCAL_DEVICE_NAME}    ${app_package}=${APP_PACKAGE}    ${app_activity}=${APP_ACTIVITY}    ${automation}=${AUTOMATION_NAME}
