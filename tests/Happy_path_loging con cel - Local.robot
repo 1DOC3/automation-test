@@ -13,6 +13,7 @@ ${APP_ACTIVITY}          com.app1doc3.app1doc3.MainActivity
 
 # Test Variables (Empresa y correo)
 ${USER1_DETAILS}         chayan@yopmail.com
+${USER_NUMBER}           3158776270
 ${NAME_COMPANY}          Empresa pruebas
 
 # Continua Con Empresa Locators
@@ -21,10 +22,11 @@ ${LOGIN_EMPRESA_FIELD}               //android.widget.EditText
 ${LOGIN_SUBMIT_BUTTON_CONTINUAR}     //android.widget.Button[@content-desc="Continuar"]
 ${COMPANY_SELECTOR}                  Empresa pruebas    # accessibility_id para la empresa
 ${EMAIL_FIELD}                       //android.widget.EditText  # Localizador para el campo de correo
+${NUMBER_FIELD}                      //android.widget.EditText
 ${VERIFICAR_BUTTON_}     //android.widget.Button[@content-desc="Verificar"]
 
 #Login Locators
-${CONTUNIAR_CON_CORREO_BUTTON}       //android.widget.ImageView[@content-desc="Inicia sesión con correo"]
+${CONTUNIAR_CON_CELULAR_BUTTON}      //android.widget.ImageView[@content-desc="Inicia sesión con número celular"]
 
 # Main Page Locator (Notificaciones)
 ${NOTIFICATION_BUTTON}    //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]
@@ -46,13 +48,7 @@ Login Empresa Local
     Esperar Elemento    ${EMAIL_FIELD}
     Ingresar Correo    ${USER1_DETAILS}
     Clic en Verificar
-    Esperar Elemento    ${CONTUNIAR_CON_CORREO_BUTTON}
-    Click en    ${CONTUNIAR_CON_CORREO_BUTTON}
-    Ingresar Correo    ${USER1_DETAILS}
-    Clic en Continuar
-    Esperar Campos de Verificación
-    Ingresar Código Verificación    1111
-    Clic en Verificar
+   
 
 
 *** Keywords ***
@@ -75,7 +71,7 @@ Click en
 Esperar Elemento
     [Arguments]    ${element_locator}
     [Documentation]    Espera hasta que un elemento esté presente en la pantalla.
-    Wait Until Page Contains Element    ${element_locator}    timeout=60s
+    Wait Until Page Contains Element    ${element_locator}    timeout=20s
 
 Ingresar Empresa
     [Documentation]    Ingresa el nombre de la empresa en el campo correspondiente.
@@ -102,6 +98,11 @@ Ingresar Correo
     [Arguments]    ${correo}
     [Documentation]    Ingresa el correo electrónico en el campo correspondiente.
     Input Text    ${EMAIL_FIELD}    ${correo}
+
+Ingresar numero
+    [Arguments]    ${numero}
+    [Documentation]    Ingresa el numero telefonico en el campo correspondiente.
+    Input Text    ${NUMBER_FIELD}    ${numero}
 
 
 Esperar Campos de Verificación
