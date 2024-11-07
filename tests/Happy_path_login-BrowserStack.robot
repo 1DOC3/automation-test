@@ -12,6 +12,7 @@ ${APP}                   bs://f9f0c5e79f25e55f2ef8c000044068c82d12c271
 
 # Test Variables (Empresa y correo)
 ${USER1_DETAILS}         chayan@yopmail.com
+${USER_NUMBER}           3158776270
 ${NAME_COMPANY}          Empresa pruebas
 
 # Continua Con Empresa Locators
@@ -20,10 +21,12 @@ ${LOGIN_EMPRESA_FIELD}               //android.widget.EditText
 ${LOGIN_SUBMIT_BUTTON_CONTINUAR}     //android.widget.Button[@content-desc="Continuar"]
 ${COMPANY_SELECTOR}                  Empresa pruebas    # accessibility_id para la empresa
 ${EMAIL_FIELD}                       //android.widget.EditText  # Localizador para el campo de correo
+${NUMBER_FIELD}                      //android.widget.EditText
 ${VERIFICAR_BUTTON_}     //android.widget.Button[@content-desc="Verificar"]
 
 #Login Locators
 ${CONTUNIAR_CON_CORREO_BUTTON}       //android.widget.ImageView[@content-desc="Inicia sesión con correo"]
+${CONTUNIAR_CON_CELULAR_BUTTON}      //android.widget.ImageView[@content-desc="Inicia sesión con número celular"]
 
 # Main Page Locator (Notificaciones)
 ${NOTIFICATION_BUTTON}    //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]
@@ -31,7 +34,7 @@ ${NOTIFICATION_BUTTON}    //android.widget.Button[@resource-id="com.android.perm
 
 *** Test Cases ***
 
-Login Empresa en BrowserStack
+Login Con Correo BrowserStack
     [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en BrowserStack.
     [Tags]    smoke
     Abrir Aplicación BrowserStack
@@ -52,6 +55,29 @@ Login Empresa en BrowserStack
     Ingresar Código Verificación    1111
     Clic en Verificar
     Cerrar Aplicación
+
+
+Login Con Celular BrowserStack
+    [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en un dispositivo local.
+    [Tags]    smoke
+    Abrir Aplicación BrowserStack
+    Esperar Elemento    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Clic en Continuar Empresa
+    Esperar Elemento    ${LOGIN_EMPRESA_FIELD}
+    Ingresar Empresa
+    Seleccionar Empresa
+    Clic en Continuar
+    Esperar Elemento    ${EMAIL_FIELD}
+    Ingresar Correo    ${USER1_DETAILS}
+    Clic en Verificar
+    Esperar Elemento    ${CONTUNIAR_CON_CELULAR_BUTTON}
+    Click en   ${CONTUNIAR_CON_CELULAR_BUTTON}
+    Esperar Elemento    ${NUMBER_FIELD} 
+    Ingresar numero    ${USER_NUMBER} 
+    Clic en Continuar 
+    Esperar Campos de Verificación
+    Ingresar Código Verificación    1111
+    Clic en Verificar
 
 
 
@@ -103,6 +129,12 @@ Ingresar Correo
     [Arguments]    ${correo}
     [Documentation]    Ingresa el correo electrónico en el campo correspondiente.
     Input Text    ${EMAIL_FIELD}    ${correo}
+
+
+Ingresar numero
+    [Arguments]    ${numero}
+    [Documentation]    Ingresa el numero telefonico en el campo correspondiente.
+    Input Text    ${NUMBER_FIELD}    ${numero}
 
 
 Esperar Campos de Verificación
