@@ -4,9 +4,12 @@ Este proyecto contiene una suite de pruebas automatizadas para la aplicaci처n m�
 
 **Estructura del proyecto**
 
-/[docs](https://github.com/1DOC3/automation-test/tree/main/docs) :  Contiene la documentaci처n del proyecto  
+/[docs](https://github.com/1DOC3/automation-test/tree/main/docs) :  Contiene la documentaci처n del proyecto 
+
 /[resources](https://github.com/1DOC3/automation-test/tree/main/resources) : Contiene las Keywords y variables que utiliamos para android y para ios
+
 /[results](https://github.com/1DOC3/automation-test/tree/main/results) : Contiene los resultados de las pruebas
+
 /[tests](https://github.com/1DOC3/automation-test/tree/main/tests) :  Casos de prueba agrupados por funcionalidades o m처dulos de la aplicaci처n.
 
 **Requisitos**  
