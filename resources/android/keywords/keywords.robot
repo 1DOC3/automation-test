@@ -1,25 +1,39 @@
 *** Settings ***
 Library    AppiumLibrary  
-Suite Setup       Configurar Tiempos de Espera
 Resource    ../variables/variables.robot
 
 *** Keywords ***
 Configurar Tiempos de Espera
   Set Appium Timeout    120s 
-Abrir App
-    AppiumLibrary.Open Application  ${BROWSERSTACK_URL}    platformName=${PLATFORM_NAME}    deviceName=${DEVICE_NAME}    app=${APP}  automationName=${AUTOMATION_NAME} 
 
-Click En Elemento
-    [Arguments]    ${elemento}
-    AppiumLibrary.Wait Until Page Contains Element   ${elemento}
-    Click Element  ${elemento}
+Abrir Aplicación BrowserStack
+    [Arguments]    ${platform}=${PLATFORM_NAME}    ${device}=${DEVICE_NAME}    ${app}=${APP}    ${automation}=${AUTOMATION_NAME}
+    [Documentation]    Abre la aplicación en BrowserStack.
+    Open Application    ${BROWSERSTACK_URL}    platformName=${platform}    deviceName=${device}    app=${app}    automationName=${automation}
 
-Ingresar Nombre Empresa
+Abrir Aplicación Local
+    [Arguments]    ${platform}=${PLATFORM_NAME}    ${device}=${LOCAL_DEVICE_NAME}    ${app_package}=${APP_PACKAGE}    ${app_activity}=${APP_ACTIVITY}    ${automation}=${AUTOMATION_NAME}
+    [Documentation]    Abre la aplicación local usando Appium.
+    Open Application    ${APPIUM_SERVER}    platformName=${platform}    deviceName=${device}    appPackage=${app_package}    appActivity=${app_activity}    automationName=${automation}
+
+
+Cerrar Aplicación
+    [Documentation]    Cierra la aplicación.
+    Close Application
+
+Click en
+    [Arguments]    ${element_locator}
+    [Documentation]    Click en el elemento.
+    Click Element    ${element_locator}
+
+
+Ingresar Empresa
+    [Documentation]    Ingresa el nombre de la empresa en el campo correspondiente.
     [Arguments]    ${nombre_empresa}
-    Input Text    ${FIELD_NOMBRE_EMPRESA}    ${nombre_empresa}
+    Input Text    ${LOGIN_EMPRESA_FIELD}    ${nombre_empresa}
 
 Borrar Campo Empresa
-    Clear Text   ${FIELD_NOMBRE_EMPRESA}
+    Clear Text   ${LOGIN_EMPRESA_FIELD}
 
 Verificar Mensaje De Error
   [Arguments]    ${element}
@@ -32,29 +46,12 @@ Verificar Texto en Elemento
     Log To Console    El texto obtenido es: ${contenido_desc}
     Should Be Equal As Strings    ${contenido_desc}    ${texto_esperado}
 
-Abrir Aplicación Local
-    [Arguments]    ${platform}=${PLATFORM_NAME}    ${device}=${LOCAL_DEVICE_NAME}    ${app_package}=${APP_PACKAGE}    ${app_activity}=${APP_ACTIVITY}    ${automation}=${AUTOMATION_NAME}
-    [Documentation]    Abre la aplicación local usando Appium.
-    Open Application    ${APPIUM_SERVER}    platformName=${platform}    deviceName=${device}    appPackage=${app_package}    appActivity=${app_activity}    automationName=${automation}
-
-Cerrar Aplicación
-    [Documentation]    Cierra la aplicación.
-    Close Application
-
-
-Click en
-    [Arguments]    ${element_locator}
-    [Documentation]    Click en el elemento.
-    Click Element    ${element_locator}
 
 Esperar Elemento
     [Arguments]    ${element_locator}
     [Documentation]    Espera hasta que un elemento esté presente en la pantalla.
     Wait Until Page Contains Element    ${element_locator}    timeout=60s
 
-Ingresar Empresa
-    [Documentation]    Ingresa el nombre de la empresa en el campo correspondiente.
-    Input Text    ${LOGIN_EMPRESA_FIELD}    ${NAME_COMPANY}
 
 Seleccionar Empresa
     [Documentation]    Selecciona la empresa correcta utilizando el `accessibility_id`.
@@ -78,6 +75,10 @@ Ingresar Correo
     [Documentation]    Ingresa el correo electrónico en el campo correspondiente.
     Input Text    ${EMAIL_FIELD}    ${correo}
 
+Ingresar numero
+    [Arguments]    ${numero}
+    [Documentation]    Ingresa el numero telefonico en el campo correspondiente.
+    Input Text    ${NUMBER_FIELD}    ${numero}
 
 Esperar Campos de Verificación
     [Documentation]    Espera hasta que los campos de verificación estén visibles.
