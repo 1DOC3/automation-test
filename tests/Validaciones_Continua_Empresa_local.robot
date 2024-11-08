@@ -33,6 +33,8 @@ ${CERRAR_CLOSE}                //android.view.View[contains(@content-desc, "Escr
 ${ELEGIR_COMPANY}             //android.widget.ImageView[@content-desc="Empresa pruebas"] 
 ${PAGE_VERIFY_USER}           //android.view.View[contains(@content-desc,"Ahora, ingresa tu correo electrónico y verifícate en Empresa")]
 ${VERIFY_DATO_EMAIL}          Ahora, ingresa tu correo electrónico y verifícate en Empresa pruebas.
+${BOTON_VERIFICAR}            //android.widget.Button[@content-desc="Verificar"]
+${INGRESAR_DATO_EMAIL}        //android.view.View[@content-desc="Escribe tu correo electrónico para verificarte."]
 
 *** Test Cases *** 
 
@@ -72,9 +74,7 @@ Validación ingresar dato de verificación
     Click En Elemento    ${BTN_CONTINUAR}
     Verificar Texto en Elemento  ${PAGE_VERIFY_USER}  ${VERIFY_DATO_EMAIL} 
     Click En Elemento  ${BOTON_VERIFICAR}
-    Verificar Mensaje De Error   ${INGRESAR_DATO_EMAIL}   
-
-
+    Verificar Mensaje De Error   ${INGRESAR_DATO_EMAIL}  
 
 
 *** Keywords ***

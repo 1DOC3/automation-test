@@ -1,58 +1,36 @@
 *** Settings ***
-Library    AppiumLibrary
-
-*** Variables ***
-
-# Appium Config (Local Server)
-${APPIUM_SERVER}         http://127.0.0.1:4723
-${PLATFORM_NAME}         Android
-${AUTOMATION_NAME}       UIAutomator2
-${LOCAL_DEVICE_NAME}     ZY236923PJ
-${APP_PACKAGE}           com.app1doc3.app1doc3dev
-${APP_ACTIVITY}          com.app1doc3.app1doc3.MainActivity
-
-
-
-# Test Variables (Empresa y correo)
-${USER1_DETAILS}         chayan@yopmail.com
-${USER_NUMBER}           3158776270
-${NAME_COMPANY}          Empresa pruebas
-
-# Continua Con Empresa Locators
-${LOGIN_SUBMIT_CONTINUACONEMPRESA}   //android.widget.Button[@content-desc="Continúa con tu empresa"]
-${LOGIN_EMPRESA_FIELD}               //android.widget.EditText
-${LOGIN_SUBMIT_BUTTON_CONTINUAR}     //android.widget.Button[@content-desc="Continuar"]
-${COMPANY_SELECTOR}                  Empresa pruebas    # accessibility_id para la empresa
-${EMAIL_FIELD}                       //android.widget.EditText  # Localizador para el campo de correo
-${NUMBER_FIELD}                      //android.widget.EditText
-${VERIFICAR_BUTTON_}     //android.widget.Button[@content-desc="Verificar"]
-
-#Login Locators
-${CONTUNIAR_CON_CELULAR_BUTTON}      //android.widget.ImageView[@content-desc="Inicia sesión con número celular"]
-
-# Main Page Locator (Notificaciones)
-${NOTIFICATION_BUTTON}    //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]
-
-
-*** Test Cases ***
-
-
-Login Empresa Local
-    [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en un dispositivo local.
-    [Tags]    smoke
-    Abrir Aplicación Local
-    Esperar Elemento    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
-    Clic en Continuar Empresa
-    Esperar Elemento    ${LOGIN_EMPRESA_FIELD}
-    Ingresar Empresa
-    Seleccionar Empresa
-    Clic en Continuar
-    Esperar Elemento    ${EMAIL_FIELD}
-    Ingresar Correo    ${USER1_DETAILS}
-  
-
+Library    AppiumLibrary  
+Suite Setup       Configurar Tiempos de Espera
+Resource    ../variables/variables.robot
 
 *** Keywords ***
+Configurar Tiempos de Espera
+  Set Appium Timeout    120s 
+Abrir App
+    AppiumLibrary.Open Application  ${BROWSERSTACK_URL}    platformName=${PLATFORM_NAME}    deviceName=${DEVICE_NAME}    app=${APP}  automationName=${AUTOMATION_NAME} 
+
+Click En Elemento
+    [Arguments]    ${elemento}
+    AppiumLibrary.Wait Until Page Contains Element   ${elemento}
+    Click Element  ${elemento}
+
+Ingresar Nombre Empresa
+    [Arguments]    ${nombre_empresa}
+    Input Text    ${FIELD_NOMBRE_EMPRESA}    ${nombre_empresa}
+
+Borrar Campo Empresa
+    Clear Text   ${FIELD_NOMBRE_EMPRESA}
+
+Verificar Mensaje De Error
+  [Arguments]    ${element}
+  AppiumLibrary.Wait Until Element is visible  ${element}   
+
+Verificar Texto en Elemento
+    [Arguments]    ${selector}    ${texto_esperado}
+    AppiumLibrary.Wait Until Page Contains Element    ${selector}
+    ${contenido_desc} =    Get Element Attribute    ${selector}    contentDescription
+    Log To Console    El texto obtenido es: ${contenido_desc}
+    Should Be Equal As Strings    ${contenido_desc}    ${texto_esperado}
 
 Abrir Aplicación Local
     [Arguments]    ${platform}=${PLATFORM_NAME}    ${device}=${LOCAL_DEVICE_NAME}    ${app_package}=${APP_PACKAGE}    ${app_activity}=${APP_ACTIVITY}    ${automation}=${AUTOMATION_NAME}
@@ -72,7 +50,7 @@ Click en
 Esperar Elemento
     [Arguments]    ${element_locator}
     [Documentation]    Espera hasta que un elemento esté presente en la pantalla.
-    Wait Until Page Contains Element    ${element_locator}    timeout=20s
+    Wait Until Page Contains Element    ${element_locator}    timeout=60s
 
 Ingresar Empresa
     [Documentation]    Ingresa el nombre de la empresa en el campo correspondiente.
@@ -99,11 +77,6 @@ Ingresar Correo
     [Arguments]    ${correo}
     [Documentation]    Ingresa el correo electrónico en el campo correspondiente.
     Input Text    ${EMAIL_FIELD}    ${correo}
-
-Ingresar numero
-    [Arguments]    ${numero}
-    [Documentation]    Ingresa el numero telefonico en el campo correspondiente.
-    Input Text    ${NUMBER_FIELD}    ${numero}
 
 
 Esperar Campos de Verificación
