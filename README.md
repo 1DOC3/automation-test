@@ -6,7 +6,7 @@ Este proyecto contiene una suite de pruebas automatizadas para la aplicación m�
 
 /[docs](https://github.com/1DOC3/automation-test/tree/main/docs) :  Contiene la documentación del proyecto 
 
-/[resources](https://github.com/1DOC3/automation-test/tree/main/resources) : Contiene las Keywords y variables que utiliamos para android y para ios
+/[resources](https://github.com/1DOC3/automation-test/tree/main/resources) : Contiene las Keywords y variables que utilizamos para android y para ios
 
 /[results](https://github.com/1DOC3/automation-test/tree/main/results) : Contiene los resultados de las pruebas
 
