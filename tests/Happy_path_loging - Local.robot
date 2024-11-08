@@ -28,6 +28,7 @@ Login Con Correo Local
     Esperar Campos de Verificación
     Ingresar Código Verificación    1111
     Clic en Verificar
+    Cerrar Aplicación
 
 
 
@@ -52,5 +53,6 @@ Login Con Celular Local
     Esperar Campos de Verificación
     Ingresar Código Verificación    1111
     Clic en Verificar
+    Cerrar Aplicación
     
 

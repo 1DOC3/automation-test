@@ -52,4 +52,5 @@ Login Con Celular BrowserStack
     Esperar Campos de Verificación
     Ingresar Código Verificación    1111
     Clic en Verificar
+    Cerrar Aplicación
 

@@ -16,7 +16,8 @@ Validación mensaje de error al no elegir empresa
     Click en    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}  
     Verificar Mensaje De Error  ${ERROR_SELECCIONA_EMPRESA1} 
     Verificar Mensaje De Error  ${ERROR_SELECCIONA_EMPRESA2} 
-    Click en    ${CERRAR_CLOSE}   
+    Click en    ${CERRAR_CLOSE}  
+    Cerrar Aplicación 
 
   
 
@@ -27,12 +28,14 @@ Validación de error al borrar nombre de empresa
     Borrar Campo Empresa
     Click en    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}  
     Verificar Mensaje De Error   ${ERROR_ESCRIBIR_EMPRESA}  
+    Cerrar Aplicación
 
 Validación de empresa no existente
     Abrir Aplicación BrowserStack
     Click en    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}  
     Ingresar Empresa   ${NAME_NOEXIST}
     Verificar Mensaje De Error   ${ERROR_NO_EXISTE_EMPRESA}
+    Cerrar Aplicación
    
 
 Validación ingresar dato de verificación
@@ -44,4 +47,5 @@ Validación ingresar dato de verificación
     Verificar Texto en Elemento  ${PAGE_VERIFY_USER}  ${VERIFY_DATO_EMAIL} 
     Click en  ${VERIFICAR_BUTTON_} 
     Verificar Mensaje De Error   ${INGRESAR_DATO_EMAIL}   
+    Cerrar Aplicación
 
