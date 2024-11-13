@@ -29,12 +29,12 @@ ${COMPANY_SELECTOR}                  Empresa pruebas    # accessibility_id para 
 ${EMAIL_FIELD}                       //android.widget.EditText  # Localizador para el campo de correo
 ${NUMBER_FIELD}                      //android.widget.EditText
 ${VERIFY_BUTTON}                     //android.widget.Button[@content-desc="Verificar"]
-${ERROR_SELECT_COMPANY1}         //android.view.View[@content-desc="Selecciona una empresa"]
-${ERROR_SELECT_COMPANY2}         //android.view.View[@content-desc="Para continuar selecciona de la lista el nombre de la empresa a la que perteneces."]
-${MSG_VERIFY_USER}             //android.view.View[@content-desc="Verifica tu usuario"]
+${ERROR_SELECT_COMPANY1}             //android.view.View[@content-desc="Selecciona una empresa"]
+${ERROR_SELECT_COMPANY2}             //android.view.View[@content-desc="Para continuar selecciona de la lista el nombre de la empresa a la que perteneces."]
+${MSG_VERIFY_USER}                   //android.view.View[@content-desc="Verifica tu usuario"]
 ${ERROR_NO_COMPANY_EXISTS}           //android.view.View[contains(@content-desc, "No encontramos esta empresa.")]
-${ERROR_WRITING_COMPANY}            //android.view.View[contains(@content-desc,"Escribe el nombre de tu empresa para continuar.")]
-${CLOSE}                              //android.view.View[@content-desc="Busca tu empresa"]/android.view.View[1]
+${ERROR_WRITING_COMPANY}             //android.view.View[contains(@content-desc,"Escribe el nombre de tu empresa para continuar.")]
+${CLOSE}                             //android.view.View[@content-desc="Busca tu empresa"]/android.view.View[1]
 ${PAGE_VERIFY_USER}                  //android.view.View[contains(@content-desc,"Ahora, ingresa tu correo electrónico y verifícate en Empresa")]
 ${VERIFY_DATO_EMAIL}                 Ahora, ingresa tu correo electrónico y verifícate en Empresa pruebas.
 ${ENTER_EMAIL_DATA}                  //android.view.View[@content-desc="Escribe tu correo electrónico para verificarte."]
