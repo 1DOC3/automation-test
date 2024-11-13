@@ -1,51 +1,45 @@
-
 *** Settings ***
-Library    AppiumLibrary  
-Suite Setup       Configurar Tiempos de Espera
+Library         AppiumLibrary
 Resource        ../resources/android/variables/variables.robot
-Resource         ../resources/android/keywords/keywords.robot
+Resource        ../resources/android/keywords/keywords.robot
 
-*** Test Cases *** 
+Suite Setup     Setting timeouts
 
 
+*** Test Cases ***
+Validation error message when not choosing a company
+    Open Aplication in Browserstack
+    Click Element     ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Input Text        ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
+    Click Element     ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
+    Wait Until Element is visible    ${ERROR_SELECT_COMPANY1}
+    Wait Until Element is visible    ${ERROR_SELECT_COMPANY2}
+    Click Element    ${CLOSE}
+    Close Application
 
-Validación mensaje de error al no elegir empresa 
-    Abrir Aplicación BrowserStack
-    Click en    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}  
-    Ingresar Empresa    ${NAME_COMPANY}     
-    Click en    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}  
-    Verificar Mensaje De Error  ${ERROR_SELECCIONA_EMPRESA1} 
-    Verificar Mensaje De Error  ${ERROR_SELECCIONA_EMPRESA2} 
-    Click en    ${CERRAR_CLOSE}  
-    Cerrar Aplicación 
+Error validation when deleting company name
+    Open Aplication in Browserstack
+    Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
+    Clear Text       ${NAME_COMPANY}
+    Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
+    Wait Until Element is visible    ${ERROR_WRITING_COMPANY}
+    Close Application
 
-  
+Validation of non-existent company
+    Open Aplication in Browserstack
+    Click element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_NOEXIST}
+    Wait Until Element is visible    ${ERROR_NO_COMPANY_EXISTS}
+    Close Application
 
-Validación de error al borrar nombre de empresa
-    Abrir Aplicación BrowserStack
-    Click en    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}  
-    Ingresar Empresa    ${NAME_COMPANY}     
-    Borrar Campo Empresa
-    Click en    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}  
-    Verificar Mensaje De Error   ${ERROR_ESCRIBIR_EMPRESA}  
-    Cerrar Aplicación
-
-Validación de empresa no existente
-    Abrir Aplicación BrowserStack
-    Click en    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}  
-    Ingresar Empresa   ${NAME_NOEXIST}
-    Verificar Mensaje De Error   ${ERROR_NO_EXISTE_EMPRESA}
-    Cerrar Aplicación
-   
-
-Validación ingresar dato de verificación
-    Abrir Aplicación BrowserStack
-    Click en   ${LOGIN_SUBMIT_CONTINUACONEMPRESA}  
-    Ingresar Empresa    ${NAME_COMPANY}     
-    Click en   ${ELEGIR_COMPANY} 
-    Click en   ${LOGIN_SUBMIT_BUTTON_CONTINUAR}  
-    Verificar Texto en Elemento  ${PAGE_VERIFY_USER}  ${VERIFY_DATO_EMAIL} 
-    Click en  ${VERIFICAR_BUTTON_} 
-    Verificar Mensaje De Error   ${INGRESAR_DATO_EMAIL}   
-    Cerrar Aplicación
-
+Validation input verification data
+    Open Aplication in Browserstack
+    Click element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
+    Click element    ${COMPANY_SELECTOR}
+    Click element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
+    Verify Text on Element    ${PAGE_VERIFY_USER}    ${VERIFY_DATO_EMAIL}
+    Click element    ${VERIFY_BUTTON}
+    Wait Until Element is visible    ${ENTER_EMAIL_DATA}
+    Close Application

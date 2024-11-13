@@ -7,11 +7,10 @@ Suite Setup     Setting timeouts
 
 
 *** Test Cases ***
-Login with email BrowserStack
-    [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en BrowserStack.
+Login with email Local
+    [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en un dispositivo local.
     [Tags]    smoke
-
-    Open Aplication in Browserstack
+    Open Aplication in Local Device
     Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Wait Until Page Contains Element    ${LOGIN_COMPANY_FIELD}
@@ -30,10 +29,10 @@ Login with email BrowserStack
     Click Element    ${VERIFY_BUTTON}
     Close Application
 
-Login with mobile BrowserStack
+Login with mobile Local
     [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en un dispositivo local.
     [Tags]    smoke
-    Open Aplication in Browserstack
+    Open Aplication in Local Device
     Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
