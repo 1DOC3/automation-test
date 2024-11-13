@@ -40,7 +40,7 @@ ${ELEGIR_COMPANY}                    //android.widget.ImageView[@content-desc="E
 ${PAGE_VERIFY_USER}                  //android.view.View[contains(@content-desc,"Ahora, ingresa tu correo electrónico y verifícate en Empresa")]
 ${VERIFY_DATO_EMAIL}                 Ahora, ingresa tu correo electrónico y verifícate en Empresa pruebas.
 ${INGRESAR_DATO_EMAIL}               //android.view.View[@content-desc="Escribe tu correo electrónico para verificarte."]
-
+${CODE_VERIFICATION_FIELD}           //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[1]
 
 
 #Login Locators

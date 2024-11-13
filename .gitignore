@@ -1,0 +1,4 @@
+# Ignorar archivos generados de pruebas
+log.html
+output.xml
+report.html 

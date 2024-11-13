@@ -6,12 +6,12 @@ Resource    ../variables/variables.robot
 Configurar Tiempos de Espera
   Set Appium Timeout    120s 
 
-Abrir Aplicación BrowserStack
+Open Aplication in Browserstack
     [Arguments]    ${platform}=${PLATFORM_NAME}    ${device}=${DEVICE_NAME}    ${app}=${APP}    ${automation}=${AUTOMATION_NAME}
     [Documentation]    Abre la aplicación en BrowserStack.
     Open Application    ${BROWSERSTACK_URL}    platformName=${platform}    deviceName=${device}    app=${app}    automationName=${automation}
 
-Abrir Aplicación Local
+Open Aplication in Local Device
     [Arguments]    ${platform}=${PLATFORM_NAME}    ${device}=${LOCAL_DEVICE_NAME}    ${app_package}=${APP_PACKAGE}    ${app_activity}=${APP_ACTIVITY}    ${automation}=${AUTOMATION_NAME}
     [Documentation]    Abre la aplicación local usando Appium.
     Open Application    ${APPIUM_SERVER}    platformName=${platform}    deviceName=${device}    appPackage=${app_package}    appActivity=${app_activity}    automationName=${automation}
@@ -84,7 +84,8 @@ Esperar Campos de Verificación
     [Documentation]    Espera hasta que los campos de verificación estén visibles.
     Wait Until Page Contains Element   //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[1]    timeout=10s
 
-Ingresar Código Verificación
+Input Verefication Code
+    [Documentation]  Ingresa el codigo de 4 digitos 
     [Arguments]    ${codigo}
     Input Text    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[1]    ${codigo[0]}
     Input Text    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.widget.EditText[2]    ${codigo[1]}
