@@ -113,7 +113,7 @@ Acción: Crea un archivo de prueba simple llamado test_appium.robot con el sigui
 
 Library    AppiumLibrary
 
-*** Variables ***
+*** Variables de entorno***
 
 ${APPIUM_SERVER}        http://127.0.0.1:4723
 
@@ -127,8 +127,6 @@ ${APP_ACTIVITY}         com.app1doc3.app1doc3.MainActivity
 
 ${AUTOMATION_NAME}      UIAutomator2
 
-${LOGIN-SUBMIT-BUTTON1}    //android.view.View[@resource-id="android:id/navigationBarBackground"]
-
 *** Test Cases ***
 
 Open Application
@@ -141,7 +139,7 @@ Open Application    ${APPIUM_SERVER}    platformName=${PLATFORM_NAME}    deviceN
 
 # Espera hasta que el elemento esté presente en la página.
 
-AppiumLibrary.Wait Until Page Contains Element    ${LOGIN-SUBMIT-BUTTON1}    timeout=60s
+AppiumLibrary.Wait Until Page Contains Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}    timeout=60s
 
 Paso 2: Ejecuta el script de prueba con el siguiente comando:
 

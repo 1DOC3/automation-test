@@ -7,25 +7,12 @@ Resource    ../variables/variables.robot
 Setting timeouts
     Set Appium Timeout    120s
 
-Open Aplication in Browserstack
-    [Documentation]    Abre la aplicación en BrowserStack.
+Open 1doc3 Application
+    [Documentation]    Abre la aplicación de 1doc3 basandose en las variables de entorno.
     [Arguments]
     ...    ${platform}=${PLATFORM_NAME}
     ...    ${device}=${DEVICE_NAME}
-    ...    ${app}=${APP}
-    ...    ${automation}=${AUTOMATION_NAME}
-    Open Application
-    ...    ${BROWSERSTACK_URL}
-    ...    platformName=${platform}
-    ...    deviceName=${device}
-    ...    app=${app}
-    ...    automationName=${automation}
-
-Open Aplication in Local Device
-    [Documentation]    Abre la aplicación local usando Appium.
-    [Arguments]
-    ...    ${platform}=${PLATFORM_NAME}
-    ...    ${device}=${LOCAL_DEVICE_NAME}
+    ...    ${app}=${APP_PATH}
     ...    ${app_package}=${APP_PACKAGE}
     ...    ${app_activity}=${APP_ACTIVITY}
     ...    ${automation}=${AUTOMATION_NAME}
@@ -33,6 +20,7 @@ Open Aplication in Local Device
     ...    ${APPIUM_SERVER}
     ...    platformName=${platform}
     ...    deviceName=${device}
+    ...    app=${app}
     ...    appPackage=${app_package}
     ...    appActivity=${app_activity}
     ...    automationName=${automation}
