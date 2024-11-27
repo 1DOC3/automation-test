@@ -1,19 +1,13 @@
 *** Variables ***
 
-# Appium Config (Local Server)
-${APPIUM_SERVER}         http://127.0.0.1:4723
-${PLATFORM_NAME}         Android
-${AUTOMATION_NAME}       UIAutomator2
-${LOCAL_DEVICE_NAME}     ZY236923PJ
-${APP_PACKAGE}           com.app1doc3.app1doc3dev
-${APP_ACTIVITY}          com.app1doc3.app1doc3.MainActivity
+${APPIUM_SERVER}         %{APPIUM_SERVER}
+${PLATFORM_NAME}         %{PLATFORM_NAME}
+${DEVICE_NAME}           %{DEVICE_NAME}
+${APP_PATH}              %{APP_PATH}
+${AUTOMATION_NAME}       %{AUTOMATION_NAME}
 
-#*** Browser stack ***
-${BROWSERSTACK_URL}    https://equipoqa_RtWBXE:gKapRxsD88zBzdDSJ6Ei@hub-cloud.browserstack.com/wd/hub
-${DEVICE_NAME}         Samsung Galaxy S22 Ultra
-${APP}                 bs://eb9dec054f8a5f0cc76d54505815104cc26760a7
-
-
+# ${APP_PACKAGE}           com.app1doc3.app1doc3dev
+# ${APP_ACTIVITY}          com.app1doc3.app1doc3.MainActivity
 
 # Test Variables (Empresa y correo)
 ${USER1_DETAILS}         chayan@yopmail.com

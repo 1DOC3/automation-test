@@ -13,16 +13,12 @@ Open 1doc3 Application
     ...    ${platform}=${PLATFORM_NAME}
     ...    ${device}=${DEVICE_NAME}
     ...    ${app}=${APP_PATH}
-    ...    ${app_package}=${APP_PACKAGE}
-    ...    ${app_activity}=${APP_ACTIVITY}
     ...    ${automation}=${AUTOMATION_NAME}
     Open Application
     ...    ${APPIUM_SERVER}
     ...    platformName=${platform}
     ...    deviceName=${device}
     ...    app=${app}
-    ...    appPackage=${app_package}
-    ...    appActivity=${app_activity}
     ...    automationName=${automation}
 
 Verify Text on Element
