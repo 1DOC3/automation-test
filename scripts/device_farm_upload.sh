@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -x
+# set -x
 set -e
 
 upload_package() {
@@ -36,7 +36,7 @@ echo "Upload test_bundle.zip to Device Farm"
 TEST_UPLOAD_INFO=$(aws devicefarm create-upload \
   --project-arn "${AWS_PROJECT_ARN}" \
   --name "$(basename "test_bundle.zip")" \
-  --type "APPIUM_PYTHON_TEST_SPEC")
+  --type "APPIUM_PYTHON_TEST_PACKAGE")
 
 TEST_UPLOAD_ARN=$(echo "${TEST_UPLOAD_INFO}" | jq -r '.upload.arn')
 upload_package "test_bundle.zip" "${TEST_UPLOAD_INFO}"
