@@ -8,7 +8,7 @@ Suite Setup     Setting timeouts
 
 *** Test Cases ***
 Validation error message when not choosing a company
-    Open Aplication in Local Device
+    Open 1doc3 Application
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
@@ -18,7 +18,7 @@ Validation error message when not choosing a company
     Close Application
 
 Error validation when deleting company name
-    Open Aplication in Local Device
+    Open 1doc3 Application
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
     Clear Text       ${NAME_COMPANY}
@@ -27,14 +27,14 @@ Error validation when deleting company name
     Close Application
 
 Validation of non-existent company
-    Open Aplication in Local Device
+    Open 1doc3 Application
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_NOEXIST}
     Wait Until Element is visible    ${ERROR_NO_COMPANY_EXISTS}
     Close Application
 
 Validation input verification data
-    Open Aplication in Local Device
+    Open 1doc3 Application 
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
     Click Element    ${COMPANY_SELECTOR}
