@@ -16,10 +16,10 @@ ${NAME_COMPANY}          Empresa pruebas
 ${NAME_NOEXIST}          Ram
 
 # Continua Con Empresa Locators
-${LOGIN_SUBMIT_CONTINUACONEMPRESA}    //android.widget.Button[@content-desc="Continúa con tu empresa"]
+${LOGIN_SUBMIT_CONTINUACONEMPRESA}   //android.widget.Button[@content-desc="Continúa con tu empresa"]
 ${LOGIN_COMPANY_FIELD}               //android.widget.EditText
 ${LOGIN_SUBMIT_BUTTON_CONTINUAR}     //android.widget.Button[@content-desc="Continuar"]
-${COMPANY_SELECTOR}                  Empresa pruebas    # accessibility_id para la empresa
+${COMPANY_SELECTOR}                  //android.widget.ImageView[@content-desc="Empresa pruebas"]
 ${EMAIL_FIELD}                       //android.widget.EditText  # Localizador para el campo de correo
 ${NUMBER_FIELD}                      //android.widget.EditText
 ${VERIFY_BUTTON}                     //android.widget.Button[@content-desc="Verificar"]
