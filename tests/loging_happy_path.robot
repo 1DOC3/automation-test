@@ -15,7 +15,7 @@ Login with email Local
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Wait Until Page Contains Element    ${LOGIN_COMPANY_FIELD}
     Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
-    Click Element    accessibility_id=${COMPANY_SELECTOR}
+    Click Element    ${COMPANY_SELECTOR}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${EMAIL_FIELD}
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
@@ -36,7 +36,7 @@ Login with mobile Local
     Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
-    Click Element    accessibility_id=${COMPANY_SELECTOR}
+    Click Element    ${COMPANY_SELECTOR}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${EMAIL_FIELD}
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
