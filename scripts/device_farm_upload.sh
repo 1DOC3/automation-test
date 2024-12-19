@@ -31,11 +31,13 @@ upload_package() {
   done
 }
 
+COMPILATION_DATE=$(date +%s)
+
 # Upload Your Test Scripts Package
 echo "Upload test_bundle.zip to Device Farm"
 TEST_UPLOAD_INFO=$(aws devicefarm create-upload \
   --project-arn "${AWS_PROJECT_ARN}" \
-  --name "$(basename "test_bundle.zip")" \
+  --name "test spec $COMPILATION_DATE")" \
   --type "APPIUM_PYTHON_TEST_PACKAGE")
 
 TEST_UPLOAD_ARN=$(echo "${TEST_UPLOAD_INFO}" | jq -r '.upload.arn')
