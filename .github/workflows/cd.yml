@@ -6,7 +6,8 @@ env:
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
-  # push:
+  push:
+    branches: [ main ]
   #  tags:
   #    - "*"
 
@@ -16,7 +17,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   production-delivery:
-    runs-on: [self-hosted]
+    runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
 
@@ -41,4 +42,6 @@ jobs:
           zip -r test_bundle.zip tests/ wheelhouse/ resources/ requirements.txt
 
       - name: Publish device farm
-        run: ./scripts/device_farm_upload.sh
+        run: |
+          chmod +x ./scripts/device_farm_upload.sh
+          ./scripts/device_farm_upload.sh
