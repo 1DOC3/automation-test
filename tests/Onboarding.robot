@@ -1,7 +1,7 @@
 *** Settings ***
 Library         AppiumLibrary
 Resource        ../resources/android/variables/Screen_Activation.robot
-Resource        ../resources/android/variables/Screen_Onboarding.robot
+Resource        ../resources/android/variables/Onboarding.robot
 Resource        ../resources/android/keywords/keywords.robot
 
 Suite Setup     Setting timeouts
@@ -26,23 +26,23 @@ Field validations
     Click Element     ${WOMEN_OPTION}
     Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
     Click Element ${FIELD_DATE_OF_BIRTH}
-   Wait Until Element Is Visible  ${COPY_INFORMATION_DATE_OF_BIRTH} 
-   Click Element    //android.widget.SeekBar[@content-desc="16"]
-   Click Element   //android.widget.SeekBar[@content-desc="marzo"]
-   Click Element   //android.widget.SeekBar[@content-desc="2023"]
-   Click Element   ${BTN_SAVED}
-   Wait Until Element Is Visible ${ERROR_AGE_USER}
-   Click Element   //android.widget.SeekBar[@content-desc="1996"]
-   Click Element   ${BTN_SAVED}
-   Wait Until Element Is Visible    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View
-   Wait Until Element Is Visible   ${OBJECTIVE_1}       
-   Wait Until Element Is Visible   ${OBJECTIVE_2}     
-   Wait Until Element Is Visible   ${OBJECTIVE_3} 
-   Wait Until Element Is Visible   ${OBJECTIVE_4}  
-   Wait Until Element Is Visible   ${OBJECTIVE_5} 
-   Wait Until Element Is Visible   ${OBJECTIVE_6}
-   Wait Until Element Is Visible   ${OBJECTIVE_7}    
-   Click Element                    ${OBJECTIVE_3}
+    Wait Until Element Is Visible  ${COPY_INFORMATION_DATE_OF_BIRTH} 
+    Click Element    //android.widget.SeekBar[@content-desc="16"]
+    Click Element   //android.widget.SeekBar[@content-desc="marzo"]
+    Click Element   //android.widget.SeekBar[@content-desc="2023"]
+    Click Element   ${BTN_SAVED}
+    Wait Until Element Is Visible ${ERROR_AGE_USER}
+    Click Element   //android.widget.SeekBar[@content-desc="1996"]
+    Click Element   ${BTN_SAVED}
+    Wait Until Element Is Visible    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View
+    Wait Until Element Is Visible   ${OBJECTIVE_1}       
+    Wait Until Element Is Visible   ${OBJECTIVE_2}     
+    Wait Until Element Is Visible   ${OBJECTIVE_3} 
+    Wait Until Element Is Visible   ${OBJECTIVE_4}  
+    Wait Until Element Is Visible   ${OBJECTIVE_5} 
+    Wait Until Element Is Visible   ${OBJECTIVE_6}
+    Wait Until Element Is Visible   ${OBJECTIVE_7}    
+    Click Element                   ${OBJECTIVE_3}
 
     
        
