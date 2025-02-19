@@ -1,7 +1,7 @@
 *** Settings ***
 Library         AppiumLibrary
 Library         FakerLibrary
-Resource        ../resources/android/variables/Screen_Activation.robot 
+Resource        ../resources/android/variables/user_activations.robot 
 Resource        ../resources/android/keywords/keywords.robot
 
 Suite Setup     Setting timeouts
