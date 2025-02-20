@@ -1,6 +1,6 @@
 *** Settings ***
 Library     AppiumLibrary
-Resource    ../variables/Screen_Activation.robot
+Resource    ../variables/user_activations.robot
 
 
 
