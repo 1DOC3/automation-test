@@ -1,7 +1,7 @@
 *** Settings ***
 Library     AppiumLibrary
-Resource    ../variables/user_activations.robot
 
+Resource    ../variables/user_activations.robot
 
 
 *** Keywords ***
