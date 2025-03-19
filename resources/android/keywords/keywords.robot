@@ -2,6 +2,7 @@
 Library     AppiumLibrary
 
 Resource    ../variables/user_activations.robot
+Resource    ../variables/user_consultation.robot
 
 
 *** Keywords ***
@@ -28,6 +29,7 @@ Open 1doc3 Application
     ...    deviceName=${device}
     ...    app=${app}
     ...    automationName=${automation}
+    ...    autoGrantPermissions=true
 
 Verify Text Equal on Element
     [Arguments]    ${selector}    ${texto_esperado}
@@ -71,5 +73,21 @@ Do Login new user
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
     Input Verefication Code    1111
     Click Element    ${VERIFY_BUTTON}
+
+
+Scroll Until Element Is Found In Safe Position
+    [Arguments]    ${element_xpath}
+    WHILE    "True"
+        ${element_found}=    Run Keyword And Ignore Error    Wait Until Element Is Visible   ${element_xpath}    ${TIMEOUT}
+        ${status}=    Set Variable    ${element_found[0]}  # Extraer solo 'PASS' o 'FAIL'
+        Run Keyword If    '${status}' == 'PASS'    Exit For Loop If    True
+        Swipe  ${START_X}  ${START_Y}  ${END_X}  ${END_Y}  ${DURATION}
+    END
+    Log    Element found!
+    # Hacer scroll adicional para asegurar que el elemento no esté cubierto por el banner
+    Swipe  ${ADDITIONAL_START_X}  ${ADDITIONAL_START_Y}  ${ADDITIONAL_END_X}  ${ADDITIONAL_END_Y}  ${ADDITIONAL_DURATION}
+
+
+
     
     
