@@ -24,7 +24,7 @@ ${NAME_NOEXIST}          Ram
 ${LOGIN_SUBMIT_CONTINUACONEMPRESA}   //android.widget.Button[@content-desc="Continúa con tu empresa"]
 ${LOGIN_COMPANY_FIELD}               //android.widget.EditText
 ${LOGIN_SUBMIT_BUTTON_CONTINUAR}     //android.widget.Button[@content-desc="Continuar"]
-${COMPANY_SELECTOR}                  //android.widget.EditText[@text="empresa pruebas"]
+${COMPANY_SELECTOR}                  //android.widget.ImageView[@content-desc="Empresa pruebas"]
 ${COMPANY_SELECTOR_PHONE}            //android.widget.ImageView[@content-desc="Google Liz"]
 ${COMPANY_SELECTOR_DOCUMENT}         //android.widget.ImageView[@content-desc="mario juego"]
 ${EMAIL_FIELD}                       //android.widget.EditText  
@@ -43,7 +43,7 @@ ${PAGE_VERIFY_USER_DOCUMENT}            //android.view.View[contains(@content-de
 ${ENTER_EMAIL_DATA}                  //android.view.View[@content-desc="Escribe tu correo electrónico para verificarte."]
 ${ENTER_PHONE_DATA}                  //android.view.View[@content-desc="Escribe tu número de celular para verificarte."]
 ${ENTER_DOCUMENT_DATA}               //android.view.View[@content-desc="Escribe tu número de documento para verificarte."]
-${CODE_VERIFICATION_FIELD}           //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[1]/android.widget.EditText
+${CODE_VERIFICATION_FIELD}           //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[4]
 ${BTN_CONTACT_SUPPORT}               //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View
 ${VERIFICATION_FIELD}                //android.widget.EditText
 

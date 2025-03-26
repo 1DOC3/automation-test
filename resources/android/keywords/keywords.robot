@@ -41,16 +41,11 @@ Verify Text Equal on Element
 
 Input Verefication Code
     [Documentation]    Ingresa el codigo de 4 digitos
-    [Arguments]    ${codigo}
-    Input Text
-    ...    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[1]/android.widget.EditText  ${codigo[0]} 
-    Input Text
-    ...   //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[2]/android.widget.EditText   ${codigo[1]}
-    Input Text
-    ...   //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[3]/android.widget.EditText   ${codigo[2]}
-    Input Text
-    ...    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[4]/android.widget.EditText  ${codigo[3]}
-    
+    Click Element  ${CODE_VERIFICATION_FIELD}
+    Press Keycode    8  
+    Press Keycode    8  
+    Press Keycode    8  
+    Press Keycode    8
 Do login with email    
     Click Element    ${BTN_ACCOUNT}
     Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
@@ -58,18 +53,28 @@ Do login with email
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code    1111
+    Input Verefication Code
     Click Element    ${VERIFY_BUTTON}
 
 Do Login new user
-    Wait Until Page Contains Element    ${BTN_ACCOUNT} 
     Click Element    ${BTN_ACCOUNT}
     Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
     Click Element    ${CONTINUE_WITH_EMAIL_BUTTON}
     Input Text       ${EMAIL_FIELD}     ${USER_ONBOARDING}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code    1111
+    Input Verefication Code 
     Click Element    ${VERIFY_BUTTON}
     
-    
+
+Move SeekBar To Value
+    [Arguments]    ${seekbar_xpath}    ${percentage}
+    ${seekbar}    Get WebElement    ${seekbar_xpath}
+    ${location}   Get Element Location    ${seekbar}
+    ${size}       Get Element Size    ${seekbar}
+
+    ${start_x}    Set Variable    ${location}[x]
+    ${end_x}    Evaluate    ${location}[x] + (${size}[width] * ${percentage})
+    ${y}        Evaluate    ${location}[y] + (${size}[height] / 2)
+
+    Swipe    ${start_x}    ${y}    ${end_x}    ${y}    500
