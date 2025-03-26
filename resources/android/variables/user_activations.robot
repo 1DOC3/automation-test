@@ -39,11 +39,11 @@ ${ERROR_WRITING_COMPANY}             //android.view.View[contains(@content-desc,
 ${CLOSE}                             //android.view.View[@content-desc="Busca tu empresa"]/android.view.View[1]
 ${PAGE_VERIFY_USER_EMAIL}            //android.view.View[contains(@content-desc,"Ahora, ingresa tu correo electrónico y verifícate en Empresa")]
 ${PAGE_VERIFY_USER_PHONE}            //android.view.View[contains(@content-desc,"Ahora, ingresa tu número de celular y verifícate en Google Liz.")]
-${PAGE_VERIFY_USER_DOCUMENT}            //android.view.View[contains(@content-desc,"Ahora, ingresa tu número de documento y verifícate en mario juego.")]
+${PAGE_VERIFY_USER_DOCUMENT}          //android.view.View[contains(@content-desc,"Ahora, ingresa tu número de documento y verifícate en mario juego.")]
 ${ENTER_EMAIL_DATA}                  //android.view.View[@content-desc="Escribe tu correo electrónico para verificarte."]
 ${ENTER_PHONE_DATA}                  //android.view.View[@content-desc="Escribe tu número de celular para verificarte."]
 ${ENTER_DOCUMENT_DATA}               //android.view.View[@content-desc="Escribe tu número de documento para verificarte."]
-${CODE_VERIFICATION_FIELD}           //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[1]/android.widget.EditText
+${CODE_VERIFICATION_FIELD}           //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[4]
 ${BTN_CONTACT_SUPPORT}               //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View
 ${VERIFICATION_FIELD}                //android.widget.EditText
 

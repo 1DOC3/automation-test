@@ -16,13 +16,14 @@ Field validations
     Wait Until Page Contains Element  ${FIELD_LAST_NAME}
     Wait Until Element Is Visible     ${FIELD_GENDER}
     Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
-    Wait Until Element Is Visible      ${COPY_INFORMATION}
+    Wait Until Element Is Visible     ${COPY_INFORMATION}
     Wait Until Page Contains Element  ${BTN_CONTINUE}
     Input Text       ${INPUT_NAME}           'Liz Dahianna'
+    Wait Until Page Contains Element  ${INPUT_LAST_NAME} 
     Click Element    ${INPUT_LAST_NAME} 
     Input Text       ${INPUT_LAST_NAME}      'Giraldo'
-    Log Source
-    Press Keycode    66
+    Wait Until Element Is Visible  ${FIELD_GENDER}
+    Click Element  ${FIELD_GENDER}
     Click Element     ${WOMEN_OPTION}
     Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
     Click Element ${FIELD_DATE_OF_BIRTH}

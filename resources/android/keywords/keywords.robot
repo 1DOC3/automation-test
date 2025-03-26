@@ -39,20 +39,15 @@ Verify Text Equal on Element
     Should Be Equal As Strings    ${contenido_desc}    ${texto_esperado}
 
 
-
-
 Input Verefication Code
     [Documentation]    Ingresa el codigo de 4 digitos
-    [Arguments]    ${codigo}
-    Input Text
-    ...    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[1]/android.widget.EditText  ${codigo[0]} 
-    Input Text
-    ...   //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[2]/android.widget.EditText   ${codigo[1]}
-    Input Text
-    ...   //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[3]/android.widget.EditText   ${codigo[2]}
-    Input Text
-    ...    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[4]/android.view.View[4]/android.widget.EditText  ${codigo[3]}
-    
+    Click Element  ${CODE_VERIFICATION_FIELD}
+    Press Keycode    8  
+    Press Keycode    8  
+    Press Keycode    8  
+    Press Keycode    8
+
+
 Do login with email    
     Click Element    ${BTN_ACCOUNT}
     Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
@@ -60,7 +55,7 @@ Do login with email
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code    1111
+    Input Verefication Code   
     Click Element    ${VERIFY_BUTTON}
 
 Do Login new user
@@ -71,7 +66,7 @@ Do Login new user
     Input Text       ${EMAIL_FIELD}     ${USER_ONBOARDING}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code    1111
+    Input Verefication Code   
     Click Element    ${VERIFY_BUTTON}
 
 
