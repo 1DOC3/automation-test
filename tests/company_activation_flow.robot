@@ -54,7 +54,9 @@ Validation verification email data
     ${NO_LICENSE_FOUND}  Set Variable    No fue posible realizar la verificación con el dato:${email}\nSi el dato que ingresas es el correcto y aún no puedes verificarte, comunícate con nuestro equipo de soporte vía WhatsApp para más ayuda.
     Wait Until Element is visible  ${BTN_CONTACT_SUPPORT}
     Should Contain    ${NO_LICENSE_FOUND}    ${email}
-    Close Application
+    Click Element     //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View
+    Verify Text Equal on Element       ${PAGE_VERIFY_USER_EMAIL}  Ahora, ingresa tu correo electrónico y verifícate en Empresa pruebas.
+    Close Application 
     
 
 Validation verification phone data

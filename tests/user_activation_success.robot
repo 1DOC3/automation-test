@@ -25,7 +25,7 @@ Login with email Local
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code    1111
+    Input Verefication Code    
     Click Element    ${VERIFY_BUTTON}
     Close Application
 
@@ -47,7 +47,7 @@ Login with mobile Local
     Input Text       ${EMAIL_FIELD}     ${USER_NUMBER}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${CODE_VERIFICATION_FIELD}    timeout=10s
-    Input Verefication Code    1111
+    Input Verefication Code    
     Click Element    ${VERIFY_BUTTON}
     Close Application
 

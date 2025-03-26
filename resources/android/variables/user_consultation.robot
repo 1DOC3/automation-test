@@ -2,9 +2,9 @@
 # Variables Consultations
 
 ${START_X}   500
-${START_Y}   1500   
+${START_Y}   1000   
 ${END_X}     500
-${END_Y}     300    
+${END_Y}     500    
 ${DURATION}  1000   
 ${TIMEOUT}   3
 
