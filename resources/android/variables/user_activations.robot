@@ -24,7 +24,7 @@ ${NAME_NOEXIST}          Ram
 ${LOGIN_SUBMIT_CONTINUACONEMPRESA}   //android.widget.Button[@content-desc="Continúa con tu empresa"]
 ${LOGIN_COMPANY_FIELD}               //android.widget.EditText
 ${LOGIN_SUBMIT_BUTTON_CONTINUAR}     //android.widget.Button[@content-desc="Continuar"]
-${COMPANY_SELECTOR}                  //android.widget.ImageView[@content-desc="Empresa pruebas"]
+${COMPANY_SELECTOR}                  //android.widget.EditText[@text="empresa pruebas"]
 ${COMPANY_SELECTOR_PHONE}            //android.widget.ImageView[@content-desc="Google Liz"]
 ${COMPANY_SELECTOR_DOCUMENT}         //android.widget.ImageView[@content-desc="mario juego"]
 ${EMAIL_FIELD}                       //android.widget.EditText  

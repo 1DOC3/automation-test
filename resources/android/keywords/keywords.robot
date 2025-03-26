@@ -1,11 +1,20 @@
 *** Settings ***
 Library     AppiumLibrary
-Resource    ../variables/user_activations.robot
 
+Resource    ../variables/user_activations.robot
+Resource    ../variables/user_consultation.robot
 
 
 *** Keywords ***
 Setting timeouts
+    Set Appium Timeout    140s
+
+Before Tests
+    Open 1doc3 Application
+    Wait Until Page Contains Element    ${BTN_ACCOUNT}  
+
+After Tests
+    Close Application
     Set Appium Timeout    140s
 
 Before Tests
@@ -28,6 +37,7 @@ Open 1doc3 Application
     ...    deviceName=${device}
     ...    app=${app}
     ...    automationName=${automation}
+    ...    autoGrantPermissions=true
 
 Verify Text Equal on Element
     [Arguments]    ${selector}    ${texto_esperado}

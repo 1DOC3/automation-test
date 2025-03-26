@@ -4,8 +4,13 @@
 ${COPY_TITLE}              //android.view.View[@content-desc="Confirma tus datos"]
 ${FIELD_NAME}               //android.view.View[@content-desc="Nombre"]
 ${FIELD_LAST_NAME}          //android.view.View[@content-desc="Apellido"]
+<<<<<<< HEAD
 ${FIELD_GENDER}             xpath= (//android.view.View[@content-desc="Selecciona"])[1]
 ${FIELD_DATE_OF_BIRTH}      xpath= (//android.view.View[@content-desc="Selecciona" and @index="5"])
+=======
+${FIELD_GENDER}             //android.view.View[contains(@content-desc, "Sexo biológico")] 
+${FIELD_DATE_OF_BIRTH}      //android.view.View[contains(@content-desc, "Fecha de nacimiento")]  
+>>>>>>> main
 ${COPY_INFORMATION}         //android.view.View[@content-desc="Utilizamos esta información para personalizar tu experiencia y hacerte recomendaciones."]
 ${INPUT_NAME}               //android.view.View[@content-desc="Nombre"]/android.widget.EditText
 ${INPUT_LAST_NAME}          //android.view.View[@content-desc="Apellido"]/android.widget.EditText
@@ -14,7 +19,11 @@ ${WOMEN_OPTION}             //android.widget.ImageView[@content-desc="Mujer"]
 ${MEN_OPTION}               //android.widget.ImageView[@content-desc="Hombre"]
 ${UNDETERMINED OPTION}      //android.widget.ImageView[@content-desc="Indefinido"]
 ${BTN_SAVED}                Guardar
+<<<<<<< HEAD
 ${COPY_INFORMATION_DATE_OF_BIRTH}   //android.view.View[contains(@content-desc, "Fecha de nacimiento Debes ser mayor de 18 años para continuar")]
+=======
+${COPY_INFORMATION_DATE_OF_BIRTH}   Fecha de nacimiento\nDebes ser mayor de 18 años para continuar
+>>>>>>> main
 ${ERROR_AGE_USER}                 Nuestro servicio solo cubre a personas entre 18 y 120 años.
 
 
