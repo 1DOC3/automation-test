@@ -1,0 +1,47 @@
+name: production CD
+
+env:
+  AWS_PROJECT_ARN: arn:aws:devicefarm:us-west-2:350572149155:project:e733b29e-3828-418b-9594-ace6fdade885
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [ main ]
+  #  tags:
+  #    - "*"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  production-delivery:
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.DEVICE_FARM_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.DEVICE_FARM_ACCESS_KEY }}
+          aws-region: us-west-2
+
+      - name: Set up Python
+        # This is the version of the action for setting up Python, not the Python version.
+        uses: actions/setup-python@v5
+        with:
+          # Semantic version range syntax or exact version of a Python version
+          python-version: '3.x'
+
+      - name: Build package to aws device farm
+        run: |
+          python -m venv env
+          source env/bin/activate
+          pip wheel --wheel-dir wheelhouse -r requirements.txt
+          zip -r test_bundle.zip tests/ wheelhouse/ resources/ requirements.txt
+
+      - name: Publish device farm
+        run: |
+          chmod +x ./scripts/device_farm_upload.sh
+          ./scripts/device_farm_upload.sh
