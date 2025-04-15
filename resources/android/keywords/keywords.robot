@@ -47,7 +47,6 @@ Input Verefication Code
     Press Keycode    8  
     Press Keycode    8
 
-
 Do login with email    
     Click Element    ${BTN_ACCOUNT}
     Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
@@ -82,7 +81,16 @@ Scroll Until Element Is Found In Safe Position
     # Hacer scroll adicional para asegurar que el elemento no esté cubierto por el banner
     Swipe  ${ADDITIONAL_START_X}  ${ADDITIONAL_START_Y}  ${ADDITIONAL_END_X}  ${ADDITIONAL_END_Y}  ${ADDITIONAL_DURATION}
 
-
-
+Do Login with mobile
+    Sleep    8s
+    Click Element    ${BTN_ACCOUNT}
+    Wait Until Element Is Visible    ${CONTINUE_WITH_MOBILE_BUTTON}    30s
+    Click Element    ${CONTINUE_WITH_MOBILE_BUTTON}
+    Wait Until Element Is Visible    ${LOGIN_MOBILE_TEXT_FIELD}
+    Input Text    ${LOGIN_MOBILE_TEXT_FIELD}    ${USER_NUMBER}
+    Click Element    ${BTN_MOBILE_LOGIN}
+    Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
+    Input Verefication Code
+    Click Element    ${VERIFY_BUTTON}
     
     
