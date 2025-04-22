@@ -52,6 +52,15 @@ ${VERIFICATION_FIELD}                //android.widget.EditText
 ${CONTINUE_WITH_EMAIL_BUTTON}       //android.widget.ImageView[@content-desc="Inicia sesión con correo"]
 ${CONTINUE_WITH_MOBILE_BUTTON}      //android.widget.ImageView[@content-desc="Inicia sesión con número celular"]
 ${BTN_ACCOUNT}                      //android.widget.Button[@content-desc="Ya tengo una cuenta"]
+${LOGIN_MOBILE_TEXT_FIELD}          //android.widget.EditText
+${BTN_MOBILE_LOGIN}                 //android.widget.Button[@content-desc="Continuar"]
+${ERROR_FIELD_NUMBER}               //android.view.View[@content-desc="Escribe tu número celular para continuar."]
+${ERROR_BANNER}                     //android.view.View[@content-desc="Verifica que ingresaste un número de celular."]
+${ERROR_VERIFY_CODE}                //android.view.View[@content-desc="Escribe el código de verificación para continuar."]
+${FORWARD_WPP}                      //android.widget.Button[@content-desc="Recibir un código nuevo por WhatsApp"]
+${WPP_BANNER_CODE}                  //android.view.View[@content-desc="Ya te enviamos un nuevo código a tu teléfono."]
+
+
 # Main Page Locator (Notificaciones)
 ${NOTIFICATION_BUTTON}    //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]
 
