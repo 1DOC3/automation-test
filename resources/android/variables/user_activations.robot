@@ -1,18 +1,17 @@
 *** Variables ***
 
-${APPIUM_SERVER}         %{APPIUM_SERVER}
-${PLATFORM_NAME}         %{PLATFORM_NAME}
-${DEVICE_NAME}           %{DEVICE_NAME}
-${APP_PATH}              %{APP_PATH}
-${AUTOMATION_NAME}       %{AUTOMATION_NAME}
+${APPIUM_SERVER}     %{APPIUM_SERVER}
+${PLATFORM_NAME}     %{PLATFORM_NAME}
+${DEVICE_NAME}       %{DEVICE_NAME}
+${AUTOMATION_NAME}   %{AUTOMATION_NAME}
+${APP_PACKAGE}       %{APP_PACKAGE}
+${APP_ACTIVITY}      %{APP_ACTIVITY}
 
-# ${APP_PACKAGE}           com.app1doc3.app1doc3dev
-# ${APP_ACTIVITY}          com.app1doc3.app1doc3.MainActivity
-
+#${APP_PATH}          %{APP_PATH}
 # Test Variables (Empresa y correo)
-${USER1_DETAILS}         chayan@yopmail.com
+${USER1_DETAILS}         tutaina@yopmail.com
 ${USER_ONBOARDING}       fa1@yopmail.com
-${USER_NUMBER}           3158776270
+${USER_NUMBER}           3203694134
 ${NAME_COMPANY}          Empresa pruebas
 ${NAME_COMPANY_TWO}      Google liz
 ${NAME_COMPANY_THREE}    mario juego

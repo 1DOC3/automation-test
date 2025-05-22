@@ -13,6 +13,7 @@ Login With Phone
     Click Element    ${BTN_ACCOUNT}
     Wait Until Element Is Visible    ${CONTINUE_WITH_MOBILE_BUTTON}    30s
     Click Element    ${CONTINUE_WITH_MOBILE_BUTTON}
+    Wait Until Element Is Visible    ${BTN_MOBILE_LOGIN}
     Click Element    ${BTN_MOBILE_LOGIN}
     Wait Until Element Is Visible    ${ERROR_FIELD_NUMBER}
     Click Element    ${LOGIN_MOBILE_TEXT_FIELD}
@@ -29,7 +30,8 @@ Login With Phone
     Wait Until Element Is Visible    ${VERIFY_BUTTON}    8s
     Click Element    ${VERIFY_BUTTON}
     Wait Until Element Is Visible    ${ERROR_VERIFY_CODE}    5s
-    Input Verefication Code
+    ${code}=    Get authentication code    ${USER1_DETAILS}
+    Input Verification Code Produ    ${code}
     #Reenviar Código por WPP
     Sleep    15s
     Wait Until Element Is Visible    ${FORWARD_WPP}    

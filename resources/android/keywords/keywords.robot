@@ -1,8 +1,11 @@
 *** Settings ***
 Library     AppiumLibrary
+Library    String
+
 
 Resource    ../variables/user_activations.robot
 Resource    ../variables/user_consultation.robot
+Resource    code_requests_email.robot
 
 
 *** Keywords ***
@@ -21,15 +24,19 @@ Open 1doc3 Application
     [Arguments]
     ...    ${platform}=${PLATFORM_NAME}
     ...    ${device}=${DEVICE_NAME}
-    ...    ${app}=${APP_PATH}
     ...    ${automation}=${AUTOMATION_NAME}
+    ...    ${package}=${APP_PACKAGE}
+    ...    ${activity}=${APP_ACTIVITY}  
+    #${app}=${APP_PATH}
     Open Application
     ...    ${APPIUM_SERVER}
     ...    platformName=${platform}
     ...    deviceName=${device}
-    ...    app=${app}
+    ...    appPackage=${package}
+    ...    appActivity=${activity}
     ...    automationName=${automation}
-    ...    autoGrantPermissions=true
+    ...    autoGrantPermissions=true   
+    #app=${app}
 
 Verify Text Equal on Element
     [Arguments]    ${selector}    ${texto_esperado}
@@ -39,13 +46,23 @@ Verify Text Equal on Element
     Should Be Equal As Strings    ${contenido_desc}    ${texto_esperado}
 
 
-Input Verefication Code
-    [Documentation]    Ingresa el codigo de 4 digitos
+Input Verification Code Produ
+    [Arguments]    ${code}
+    [Documentation]    Ingresa el code de 4 digitos
+    Should Not Be Empty    ${code}    El código de autenticación no fue recibido.
     Click Element  ${CODE_VERIFICATION_FIELD}
-    Press Keycode    8  
-    Press Keycode    8  
-    Press Keycode    8  
-    Press Keycode    8
+    
+    ${code_list}=    Convert To List    ${code}
+
+    FOR    ${d}    IN    @{code_list}
+        ${keycode}=    Evaluate    7 + int(${d})
+        Press Keycode    ${keycode}
+    END
+    
+    #Press Keycode    8  
+    #Press Keycode    8  
+    #Press Keycode    8  
+    #Press Keycode    8
 
 Do login with email    
     Click Element    ${BTN_ACCOUNT}
@@ -54,7 +71,8 @@ Do login with email
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code   
+    ${code}=    Get authentication code    ${USER1_DETAILS}
+    Input Verification Code Produ    ${code}  
     Click Element    ${VERIFY_BUTTON}
 
 Do Login new user
@@ -65,7 +83,8 @@ Do Login new user
     Input Text       ${EMAIL_FIELD}     ${USER_ONBOARDING}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code   
+    ${code}=    Get authentication code    ${USER1_DETAILS}
+    Input Verification Code Produ    ${code}
     Click Element    ${VERIFY_BUTTON}
 
 
@@ -88,9 +107,11 @@ Do Login with mobile
     Click Element    ${CONTINUE_WITH_MOBILE_BUTTON}
     Wait Until Element Is Visible    ${LOGIN_MOBILE_TEXT_FIELD}
     Input Text    ${LOGIN_MOBILE_TEXT_FIELD}    ${USER_NUMBER}
+    Wait Until Element Is Visible    ${BTN_MOBILE_LOGIN}
     Click Element    ${BTN_MOBILE_LOGIN}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code
+    ${code}=    Get authentication code    ${USER_NUMBER}
+    Input Verification Code Produ    ${code}
     Click Element    ${VERIFY_BUTTON}
     
     
