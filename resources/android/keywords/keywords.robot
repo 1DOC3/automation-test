@@ -1,8 +1,22 @@
 *** Settings ***
 Library     AppiumLibrary
+Library    String
+
 
 Resource    ../variables/user_activations.robot
 Resource    ../variables/user_consultation.robot
+Resource    code_requests_email.robot
+
+*** Variables ***
+${APPIUM_SERVER}     %{APPIUM_SERVER}
+${PLATFORM_NAME}     %{PLATFORM_NAME}
+${DEVICE_NAME}       %{DEVICE_NAME}
+${AUTOMATION_NAME}   %{AUTOMATION_NAME}
+#${APP_PACKAGE}       %{APP_PACKAGE}
+#${APP_ACTIVITY}      %{APP_ACTIVITY}
+${APP_PATH}          %{APP_PATH}
+${ENVIRONMENT}       %{EXEC_ENV}
+${API_KEY}           %{API_KEY} 
 
 
 *** Keywords ***
@@ -11,25 +25,32 @@ Setting timeouts
 
 Before Tests
     Open 1doc3 Application
-    Wait Until Page Contains Element    ${BTN_ACCOUNT}  
-
+    Wait Until Page Contains Element    ${BTN_ACCOUNT}
 After Tests
     Close Application
 
+
 Open 1doc3 Application
     [Documentation]    Abre la aplicación de 1doc3 basandose en las variables de entorno.
-    [Arguments]
-    ...    ${platform}=${PLATFORM_NAME}
-    ...    ${device}=${DEVICE_NAME}
-    ...    ${app}=${APP_PATH}
-    ...    ${automation}=${AUTOMATION_NAME}
     Open Application
     ...    ${APPIUM_SERVER}
-    ...    platformName=${platform}
-    ...    deviceName=${device}
-    ...    app=${app}
-    ...    automationName=${automation}
+    ...    platformName=${PLATFORM_NAME}
+    ...    deviceName=${DEVICE_NAME}
+    ...    app=${APP_PATH}
+    ...    automationName=${AUTOMATION_NAME}
     ...    autoGrantPermissions=true
+
+
+
+
+Get Code Environment
+    [Arguments]    ${data}
+    IF    '${ENVIRONMENT}' != 'production'
+        ${code}=    Set Variable    1111
+    ELSE
+        ${code}=    Get authentication code    ${data}
+    END
+    [Return]    ${code}
 
 Verify Text Equal on Element
     [Arguments]    ${selector}    ${texto_esperado}
@@ -39,13 +60,20 @@ Verify Text Equal on Element
     Should Be Equal As Strings    ${contenido_desc}    ${texto_esperado}
 
 
-Input Verefication Code
-    [Documentation]    Ingresa el codigo de 4 digitos
+Input Verification Code 
+    [Arguments]    ${code}
+    [Documentation]    Ingresa el code de 4 digitos
+    Should Not Be Empty    ${code}    El código de autenticación no fue recibido.
     Click Element  ${CODE_VERIFICATION_FIELD}
-    Press Keycode    8  
-    Press Keycode    8  
-    Press Keycode    8  
-    Press Keycode    8
+    
+    ${code_list}=    Convert To List    ${code}
+
+    FOR    ${d}    IN    @{code_list}
+        ${keycode}=    Evaluate    7 + int(${d})
+        Press Keycode    ${keycode}
+    END
+    
+  
 
 Do login with email    
     Click Element    ${BTN_ACCOUNT}
@@ -54,7 +82,8 @@ Do login with email
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code   
+    ${code}=    Get Code Environment    ${USER1_DETAILS}
+    Input Verification Code Produ    ${code}  
     Click Element    ${VERIFY_BUTTON}
 
 Do Login new user
@@ -65,7 +94,8 @@ Do Login new user
     Input Text       ${EMAIL_FIELD}     ${USER_ONBOARDING}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code   
+    ${code}=    Get Code Environment   ${USER1_DETAILS}
+    Input Verification Code Produ    ${code}
     Click Element    ${VERIFY_BUTTON}
 
 
@@ -88,9 +118,9 @@ Do Login with mobile
     Click Element    ${CONTINUE_WITH_MOBILE_BUTTON}
     Wait Until Element Is Visible    ${LOGIN_MOBILE_TEXT_FIELD}
     Input Text    ${LOGIN_MOBILE_TEXT_FIELD}    ${USER_NUMBER}
+    Wait Until Element Is Visible    ${BTN_MOBILE_LOGIN}
     Click Element    ${BTN_MOBILE_LOGIN}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code
+    ${code}=    Get Code Environment   ${USER_NUMBER}
+    Input Verification Code Produ    ${code}
     Click Element    ${VERIFY_BUTTON}
-    
-    
