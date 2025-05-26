@@ -12,8 +12,6 @@ ${APPIUM_SERVER}     %{APPIUM_SERVER}
 ${PLATFORM_NAME}     %{PLATFORM_NAME}
 ${DEVICE_NAME}       %{DEVICE_NAME}
 ${AUTOMATION_NAME}   %{AUTOMATION_NAME}
-#${APP_PACKAGE}       %{APP_PACKAGE}
-#${APP_ACTIVITY}      %{APP_ACTIVITY}
 ${APP_PATH}          %{APP_PATH}
 ${ENVIRONMENT}       %{EXEC_ENV}
 ${API_KEY}           %{API_KEY} 
@@ -83,7 +81,7 @@ Do login with email
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
     ${code}=    Get Code Environment    ${USER1_DETAILS}
-    Input Verification Code Produ    ${code}  
+    Input Verification Code     ${code}  
     Click Element    ${VERIFY_BUTTON}
 
 Do Login new user
@@ -95,7 +93,7 @@ Do Login new user
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
     ${code}=    Get Code Environment   ${USER1_DETAILS}
-    Input Verification Code Produ    ${code}
+    Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
 
 
@@ -122,5 +120,5 @@ Do Login with mobile
     Click Element    ${BTN_MOBILE_LOGIN}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
     ${code}=    Get Code Environment   ${USER_NUMBER}
-    Input Verification Code Produ    ${code}
+    Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
