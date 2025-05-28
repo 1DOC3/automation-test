@@ -6,3 +6,11 @@ test_bundle.zip
 /env
 /wheelhouse
 interactive_console_output.xml
+
+# Archivos de sistema
+.DS_Store
+
+# Archivos locales no deseados
+:DEVICE_NAME
+PP_PATH
+UTOMATION_NAME
