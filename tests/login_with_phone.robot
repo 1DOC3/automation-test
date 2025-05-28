@@ -30,8 +30,8 @@ Login With Phone
     Wait Until Element Is Visible    ${VERIFY_BUTTON}    8s
     Click Element    ${VERIFY_BUTTON}
     Wait Until Element Is Visible    ${ERROR_VERIFY_CODE}    5s
-    ${code}=    Get authentication code    ${USER1_DETAILS}
-    Input Verification Code Produ    ${code}
+    ${code}=    Get Code Environment    ${USER_NUMBER}
+    Input Verification Code    ${code}
     #Reenviar Código por WPP
     Sleep    15s
     Wait Until Element Is Visible    ${FORWARD_WPP}    
