@@ -1,13 +1,5 @@
 *** Variables ***
 
-${APPIUM_SERVER}     %{APPIUM_SERVER}
-${PLATFORM_NAME}     %{PLATFORM_NAME}
-${DEVICE_NAME}       %{DEVICE_NAME}
-${AUTOMATION_NAME}   %{AUTOMATION_NAME}
-${APP_PACKAGE}       %{APP_PACKAGE}
-${APP_ACTIVITY}      %{APP_ACTIVITY}
-
-#${APP_PATH}          %{APP_PATH}
 # Test Variables (Empresa y correo)
 ${USER1_DETAILS}         tutaina@yopmail.com
 ${USER_ONBOARDING}       fa1@yopmail.com

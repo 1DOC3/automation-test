@@ -25,7 +25,8 @@ Login with email Local
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${CODE_VERIFICATION_FIELD}
-    Input Verefication Code    
+    ${code}=    Get Code Environment   ${USER1_DETAILS}
+    Input Verification Code    ${code}
     Click Element    ${VERIFY_BUTTON}
     Close Application
 
@@ -47,7 +48,8 @@ Login with mobile Local
     Input Text       ${EMAIL_FIELD}     ${USER_NUMBER}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${CODE_VERIFICATION_FIELD}    timeout=10s
-    Input Verefication Code    
+    ${code}=    Get Code Environment   ${USER_NUMBER}
+    Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
     Close Application
 

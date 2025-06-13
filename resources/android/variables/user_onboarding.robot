@@ -13,7 +13,7 @@ ${BTN_CONTINUE}             //android.widget.Button[@content-desc="Continuar"]
 ${WOMEN_OPTION}             //android.widget.ImageView[@content-desc="Mujer"]
 ${MEN_OPTION}               //android.widget.ImageView[@content-desc="Hombre"]
 ${UNDETERMINED OPTION}      //android.widget.ImageView[@content-desc="Indefinido"]
-${BTN_SAVED}                Guardar
+${BTN_SAVED}                //android.widget.Button[@content-desc="Guardar"]
 ${COPY_INFORMATION_DATE_OF_BIRTH}   //android.view.View[contains(@content-desc, "Fecha de nacimiento Debes ser mayor de 18 años para continuar")]
 ${ERROR_AGE_USER}                 Nuestro servicio solo cubre a personas entre 18 y 120 años.
 

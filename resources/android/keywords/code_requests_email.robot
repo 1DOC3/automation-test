@@ -3,14 +3,13 @@ Library    RequestsLibrary
 Library    Collections
 Library     AppiumLibrary
 
-
+Resource     ./keywords.robot
 Resource    ../variables/user_activations.robot
 Resource    ../variables/user_consultation.robot
    
 
 *** Variables ***
 ${BASE_URL}      https://qaservice.1doc3.com
-${API_KEY}       f080099e958e0fa439fda09c8a2f4609bbb23adddef69c84a915bb79ae8fc432
 
 *** Keywords ***
 Get authentication code
