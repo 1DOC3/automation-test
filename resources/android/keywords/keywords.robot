@@ -5,6 +5,7 @@ Library    String
 
 Resource    ../variables/user_activations.robot
 Resource    ../variables/user_consultation.robot
+Resource    Keywords_onboarding_flow.robot
 Resource    code_requests_email.robot
 
 *** Variables ***
@@ -92,9 +93,44 @@ Do Login new user
     Input Text       ${EMAIL_FIELD}     ${USER_ONBOARDING}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    ${code}=    Get Code Environment   ${USER1_DETAILS}
-    Input Verification Code  ${code}
+    ${code}=    Get Code Environment   ${USER_ONBOARDING}
+    Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
+    Wait Until Page Contains Element  ${FIELD_NAME}
+    Wait Until Page Contains Element  ${FIELD_LAST_NAME}
+    Wait Until Element Is Visible     ${FIELD_GENDER}
+    Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
+    Input Text       ${INPUT_NAME}           'Liz Dahianna'
+    Wait Until Page Contains Element  ${INPUT_LAST_NAME} 
+    Click Element    ${INPUT_LAST_NAME} 
+    Input Text       ${INPUT_LAST_NAME}      'Giraldo'
+    Wait Until Element Is Visible  ${FIELD_GENDER}
+    Click Element  ${FIELD_GENDER}
+    Click Element     ${WOMEN_OPTION}
+    Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
+    Click Element  ${FIELD_DATE_OF_BIRTH}
+    Seleccionar Fecha    5   abril  1996
+    Wait Until Element Is Visible  ${BTN_SAVED}
+    Click Element  ${BTN_SAVED}
+    Wait Until Element Is Visible  ${BTN_CONTINUE}
+    Click Element  ${BTN_CONTINUE}
+    Wait Until Element Is Visible    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View
+    Wait Until Element Is Visible   ${OBJECTIVE_1}       
+    Wait Until Element Is Visible   ${OBJECTIVE_2}     
+    Wait Until Element Is Visible   ${OBJECTIVE_3} 
+    Wait Until Element Is Visible   ${OBJECTIVE_4}  
+    Wait Until Element Is Visible   ${OBJECTIVE_5} 
+    Wait Until Element Is Visible   ${OBJECTIVE_6}
+    Wait Until Element Is Visible   ${OBJECTIVE_7}    
+    Click Element                   ${OBJECTIVE_3}
+    Sleep  5s
+ 
+   
+
+
+
+
+
 
 
 Scroll Until Element Is Found In Safe Position
