@@ -67,7 +67,5 @@ Field validations
     Click Element                   ${OBJECTIVE_3}
     Sleep  5s
  
-   
-
 
 
