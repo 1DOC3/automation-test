@@ -11,6 +11,7 @@ Resource    ../variables/user_consultation.robot
 *** Variables ***
 ${BASE_URL}      https://qaservice.1doc3.com
 
+
 *** Keywords ***
 Get authentication code
     [Arguments]    ${contact}
