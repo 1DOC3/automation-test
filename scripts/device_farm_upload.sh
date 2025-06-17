@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# set -x
-set -e
+#set -x
+#set -e
 
 upload_package() {
   PACKAGE_PATH="${1}"
@@ -19,6 +19,7 @@ upload_package() {
     if [ "${UPLOAD_STATUS}" = "FAILED" ]; then
       echo "Upload did not complete successfully, the status was ${UPLOAD_STATUS}"
       echo "Unable to proceed with the tests"
+      echo $UPLOAD_RESULT
       exit 1
     elif [ "${UPLOAD_STATUS}" != "SUCCEEDED" ]; then
       echo "Upload of ${PACKAGE_PATH} is not completed, current status is ${UPLOAD_STATUS}"
