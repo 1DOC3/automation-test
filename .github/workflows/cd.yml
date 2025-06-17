@@ -3,6 +3,7 @@ name: production CD
 env:
   AWS_PROJECT_ARN: arn:aws:devicefarm:us-west-2:350572149155:project:e733b29e-3828-418b-9594-ace6fdade885
   PIP_PLATFORM: linux_x86_64
+  PIP_ONLY_BINARY: ":all:"
 
 # Controls when the action will run. 
 on:
