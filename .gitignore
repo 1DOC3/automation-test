@@ -6,6 +6,3 @@ test_bundle.zip
 /env
 /wheelhouse
 interactive_console_output.xml
-stash*.diff
-test_code_api.robot
-test-api.robot
