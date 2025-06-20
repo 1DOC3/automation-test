@@ -29,7 +29,7 @@ Get authentication code
     Create Session    Login    ${BASE_URL}    headers=${headers}
 
     # Reintenta hasta que la respuesta sea 200
-    Wait Until Keyword Succeeds    5x    1s    GET On Session Y Verificar    ${endpoint}
+    Wait Until Keyword Succeeds    5x    5s    GET On Session Y Verificar    ${endpoint}
 
     ${codigo}=    Get From Dictionary    ${response.json()}    code
     Log To Console   Código: ${codigo}
