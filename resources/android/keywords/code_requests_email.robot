@@ -27,9 +27,10 @@ Get authentication code
 
     ${headers}=    Create Dictionary    x-api-key=${API_KEY}
     Create Session    Login    ${BASE_URL}    headers=${headers}
-    ${response}=    GET On Session    Login    url=${endpoint}
 
-    Should Be Equal As Strings    ${response.status_code}    200
+    # Reintenta hasta que la respuesta sea 200
+    Wait Until Keyword Succeeds    5x    5s    GET On Session Y Verificar    ${endpoint}
+
     ${codigo}=    Get From Dictionary    ${response.json()}    code
     Log To Console   Código: ${codigo}
 
@@ -37,3 +38,13 @@ Get authentication code
     RETURN    ${codigo}
 
 
+GET On Session Y Verificar
+    [Arguments]    ${endpoint}
+    ${response}=    GET On Session    Login    url=${endpoint}
+
+    # Registrar detalles si la respuesta no es 200
+    Run Keyword Unless    '${response.status_code}' == '200'    Log To Console    Status recibido: ${response.status_code}
+    Run Keyword Unless    '${response.status_code}' == '200'    Log To Console    Cuerpo de respuesta: ${response.content}
+
+    Should Be Equal As Strings    ${response.status_code}    200
+    Set Test Variable    ${response}
