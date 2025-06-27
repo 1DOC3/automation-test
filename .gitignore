@@ -6,4 +6,3 @@ test_bundle.zip
 /env
 /wheelhouse
 interactive_console_output.xml
-stash*.diff
