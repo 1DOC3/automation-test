@@ -6,3 +6,7 @@ test_bundle.zip
 /env
 /wheelhouse
 interactive_console_output.xml
+.DS_Store
+:DEVICE_NAME
+PP_PATH
+UTOMATION_NAME
