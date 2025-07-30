@@ -125,13 +125,6 @@ Do Login new user
     Click Element                   ${OBJECTIVE_3}
     Sleep  5s
  
-   
-
-
-
-
-
-
 
 Scroll Until Element Is Found In Safe Position
     [Arguments]    ${element_xpath}
@@ -157,4 +150,16 @@ Do Login with mobile
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
     ${code}=    Get Code Environment   ${USER_NUMBER}
     Input Verification Code     ${code}
+    Click Element    ${VERIFY_BUTTON}
+
+Flow Until Verify
+    Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Wait Until Page Contains Element    ${LOGIN_COMPANY_FIELD}
+    Input Text    ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
+    Sleep    5s
+    Click Element    ${COMPANY_SELECTOR}
+    Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
+    Wait Until Page Contains Element    ${EMAIL_FIELD}
+    Input Text    ${EMAIL_FIELD}    ${LICENSE_NOT_EXIST}
     Click Element    ${VERIFY_BUTTON}
