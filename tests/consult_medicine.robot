@@ -10,7 +10,7 @@ Test Teardown    After Tests
 
 *** Test Cases ***
 Set medicina general
-    Do login with email
+    Do login with email  nuevamafe@yopmail.com
     Sleep    8s
     Scroll Until Element Is Found In Safe Position    ${MEDICINA_BUTTON}
     Wait Until Element Is Visible    ${MEDICINA_BUTTON}
