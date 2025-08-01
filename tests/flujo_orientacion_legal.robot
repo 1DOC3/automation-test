@@ -20,7 +20,7 @@ Test Setup       Before Tests
 
 
 Flujo De Orientación Legal Para Todas Las Consultas
-    Do login with email
+    Do login with email  nuevamafe@yopmail.com
     Sleep    8s
     Scroll Until Element Is Found In Safe Position    ${SERVICE_LEGAL_GUIDANCE}    
     ...    start_y=1400    

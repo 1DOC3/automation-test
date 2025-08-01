@@ -74,26 +74,28 @@ Input Verification Code
     
   
 
-Do login with email    
+Do login with email
+...  [Arguments]    ${data}    
     Click Element    ${BTN_ACCOUNT}
     Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
     Click Element    ${CONTINUE_WITH_EMAIL_BUTTON}
-    Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
+    Input Text       ${EMAIL_FIELD}     ${data}  
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    ${code}=    Get Code Environment    ${USER1_DETAILS}
+    ${code}=    Get Code Environment    ${data} 
     Input Verification Code     ${code}  
     Click Element    ${VERIFY_BUTTON}
 
 Do Login new user
+   [Arguments]    ${data} 
     Wait Until Page Contains Element    ${BTN_ACCOUNT} 
     Click Element    ${BTN_ACCOUNT}
     Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
     Click Element    ${CONTINUE_WITH_EMAIL_BUTTON}
-    Input Text       ${EMAIL_FIELD}     ${USER_ONBOARDING}
+    Input Text       ${EMAIL_FIELD}     ${data} 
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    ${code}=    Get Code Environment   ${USER_ONBOARDING}
+    ${code}=    Get Code Environment   ${data} 
     Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
     Wait Until Page Contains Element  ${FIELD_NAME}
@@ -139,16 +141,17 @@ Scroll Until Element Is Found In Safe Position
     Swipe  ${ADDITIONAL_START_X}  ${ADDITIONAL_START_Y}  ${ADDITIONAL_END_X}  ${ADDITIONAL_END_Y}  ${ADDITIONAL_DURATION}
 
 Do Login with mobile
+   [Arguments]    ${data} 
     Sleep    8s
     Click Element    ${BTN_ACCOUNT}
     Wait Until Element Is Visible    ${CONTINUE_WITH_MOBILE_BUTTON}    30s
     Click Element    ${CONTINUE_WITH_MOBILE_BUTTON}
     Wait Until Element Is Visible    ${LOGIN_MOBILE_TEXT_FIELD}
-    Input Text    ${LOGIN_MOBILE_TEXT_FIELD}    ${USER_NUMBER}
+    Input Text    ${LOGIN_MOBILE_TEXT_FIELD}    ${data} 
     Wait Until Element Is Visible    ${BTN_MOBILE_LOGIN}
     Click Element    ${BTN_MOBILE_LOGIN}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    ${code}=    Get Code Environment   ${USER_NUMBER}
+    ${code}=    Get Code Environment   ${data} 
     Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
 
