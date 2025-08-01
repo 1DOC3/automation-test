@@ -1,0 +1,8 @@
+# Ignorar archivos generados de pruebas
+log.html
+output.xml
+report.html 
+test_bundle.zip
+/env
+/wheelhouse
+interactive_console_output.xml
