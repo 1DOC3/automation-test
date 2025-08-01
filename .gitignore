@@ -9,4 +9,7 @@ interactive_console_output.xml
 .DS_Store
 :DEVICE_NAME
 PP_PATH
-UTOMATION_NAME
+UTOMATION_NAME"# Ignorar archivos relacionados con Legal Guidance" 
+"tests/legal_guidance_flow.robot" 
+"resources/android/variables/user_legal_guidance.robot" 
+"resources/android/keywords/legal_guidance_keywords.robot" 
