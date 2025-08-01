@@ -3,8 +3,9 @@
 
 
 
-${SERVICE_LEGAL_GUIDANCE}                 //android.widget.ImageView[@content-desc="Orientación\nLegal"]
-${TERMS_AND_CONDITIONS }                 //android.widget.Button[@content-desc="Continuar"]
+${SERVICE_LEGAL_GUIDANCE}                  //android.view.View[@content-desc="IA\nAsistente\nLegal"]
+${TERMS_AND_CONDITIONS }                  //android.widget.Button[@content-desc="Continuar"]
+${TO_CONSULT}                            //android.widget.ImageView[@content-desc="Para mí\nNicolas López"]
 ${PENAL_CONSULTATION}                   //android.view.View[@content-desc="Penal\nFaltas como robos o agresiones."]
 ${CIVIL_CONSULTATION}                  //android.view.View[@content-desc="Civil\nContratos o disputas entre personas o empresas."]
 ${INMOBILIARIA_CONSULTATION}          //android.view.View[@content-desc="Inmobiliaria\nBienes raíces, compraventa o alquileres."]
@@ -13,11 +14,9 @@ ${ADMINISTRATIVA_CONSULTATION}      //android.view.View[@content-desc="Administr
 ${OTRAS_CONSULTATION}              //android.view.View[@content-desc="Otra\nSelecciona esta opción, si tu consulta no se ajusta a ninguna de las áreas anteriores."]
 
 
-
-
 ${INPUT_DETAIL}                   //android.widget.EditText
 ${DETAIL_CONSULTATION}           ayudame a consultar el estado de mi demanda
-${ATTACH_IMAGE}                 //android.view.View[@content-desc="Adjunta imágenes"] [2]
+${ATTACH_IMAGE}                 //android.view.View[@content-desc="Adjuntar"]
 ${ADD_GALLERY}                 //android.view.View[@content-desc="Galería"]
 ${IMAGES_1}                   //androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]/android.view.View[7]/android.view.View[2]/android.view.View
 ${IMAGES_2}                  //androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]/android.view.View[5]/android.view.View[2]/android.view.View
@@ -25,13 +24,19 @@ ${IMAGES_3}                 //androidx.compose.ui.platform.ComposeView/android.v
 ${IMAGES_4}                //androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]/android.view.View[6]/android.view.View[2]/android.view.View
 ${IMAGES_5}               //androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]/android.view.View[4]/android.view.View[2]/android.view.View
 ${IMAGES_6}              //androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[5]/android.view.View[2]/android.view.View[2]/android.view.View
-${CONTINUE_BUTTON}      //android.widget.Button[@content-desc="Continuar"]
-${EMAIL_DETAIL}        prueba023@yopmail.com
-${SEND_QUERY}         //android.widget.Button[@content-desc="Enviar consulta"]
-${CTA_CLOSE}         //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]
 
 
-
+${CONTINUE_BUTTON}          //android.widget.Button[@content-desc="Continuar"]
+${START_CHAT}              //android.widget.Button[@content-desc="Iniciar chat"]
+${INPUT_DETAIL2}          //android.widget.EditText
+${THREE_POINTS}          //android.widget.Button
+${FINISH}               //android.widget.Button[@content-desc="Finalizar"]
+${FINISH2}             //android.view.View[@content-desc="Finalizar"]
+${WOULD_HAVE_DONE}    //android.view.View[@content-desc="Consultar en internet"]
+${WOULD_HAVE_DONE2}      //android.view.View[@content-desc="Preguntar a un amigo"]
+${WOULD_HAVE_DONE3}     //android.view.View[@content-desc="Contratar un profesional"]
+${WOULD_HAVE_DONE4}    //android.view.View[@content-desc="Quedarme con la duda"]
+${CTA_CLOSE}          //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View
 
 
 &{CONSULTATION_DETAILS1}    
@@ -43,15 +48,12 @@ ${CTA_CLOSE}         //android.widget.FrameLayout[@resource-id="android:id/conte
 ...    ${OTRAS_CONSULTATION}=${OTRAS_DETAIL_1}
 
 
-
-
 ${PENAL_DETAIL_1}           Necesito ayuda con una denuncia penal reciente.
 ${CIVIL_DETAIL_1}           Tengo un conflicto contractual con una empresa.
 ${INMOBILIARIA_DETAIL_1}    Quiero consultar sobre un contrato de arrendamiento.
 ${FAMILIAR_DETAIL_1}        Necesito orientación sobre un proceso de divorcio.
 ${ADMINISTRATIVA_DETAIL_1}  Tengo dudas sobre un trámite con la alcaldía.
 ${OTRAS_DETAIL_1}           Mi consulta no encaja en ninguna categoría anterior.
-
 
 
 &{CONSULTATION_DETAILS2}    
@@ -63,14 +65,12 @@ ${OTRAS_DETAIL_1}           Mi consulta no encaja en ninguna categoría anterior
 ...    ${OTRAS_CONSULTATION}=${OTRAS_DETAIL_2}
 
 
-
-${PENAL_DETAIL_2}           He sido víctima de un robo en mi domicilio. La persona responsable fue detenida. pero necesito saber que acciones adicionales seguir.
-${CIVIL_DETAIL_2}           Firmé un contrato con una empresa para un servicio que no fue entregado. ¿Qué acciones legales puedo tomar para reclamar el cumplimiento o reembolso?
-${INMOBILIARIA_DETAIL_2}    Estoy en medio de una negociación para comprar una casa, pero hay disputas con el contrato de compraventa. ¿Cómo debo proceder?
-${FAMILIAR_DETAIL_2}        Estoy en proceso de divorcio y necesito orientación sobre la custodia de mis hijos. ¿Qué derechos y deberes tengo?
-${ADMINISTRATIVA_DETAIL_2}  Necesito obtener una licencia para abrir mi negocio, pero he encontrado problemas con los trámites. ¿Qué puedo hacer para acelerar el proceso?
-${OTRAS_DETAIL_2}           Mi consulta no encaja en ninguna categoría anterior, mira el documento que te voy a adjuntar.
-
+${PENAL_DETAIL_2}           ¿Puedes explicar brevemente en qué casos una conducta se considera delito penal y qué vías existen para que una persona recupere legalmente activos obtenidos ilícitamente?
+${CIVIL_DETAIL_2}           ¿Cómo interpretaría un incumplimiento contractual y cómo debería calcularse una indemnización por daños y perjuicios en un contrato de compraventa entre personas físicas?
+${INMOBILIARIA_DETAIL_2}    ¿Puedes detallar los pasos principales para reclamar el cumplimiento de un contrato de arrendamiento e indicar posibles sanciones por incumplimiento del propietario o del inquilino?
+${FAMILIAR_DETAIL_2}        ¿Qué criterios claves utiliza el sistema judicial para asignar la custodia de menores en un proceso de divorcio y cómo afecta esto a la pensión alimenticia?
+${ADMINISTRATIVA_DETAIL_2}  ¿Podrías explicar los plazos y recurso correspondiente para impugnar una sanción administrativa impuesta por una entidad gubernamental?
+${OTRAS_DETAIL_2}           ¿Podrías indicarme cuál área del derecho podría corresponder (como laboral, tributario, ambiental, propiedad intelectual, sucesiones u otra) y qué información adicional necesitarías que yo te proporcione para ayudarte de forma más precisa?”
 
 &{CONSULTATION_DETAILS3}    
 ...    ${PENAL_CONSULTATION}=${PENAL_DETAIL_3}
@@ -79,7 +79,6 @@ ${OTRAS_DETAIL_2}           Mi consulta no encaja en ninguna categoría anterior
 ...    ${FAMILIAR_CONSULTATION}=${FAMILIAR_DETAIL_3}
 ...    ${ADMINISTRATIVA_CONSULTATION}=${ADMINISTRATIVA_DETAIL_3}
 ...    ${OTRAS_CONSULTATION}=${OTRAS_DETAIL_3}
-
 
 
 ${PENAL_DETAIL_3}           Si robo mi propia bicicleta, ¿puedo demandarme a mí mismo? Mira el documento que te voy a adjuntar.
