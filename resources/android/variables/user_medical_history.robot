@@ -40,3 +40,4 @@ ${BUTTON_BACK_CONSULTATION}         //android.widget.FrameLayout[@resource-id="a
 ${THIRD_CONSULTATION_LEGAL}         //android.widget.ImageView[contains(@content-desc,"Asistente Legal\nIA\nCalificación pendiente\nConsulta para: Sam Camelo")][3]
 ${TITLE_CONSULTATION_LEGAL}         //android.view.View[@content-desc="Consulta Legal"]
 ${REASON_FOR_CONSULTATIONN_LEGAL}    //android.view.View[@content-desc="Agosto 1, 2025\nConsulta para: Sam Camelo\nMotivo de consulta\nEstoy en proceso de divorcio y necesito orientación sobre la custodia de mis hijos. ¿Qué derechos y deberes tengo?"]
+${EMPTY_STATE}                       //android.widget.ImageView[contains(@content-desc,"No has realizado\nConsultas de salud\nPuedes consultar sobre cualquier tema de salud para ti, tu familia o mascotas.")]

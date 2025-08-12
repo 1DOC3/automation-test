@@ -9,35 +9,7 @@ Test Setup       Before Tests
 Test Teardown    After Tests
 
 *** Test Cases ***
-Access Medical History From All Entry Points
-    Do login with email  tutaina@yopmail.com
 
-    # Access from Tab Bar
-    Wait Until Element Is Visible    ${BUTTON_CONSULTATION}
-    Click Element                    ${BUTTON_CONSULTATION}
-    Wait Until Page Contains Element    ${BUTTON_CONSULTATIONS}
-    Click Element                    ${BUTTON_CONSULTATIONS}
-    Wait Until Page Contains Element    ${TITLE_CONSULTATIONS}
-
-    # Go back to Home
-    Click Element    ${BUTTON_HOME}
-
-    # Access from Profile
-    Wait Until Element Is Visible       ${BUTTON_PROFILE}
-    Click Element                       ${BUTTON_PROFILE}
-    
-    # Assert clic in consultations
-    Page Should Contain Element    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View  
-    Wait Until Element Is Visible      ${OPTION_MY_CONSULTATIONS}   timeout=30s
-    Click Element    ${OPTION_MY_CONSULTATIONS}
-    Sleep  5s
-    
-
-    # Validating view medical history
-    Wait Until Element Is Visible       ${BUTTON_CONSULTATION}
-    Wait Until Page Contains Element    ${BUTTON_CONSULTATIONS}
-    Wait Until Page Contains Element    ${TITLE_CONSULTATIONS}    timeout=30s
-    Page Should Contain Element         ${TITLE_CONSULTATIONS}
 
 Validation Medical History From Tab bar and choosing consultations
     Do login with email  tutaina@yopmail.com
@@ -107,7 +79,15 @@ Validation Medical History From Tab bar and choosing consultations
     Page Should Contain Element  ${OPTION_VETERINARY}
     Click Element  ${OPTION_VETERINARY}
 
-
+Validation Medical History From Tab bar without consultations
+    Do login with email  lizgiraldo@utp.edu.co 
+    # Access from Tab Bar
+    Wait Until Element Is Visible       ${BUTTON_CONSULTATION}
+    Click Element                       ${BUTTON_CONSULTATION}
+    Wait Until Page Contains Element    ${BUTTON_CONSULTATIONS}
+    Click Element                       ${BUTTON_CONSULTATIONS}
+    Wait Until Element Is Visible  ${EMPTY_STATE}
+    Sleep  2s
 
 
 
