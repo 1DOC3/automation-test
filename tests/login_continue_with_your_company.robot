@@ -20,6 +20,8 @@ Login with email Local
     Wait Until Page Contains Element    ${EMAIL_FIELD}
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
     Click Element    ${VERIFY_BUTTON}
+    Wait Until Element Is Visible    ${LOG_IN_BUTTON}
+    Click Element    ${LOG_IN_BUTTON} 
     Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
     Click Element    ${CONTINUE_WITH_EMAIL_BUTTON}
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
@@ -42,6 +44,8 @@ Login with mobile Local
     Wait Until Page Contains Element    ${EMAIL_FIELD}
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
     Click Element    ${VERIFY_BUTTON}
+    Wait Until Element Is Visible    ${LOG_IN_BUTTON}
+    Click Element    ${LOG_IN_BUTTON} 
     Wait Until Page Contains Element    ${CONTINUE_WITH_MOBILE_BUTTON}
     Click Element    ${CONTINUE_WITH_MOBILE_BUTTON}
     Wait Until Page Contains Element    ${NUMBER_FIELD}

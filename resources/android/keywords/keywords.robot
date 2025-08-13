@@ -74,26 +74,28 @@ Input Verification Code
     
   
 
-Do login with email    
+Do login with email
+...  [Arguments]    ${data}    
     Click Element    ${BTN_ACCOUNT}
     Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
     Click Element    ${CONTINUE_WITH_EMAIL_BUTTON}
-    Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
+    Input Text       ${EMAIL_FIELD}     ${data}  
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    ${code}=    Get Code Environment    ${USER1_DETAILS}
+    ${code}=    Get Code Environment    ${data} 
     Input Verification Code     ${code}  
     Click Element    ${VERIFY_BUTTON}
 
 Do Login new user
+   [Arguments]    ${data} 
     Wait Until Page Contains Element    ${BTN_ACCOUNT} 
     Click Element    ${BTN_ACCOUNT}
     Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
     Click Element    ${CONTINUE_WITH_EMAIL_BUTTON}
-    Input Text       ${EMAIL_FIELD}     ${USER_ONBOARDING}
+    Input Text       ${EMAIL_FIELD}     ${data} 
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    ${code}=    Get Code Environment   ${USER_ONBOARDING}
+    ${code}=    Get Code Environment   ${data} 
     Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
     Wait Until Page Contains Element  ${FIELD_NAME}
@@ -125,36 +127,55 @@ Do Login new user
     Click Element                   ${OBJECTIVE_3}
     Sleep  5s
  
-   
-
-
-
-
-
-
-
 Scroll Until Element Is Found In Safe Position
-    [Arguments]    ${element_xpath}
-    WHILE    "True"
-        ${element_found}=    Run Keyword And Ignore Error    Wait Until Element Is Visible   ${element_xpath}    ${TIMEOUT}
-        ${status}=    Set Variable    ${element_found[0]}  # Extraer solo 'PASS' o 'FAIL'
-        Run Keyword If    '${status}' == 'PASS'    Exit For Loop If    True
-        Swipe  ${START_X}  ${START_Y}  ${END_X}  ${END_Y}  ${DURATION}
+    [Arguments]  ${element_xpath}  ${start_x}=500  ${start_y}=1000  ${end_x}=500  ${end_y}=500
+    ...  ${duration}=1000  ${timeout}=3  ${additional_scroll}=${True}
+    ...  ${additional_start_x}=500  ${additional_start_y}=800
+    ...  ${additional_end_x}=500  ${additional_end_y}=300  ${additional_duration}=500
+
+
+
+    WHILE  True
+        Log    Trying to find element...
+        ${element_found}=  Run Keyword And Ignore Error  Wait Until Element Is Visible  ${element_xpath}  ${timeout}
+        ${status}=  Set Variable  ${element_found[0]}
+        Run Keyword If  '${status}' == 'PASS'  Exit For Loop
+        Log    Element not found, scrolling...
+        Swipe  ${start_x}  ${start_y}  ${end_x}  ${end_y}  ${duration}
     END
-    Log    Element found!
-    # Hacer scroll adicional para asegurar que el elemento no esté cubierto por el banner
-    Swipe  ${ADDITIONAL_START_X}  ${ADDITIONAL_START_Y}  ${ADDITIONAL_END_X}  ${ADDITIONAL_END_Y}  ${ADDITIONAL_DURATION}
+
+
+
+    Log  Element found!
+
+
+
+    Run Keyword If  '${additional_scroll}' == 'True'
+    ...    Swipe  ${additional_start_x}  ${additional_start_y}  ${additional_end_x}  ${additional_end_y}  ${additional_duration}
 
 Do Login with mobile
+   [Arguments]    ${data} 
     Sleep    8s
     Click Element    ${BTN_ACCOUNT}
     Wait Until Element Is Visible    ${CONTINUE_WITH_MOBILE_BUTTON}    30s
     Click Element    ${CONTINUE_WITH_MOBILE_BUTTON}
     Wait Until Element Is Visible    ${LOGIN_MOBILE_TEXT_FIELD}
-    Input Text    ${LOGIN_MOBILE_TEXT_FIELD}    ${USER_NUMBER}
+    Input Text    ${LOGIN_MOBILE_TEXT_FIELD}    ${data} 
     Wait Until Element Is Visible    ${BTN_MOBILE_LOGIN}
     Click Element    ${BTN_MOBILE_LOGIN}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    ${code}=    Get Code Environment   ${USER_NUMBER}
+    ${code}=    Get Code Environment   ${data} 
     Input Verification Code     ${code}
+    Click Element    ${VERIFY_BUTTON}
+
+Flow Until Verify
+    Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Wait Until Page Contains Element    ${LOGIN_COMPANY_FIELD}
+    Input Text    ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
+    Sleep    5s
+    Click Element    ${COMPANY_SELECTOR}
+    Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
+    Wait Until Page Contains Element    ${EMAIL_FIELD}
+    Input Text    ${EMAIL_FIELD}    ${LICENSE_NOT_EXIST}
     Click Element    ${VERIFY_BUTTON}

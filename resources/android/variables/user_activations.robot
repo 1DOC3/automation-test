@@ -5,11 +5,13 @@ ${USER1_DETAILS}         tutaina@yopmail.com
 ${USER1_PHONE}           kmontana@1doc3.com
 ${USER_ONBOARDING}       fa1@yopmail.com
 ${USER_NUMBER}           3128167733
-${NAME_COMPANY}          Empresa pruebas
-${NAME_COMPANY_TWO}      Empresa pruebas UAT
-${NAME_COMPANY_THREE}    Empresa pruebas regresion
+${USER_NUMBER_TWO}    3219005389
+${NAME_COMPANY}    LKJM
+${NAME_COMPANY_TWO}      UAT
+${NAME_COMPANY_THREE}    Momo S.A
 ${NAME_COMPANY_FOUR}     1DOC3 empresa
 ${NAME_NOEXIST}          Ram
+${LICENSE_NOT_EXIST}    003@yopmail.com
 
 
 
@@ -17,14 +19,15 @@ ${NAME_NOEXIST}          Ram
 ${LOGIN_SUBMIT_CONTINUACONEMPRESA}   //android.widget.Button[@content-desc="Continúa con tu empresa"]
 ${LOGIN_COMPANY_FIELD}               //android.widget.EditText
 ${LOGIN_SUBMIT_BUTTON_CONTINUAR}     //android.widget.Button[@content-desc="Continuar"]
-${COMPANY_SELECTOR}                  //android.widget.ImageView[@content-desc="Empresa pruebas"]
-${COMPANY_SELECTOR_PHONE}            //android.widget.ImageView[@content-desc="Empresa pruebas UAT"]
-${COMPANY_SELECTOR_DOCUMENT}         //android.widget.ImageView[@content-desc="Empresa pruebas regresion"]
+${COMPANY_SELECTOR}                  //android.widget.ImageView[@content-desc="LKJM"]
+${COMPANY_SELECTOR_PHONE}            //android.widget.ImageView[@content-desc="UAT"]
+${COMPANY_SELECTOR_DOCUMENT}         //android.widget.ImageView[@content-desc="Momo S.A"]
 ${COMPANY_SELECTOR_EMAIL}            //android.widget.ImageView[@content-desc="1DOC3 empresa"]
 ${EMAIL_FIELD}                       //android.widget.EditText  
 ${NUMBER_FIELD}                      //android.widget.EditText
 ${DOCUMENT_FIELD}                    //android.widget.EditText
 ${VERIFY_BUTTON}                     //android.widget.Button[@content-desc="Verificar"]
+${LOG_IN_BUTTON}                      //android.widget.Button[@content-desc="Iniciar sesión"]
 ${ERROR_SELECT_COMPANY1}             //android.view.View[@content-desc="Selecciona una empresa"]
 ${ERROR_SELECT_COMPANY2}             //android.view.View[@content-desc="Para continuar selecciona de la lista el nombre de la empresa a la que perteneces."]
 ${MSG_VERIFY_USER}                   //android.view.View[@content-desc="Verifica tu usuario"]
@@ -62,5 +65,10 @@ ${WPP_BANNER_CODE}                  //android.view.View[@content-desc="Ya te env
 # Main Page Locator (Notificaciones)
 ${NOTIFICATION_BUTTON}    //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]
 
+#Licenses no exist Locator
+${INVALID_DATA_CTA}    //android.widget.Button[@content-desc="Continuar"]
+${PHONE_INFO}    //android.widget.EditText
+${SEND_CTA}    //android.widget.Button[@content-desc="Enviar"]
+${CONFIRMATION_MESSAGE}    //android.view.View[@content-desc="En unos minutos te enviaremos los pasos a seguir a tu WhatsApp."]
 
 
