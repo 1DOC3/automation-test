@@ -49,7 +49,7 @@ Get Code Environment
     ELSE
         ${code}=    Get authentication code    ${data}
     END
-    [Return]    ${code}
+    RETURN    ${code}
 
 Verify Text Equal on Element
     [Arguments]    ${selector}    ${texto_esperado}
