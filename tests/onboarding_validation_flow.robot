@@ -29,7 +29,6 @@ Field validations
     Wait Until Element Is Visible     ${FIELD_GENDER}
     Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
     Wait Until Element Is Visible     ${COPY_INFORMATION}
-    Wait Until Page Contains Element  ${BTN_CONTINUE}
     Input Text       ${INPUT_NAME}           'Liz Dahianna'
     Wait Until Page Contains Element  ${INPUT_LAST_NAME} 
     Click Element    ${INPUT_LAST_NAME} 
@@ -54,8 +53,8 @@ Field validations
     Wait Until Page Contains Element    ${ERROR_AGE_USER}
     Seleccionar Fecha    5   abril  1996
     Click Element  ${BTN_SAVED}
-    Wait Until Element Is Visible  ${BTN_CONTINUE}
-    Click Element  ${BTN_CONTINUE}
+    Wait Until Element Is Visible    xpath=//*[contains(@content-desc, "Continuar")]    20s
+    Click Element                    xpath=//*[contains(@content-desc, "Continuar")]
     Wait Until Element Is Visible    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View
     Wait Until Element Is Visible   ${OBJECTIVE_1}       
     Wait Until Element Is Visible   ${OBJECTIVE_2}     
@@ -65,7 +64,13 @@ Field validations
     Wait Until Element Is Visible   ${OBJECTIVE_6}
     Wait Until Element Is Visible   ${OBJECTIVE_7}    
     Click Element                   ${OBJECTIVE_3}
+    Wait Until Page Contains Element    ${COPY_TITLE_NOTIFICATIONS}
+    Wait Until Element Is Visible       ${BTN_ENABLE_NOTIFICATIONS}
+    Wait Until Element Is Visible       ${BTN_SKIP_NOTIFICATIONS}
+    Click Element                       ${BTN_SKIP_NOTIFICATIONS}
+    Seleccionar Cantidad De Pasos    6.000  
+    Wait Until Element Is Visible    ${BTN_CONTINUAR_PASOS}  
+    Click Element    ${BTN_CONTINUAR_PASOS}
+    Wait Until Element Is Visible    ${BTN_GOOGLE_FIT}    5s
+    Click Element                    ${BTN_GOOGLE_FIT}
     Sleep  5s
- 
-
-
