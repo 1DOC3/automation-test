@@ -6,7 +6,7 @@ ${USER1_PHONE}           kmontana@1doc3.com
 ${USER_ONBOARDING}       fa1@yopmail.com
 ${USER_NUMBER}           3128167733
 ${USER_NUMBER_TWO}    3219005389
-${NAME_COMPANY}    LKJM
+${NAME_COMPANY}  LKJM
 ${NAME_COMPANY_TWO}      UAT
 ${NAME_COMPANY_THREE}    Momo S.A
 ${NAME_COMPANY_FOUR}     1DOC3 empresa
