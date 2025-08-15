@@ -1,6 +1,7 @@
 *** Settings ***
 Library     AppiumLibrary
 Library    String
+Library    FakerLibrary
 
 
 Resource    ../variables/user_activations.robot
@@ -38,8 +39,6 @@ Open 1doc3 Application
     ...    app=${APP_PATH}
     ...    automationName=${AUTOMATION_NAME}
     ...    autoGrantPermissions=true
-
-
 
 
 Get Code Environment
@@ -127,6 +126,7 @@ Do Login new user
     Click Element                   ${OBJECTIVE_3}
     Sleep  5s
  
+
 Scroll Until Element Is Found In Safe Position
     [Arguments]  ${element_xpath}  ${start_x}=500  ${start_y}=1000  ${end_x}=500  ${end_y}=500
     ...  ${duration}=1000  ${timeout}=3  ${additional_scroll}=${True}
@@ -177,5 +177,14 @@ Flow Until Verify
     Click Element    ${COMPANY_SELECTOR}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${EMAIL_FIELD}
-    Input Text    ${EMAIL_FIELD}    ${LICENSE_NOT_EXIST}
+    Aleatory
     Click Element    ${VERIFY_BUTTON}
+
+Aleatory
+    ${result}=    Run Keyword And Ignore Error    Set Variable    ${EMAIL_GENERATED}
+    ${status}=    Set Variable    ${result}[0]
+    IF    '${status}' == 'FAIL'
+        ${email}=    FakerLibrary.Email
+        Set Suite Variable    ${EMAIL_GENERATED}    ${email}
+    END
+    Input Text    ${EMAIL_FIELD}    ${EMAIL_GENERATED}
