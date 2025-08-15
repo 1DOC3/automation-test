@@ -36,11 +36,26 @@ ${OBJECTIVE_6}        //android.widget.ImageView[@content-desc="Prevenir enferme
 ${OBJECTIVE_7}        //android.widget.ImageView[@content-desc="Otro"]
 
 
-# Permission
+# Page 3 notifications
 
-${MESSAGE_ALLOW_NOTIFICATIONS}      com.android.permissioncontroller:id/grant_dialog
-${BTN_ALLOW}                        com.android.permissioncontroller:id/permission_allow_button
-${BTN_DENY}                         com.android.permissioncontroller:id/permission_deny_button
+${COPY_TITLE_NOTIFICATIONS}           //android.view.View[@content-desc="¡No te pierdas nada de 1DOC3!"]
+${COPY_DESCRIPTION_NOTIFICATIONS}     //android.view.View[contains(@content-desc, "Activa las notificaciones para estar al tanto de tus consultas")]
+${BTN_ENABLE_NOTIFICATIONS}           //android.view.View[@content-desc="Activar notificaciones"]
+${BTN_SKIP_NOTIFICATIONS}            //android.view.View[@content-desc="No por ahora"]
+
+# Page 4 daily steps goal
+
+${COPY_TITLE_DAILY_STEPS}             //android.view.View[@content-desc="Objetivo de pasos diarios"]
+${LOCATOR_PASO}                       xpath=//android.widget.ScrollView
+${STEPS_7000}                         //android.view.View[@content-desc="7.000"]
+${BTN_CONTINUAR_PASOS}    //android.view.View[@content-desc="Continuar"]
+
+
+
+# Page 5 synchronize
+
+${BTN_GOOGLE_FIT}    //android.widget.ImageView[contains(@content-desc,"Google Fit")]
+
 
 
 # Programs 

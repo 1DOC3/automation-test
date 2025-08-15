@@ -27,6 +27,7 @@ ${EMAIL_FIELD}                       //android.widget.EditText
 ${NUMBER_FIELD}                      //android.widget.EditText
 ${DOCUMENT_FIELD}                    //android.widget.EditText
 ${VERIFY_BUTTON}                     //android.widget.Button[@content-desc="Verificar"]
+${LOG_IN_BUTTON}                      //android.widget.Button[@content-desc="Iniciar sesión"]
 ${ERROR_SELECT_COMPANY1}             //android.view.View[@content-desc="Selecciona una empresa"]
 ${ERROR_SELECT_COMPANY2}             //android.view.View[@content-desc="Para continuar selecciona de la lista el nombre de la empresa a la que perteneces."]
 ${MSG_VERIFY_USER}                   //android.view.View[@content-desc="Verifica tu usuario"]

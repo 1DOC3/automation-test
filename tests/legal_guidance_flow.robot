@@ -7,20 +7,15 @@ Resource        ../resources/android/keywords/legal_guidance_keywords.robot
 
 
 
-
-
-
 Suite Setup     Setting timeouts
 Test Setup       Before Tests
-
-
 
 
 *** Test Cases ***
 
 
 Flujo De Orientación Legal Para Todas Las Consultas
-    Do login with email
+    Do login with email    nuevamafe@yopmail.com
     Sleep    8s
     Scroll Until Element Is Found In Safe Position    ${SERVICE_LEGAL_GUIDANCE}    
     ...    start_y=1400    
@@ -28,6 +23,8 @@ Flujo De Orientación Legal Para Todas Las Consultas
     ...    duration=500
     Wait Until Element Is Visible    ${SERVICE_LEGAL_GUIDANCE}
     Click Element    ${SERVICE_LEGAL_GUIDANCE}
+    Wait Until Element Is Visible    ${TO_CONSULT}    
+    Click Element    ${TO_CONSULT}  
 
 
     @{CONSULTAS}=    Create List
@@ -44,5 +41,3 @@ Flujo De Orientación Legal Para Todas Las Consultas
         Ejecutar Flujo De Consulta Legal    ${CONSULTA}    ${DETALLE}
         Volver A Menu De Orientacion Legal
     END
-
-

@@ -4,7 +4,6 @@ Resource        ../resources/android/variables/user_activations.robot
 Resource        ../resources/android/keywords/keywords.robot
 Library    FakerLibrary
 
-
 Suite Setup     Setting timeouts
 
 Test Setup    Before Tests
@@ -21,6 +20,7 @@ Activate licences Happy Path
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${EMAIL_FIELD}
     Aleatory
+    Input Text       ${EMAIL_FIELD}     ${LICENSE_NOT_EXIST}
     Click Element    ${VERIFY_BUTTON}
     Wait Until Page Contains Element    ${INVALID_DATA_CTA}
     Click Element    ${INVALID_DATA_CTA}
