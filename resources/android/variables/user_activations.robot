@@ -11,7 +11,7 @@ ${NAME_COMPANY_TWO}      UAT
 ${NAME_COMPANY_THREE}    Momo S.A
 ${NAME_COMPANY_FOUR}     1DOC3 empresa
 ${NAME_NOEXIST}          Ram
-${LICENSE_NOT_EXIST}    003@yopmail.com
+${LICENSE_NOT_EXIST}    004@yopmail.com
 
 
 
@@ -69,5 +69,7 @@ ${INVALID_DATA_CTA}    //android.widget.Button[@content-desc="Continuar"]
 ${PHONE_INFO}    //android.widget.EditText
 ${SEND_CTA}    //android.widget.Button[@content-desc="Enviar"]
 ${CONFIRMATION_MESSAGE}    //android.view.View[@content-desc="En unos minutos te enviaremos los pasos a seguir a tu WhatsApp."]
+${TAP_OUTSIDE}    //android.view.View[@content-desc="Sombreado"]
+${PHONE_LICENCES}    //android.view.View[@content-desc="Escribe tu número celular para continuar."]
 
 
