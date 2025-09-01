@@ -42,9 +42,10 @@ GET On Session Y Verificar
     [Arguments]    ${endpoint}
     ${response}=    GET On Session    Login    url=${endpoint}
 
-    # Registrar detalles si la respuesta no es 200
-    Run Keyword Unless    '${response.status_code}' == '200'    Log To Console    Status recibido: ${response.status_code}
-    Run Keyword Unless    '${response.status_code}' == '200'    Log To Console    Cuerpo de respuesta: ${response.content}
+    IF    '${response.status_code}' != '200'
+        Log To Console    Status recibido: ${response.status_code}
+        Log To Console    Cuerpo de respuesta: ${response.content}
+    END
 
-    Should Be Equal As Strings    ${response.status_code}    200
-    Set Test Variable    ${response}
+    Should Be Equal As Strings  ${response.status_code}    200
+    Set Test Variable  ${response}
