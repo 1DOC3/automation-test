@@ -51,9 +51,12 @@ ${SUPPORT_MESSAGE}                   //android.view.View[@content-desc="¿Necesi
 
 #Login Locators
 ${CONTINUE_WITH_EMAIL_BUTTON}       //android.widget.ImageView[@content-desc="Inicia sesión con correo"]
+${CONTINUE_WITH_GOOGLE_BUTTON}      //android.widget.ImageView[@content-desc="Inicia sesión con Google"]
 ${CONTINUE_WITH_MOBILE_BUTTON}      //android.widget.ImageView[@content-desc="Inicia sesión con número celular"]
 ${BTN_ACCOUNT}                      //android.widget.Button[@content-desc="Ya tengo una cuenta"]
+${BTN_GOOGLE_ACCOUNT}               xpath=(//android.widget.LinearLayout[@resource-id="com.google.android.gms:id/container"])[3]
 ${LOGIN_MOBILE_TEXT_FIELD}          //android.widget.EditText
+${LOGIN_GOOGLE_TEXT_FIELD}          //android.widget.EditText
 ${BTN_MOBILE_LOGIN}                 //android.widget.Button[@content-desc="Continuar"]
 ${ERROR_FIELD_NUMBER}               //android.view.View[@content-desc="Escribe tu número celular para continuar."]
 ${ERROR_BANNER}                     //android.view.View[@content-desc="Verifica que ingresaste un número de celular."]
