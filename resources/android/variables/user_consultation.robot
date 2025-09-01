@@ -37,3 +37,7 @@ ${OPTIONS_CONSULT}                  //android.widget.Button
 ${FINISH_CONSULT}                   //android.widget.Button[@content-desc="Finalizar"]
 ${FINISH_CONSULT_CONFIRM}           //android.view.View[@content-desc="Finalizar"]
 ${MODAL_QUEREMOS_TU_OPINION}        //android.view.View[@content-desc="Ir a una farmacia"]
+${TERMS_AND_CONDITIONS}    //android.view.View[@content-desc="Hemos actualizado nuestros Términos y Condiciones y Políticas de privacidad, te invitamos a leerlos para hacer uso de los servicios de 1DOC3."]
+${CTA_TERMS_CONDITIONS}    //android.widget.Button[@content-desc="Continuar"]
+${ALARMS & REMINDERS}  //android.widget.ScrollView/android.view.View[2]/android.view.View
+${ATRAS}  //android.widget.Button
