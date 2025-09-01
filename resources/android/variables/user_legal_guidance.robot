@@ -1,11 +1,12 @@
 *** Variables ***
 # Variables Consultations
 
-
+${RUTA_IMAGEN_PC}         C:/Users/Daza/Documents/fotos de pruebas/foto_prueba.png
+${RUTA_IMAGEN_ANDROID}    /sdcard/Download/foto_prueba.png
 
 ${SERVICE_LEGAL_GUIDANCE}                  //android.view.View[@content-desc="IA\nAsistente\nLegal"]
 ${TERMS_AND_CONDITIONS }                  //android.widget.Button[@content-desc="Continuar"]
-${TO_CONSULT}                            //android.widget.ImageView[@content-desc="Para mí\nNicolas López"]
+${TO_CONSULT}                 //android.widget.ImageView[contains(@content-desc,"Para mí")]
 ${PENAL_CONSULTATION}                   //android.view.View[@content-desc="Penal\nFaltas como robos o agresiones."]
 ${CIVIL_CONSULTATION}                  //android.view.View[@content-desc="Civil\nContratos o disputas entre personas o empresas."]
 ${INMOBILIARIA_CONSULTATION}          //android.view.View[@content-desc="Inmobiliaria\nBienes raíces, compraventa o alquileres."]
@@ -31,7 +32,8 @@ ${IMAGES_6}              //androidx.compose.ui.platform.ComposeView/android.view
 ${CONTINUE_BUTTON}             //android.widget.Button[@content-desc="Continuar"]
 ${START_CHAT}                 //android.widget.Button[@content-desc="Iniciar chat"]
 ${INPUT_DETAIL_2}            //android.widget.EditText
-${DETAIL_CONSULTATION_2}    eso es todo, gracias 
+${DETAIL_CONSULTATION_2}    Ya no necesito nada más. Te agradezco mucho.
+${DETAIL_CONSULTATION_3}    Por ahora está todo claro. ¡Gracias por tu tiempo!
 ${SEND_BUTTON}            //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[7]
 ${THREE_POINTS}          //android.widget.Button
 ${THREE_POINTS_2}       //androidx.compose.ui.platform.ComposeView/android.view.View/android.view.View/android.view.View[4]/android.widget.Button
