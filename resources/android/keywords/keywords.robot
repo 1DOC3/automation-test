@@ -2,6 +2,7 @@
 Library     AppiumLibrary
 Library    String
 Library    FakerLibrary
+Library    Process
 
 
 Resource    ../variables/user_activations.robot
@@ -32,6 +33,7 @@ After Tests
 
 Open 1doc3 Application
     [Documentation]    Abre la aplicación de 1doc3 basandose en las variables de entorno.
+    Run Process    adb    shell    pm grant ${APP_PACKAGE} android.permission.SCHEDULE_EXACT_ALARM
     Open Application
     ...    ${APPIUM_SERVER}
     ...    platformName=${PLATFORM_NAME}
@@ -84,48 +86,10 @@ Do login with email
     ${code}=    Get Code Environment    ${data} 
     Input Verification Code     ${code}  
     Click Element    ${VERIFY_BUTTON}
-
-Do Login new user
-   [Arguments]    ${data} 
-    Wait Until Page Contains Element    ${BTN_ACCOUNT} 
-    Click Element    ${BTN_ACCOUNT}
-    Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
-    Click Element    ${CONTINUE_WITH_EMAIL_BUTTON}
-    Input Text       ${EMAIL_FIELD}     ${data} 
-    Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
-    Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    ${code}=    Get Code Environment   ${data} 
-    Input Verification Code     ${code}
-    Click Element    ${VERIFY_BUTTON}
-    Wait Until Page Contains Element  ${FIELD_NAME}
-    Wait Until Page Contains Element  ${FIELD_LAST_NAME}
-    Wait Until Element Is Visible     ${FIELD_GENDER}
-    Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
-    Input Text       ${INPUT_NAME}           'Liz Dahianna'
-    Wait Until Page Contains Element  ${INPUT_LAST_NAME} 
-    Click Element    ${INPUT_LAST_NAME} 
-    Input Text       ${INPUT_LAST_NAME}      'Giraldo'
-    Wait Until Element Is Visible  ${FIELD_GENDER}
-    Click Element  ${FIELD_GENDER}
-    Click Element     ${WOMEN_OPTION}
-    Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
-    Click Element  ${FIELD_DATE_OF_BIRTH}
-    Seleccionar Fecha    5   abril  1996
-    Wait Until Element Is Visible  ${BTN_SAVED}
-    Click Element  ${BTN_SAVED}
-    Wait Until Element Is Visible  ${BTN_CONTINUE}
-    Click Element  ${BTN_CONTINUE}
-    Wait Until Element Is Visible    //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View
-    Wait Until Element Is Visible   ${OBJECTIVE_1}       
-    Wait Until Element Is Visible   ${OBJECTIVE_2}     
-    Wait Until Element Is Visible   ${OBJECTIVE_3} 
-    Wait Until Element Is Visible   ${OBJECTIVE_4}  
-    Wait Until Element Is Visible   ${OBJECTIVE_5} 
-    Wait Until Element Is Visible   ${OBJECTIVE_6}
-    Wait Until Element Is Visible   ${OBJECTIVE_7}    
-    Click Element                   ${OBJECTIVE_3}
-    Sleep  5s
- 
+    Sleep    8s
+    Permission notifications
+    Alarms & Reminders
+    Terms and conditions
 
 Scroll Until Element Is Found In Safe Position
     [Arguments]  ${element_xpath}  ${start_x}=500  ${start_y}=1000  ${end_x}=500  ${end_y}=500
@@ -167,6 +131,10 @@ Do Login with mobile
     ${code}=    Get Code Environment   ${data} 
     Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
+    Sleep    8s
+    Permission notifications
+    Alarms & Reminders
+    Terms and conditions
 
 Flow Until Verify
     Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
@@ -188,3 +156,16 @@ Aleatory
         Set Suite Variable    ${EMAIL_GENERATED}    ${email}
     END
     Input Text    ${EMAIL_FIELD}    ${EMAIL_GENERATED}
+
+Permission notifications
+    ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${ALLOW_PERMISSION1}    timeout=3s
+    Run Keyword If    ${is_visible}    Click Element    ${ALLOW_PERMISSION1}
+
+Terms and conditions
+    ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${TERMS_AND_CONDITIONS}    timeout=3s
+    Run Keyword If    ${is_visible}    Click Element    ${CTA_TERMS_CONDITIONS}
+
+Alarms & Reminders
+    Wait Until Page Contains    ${ALARMS & REMINDERS}
+    ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${ALARMS & REMINDERS}    timeout=3s
+    Run Keyword If    ${is_visible}    Click Element    ${ATRAS}
