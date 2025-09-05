@@ -16,6 +16,7 @@ ${ADDITIONAL_DURATION}   500
 
 ${ALLOW_PERMISSION1}                //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]
 ${ALLOW_PERMISSION2}                //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]
+${DENY_BUTTON}                      //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_deny_button"]
 ${MEDICINA_BUTTON}                  //android.widget.ImageView[@content-desc="Medicina"]
 ${FOR_ME_BUTTON}                    //android.widget.ImageView[contains(@content-desc, "Para mí")]
 ${EMAIL_FIELD_MEDICINE}             //android.widget.EditText
