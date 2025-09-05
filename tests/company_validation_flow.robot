@@ -12,7 +12,7 @@ Validation error message when not choosing a company
     Open 1doc3 Application
     Wait Until Element Is Visible    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
-    Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
+    Input Text       ${LOGIN_COMPANY_FIELD}  ${NAME_COMPANY}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Element is visible    ${ERROR_SELECT_COMPANY1}
     Wait Until Element is visible    ${ERROR_SELECT_COMPANY2}
@@ -21,7 +21,7 @@ Validation error message when not choosing a company
 
 Error validation when deleting company name
     Open 1doc3 Application
-    Wait Until Element Is Visible   ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Wait Until Element Is Visible  ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
     Clear Text       ${LOGIN_COMPANY_FIELD}
@@ -41,19 +41,20 @@ Validation verification email data
     Open 1doc3 Application 
     Wait Until Element Is Visible   ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
-    Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
+    Input Text       ${LOGIN_COMPANY_FIELD}  ${NAME_COMPANY}
     Wait Until Element Is Visible   ${COMPANY_SELECTOR}
-    Click Element    ${COMPANY_SELECTOR}
-    Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
-    Verify Text Equal on Element    ${PAGE_VERIFY_USER_EMAIL}       Ahora, ingresa tu correo electrónico y verifícate en Empresa pruebas.
+    Click Element  ${COMPANY_SELECTOR}
+    Click Element  ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
+    Wait Until Element Is Visible  ${PAGE_VERIFY_USER_EMAIL} 
+    Verify Text Equal on Element  ${PAGE_VERIFY_USER_EMAIL}  Ahora, ingresa tu correo electrónico y verifícate en LKJM.
     Click Element    ${VERIFY_BUTTON}
-    Wait Until Element is visible    ${ENTER_EMAIL_DATA}
-    ${email}         FakerLibrary.Email   -- se crea un correo aleatorio
-    Input Text       ${VERIFICATION_FIELD}       ${email}   
+    Wait Until Element is visible  ${ENTER_EMAIL_DATA}
+    ${email}  FakerLibrary.Email   -- se crea un correo aleatorio
+    Input Text  ${VERIFICATION_FIELD}  ${email}   
     Click Element    ${VERIFY_BUTTON}
-    ${NO_LICENSE_FOUND}  Set Variable    No fue posible realizar la verificación con el dato:${email}\nSi el dato que ingresas es el correcto o aún no puedes verificarte, continua para ayudarte a crear tu cuenta
+    ${NO_LICENSE_FOUND}  Set Variable  No fue posible realizar la verificación con el dato:${email}\nSi el dato que ingresas es el correcto o aún no puedes verificarte, continua para ayudarte a crear tu cuenta
     Wait Until Element is visible  ${VERIFY_BUTTON_CONTINUAR}
-    Should Contain    ${NO_LICENSE_FOUND}    ${email}
+    Should Contain  ${NO_LICENSE_FOUND}  ${email}
     Close Application 
     
 
@@ -66,11 +67,11 @@ Validation verification phone data
     Click Element    ${COMPANY_SELECTOR_PHONE}   
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Element Is Visible   ${PAGE_VERIFY_USER_PHONE}
-    Verify Text Equal on Element    ${PAGE_VERIFY_USER_PHONE}       Ahora, ingresa tu número de celular y verifícate en Empresa pruebas UAT.
+    Verify Text Equal on Element  ${PAGE_VERIFY_USER_PHONE}  Ahora, ingresa tu número de celular y verifícate en UAT.
     Click Element    ${VERIFY_BUTTON}
     Wait Until Element is visible    ${ENTER_PHONE_DATA}   
     ${Phone_number}   FakerLibrary.Basic Phone Number  
-    Input Text       ${VERIFICATION_FIELD}      ${Phone_number}    
+    Input Text  ${VERIFICATION_FIELD}  ${Phone_number}    
     Click Element    ${VERIFY_BUTTON}
     ${NO_LICENSE_FOUND}  Set Variable    No fue posible realizar la verificación con el dato:${Phone_number}\nSi el dato que ingresas es el correcto o aún no puedes verificarte, continua para ayudarte a crear tu cuenta
     Wait Until Element is visible  ${VERIFY_BUTTON_CONTINUAR} 
@@ -86,7 +87,7 @@ Validation verification Document data
     Click Element    ${COMPANY_SELECTOR_DOCUMENT}     
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Element Is Visible   ${PAGE_VERIFY_USER_DOCUMENT}
-    Verify Text Equal on Element    ${PAGE_VERIFY_USER_DOCUMENT}       Ahora, ingresa tu número de documento y verifícate en Empresa pruebas regresion.
+    Verify Text Equal on Element    ${PAGE_VERIFY_USER_DOCUMENT}  Ahora, ingresa tu número de documento y verifícate en Momo S.A.
     Click Element    ${VERIFY_BUTTON}
     Wait Until Element is visible    ${ENTER_DOCUMENT_DATA}     
     ${document_number}    FakerLibrary.Passport Number  

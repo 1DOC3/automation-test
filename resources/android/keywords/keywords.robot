@@ -33,7 +33,6 @@ After Tests
 
 Open 1doc3 Application
     [Documentation]    Abre la aplicación de 1doc3 basandose en las variables de entorno.
-    Run Process    adb    shell    pm grant ${APP_PACKAGE} android.permission.SCHEDULE_EXACT_ALARM
     Open Application
     ...    ${APPIUM_SERVER}
     ...    platformName=${PLATFORM_NAME}
@@ -87,9 +86,7 @@ Do login with email
     Input Verification Code     ${code}  
     Click Element    ${VERIFY_BUTTON}
     Sleep    8s
-    Permission notifications
-    Alarms & Reminders
-    Terms and conditions
+    
 
 Scroll Until Element Is Found In Safe Position
     [Arguments]  ${element_xpath}  ${start_x}=500  ${start_y}=1000  ${end_x}=500  ${end_y}=500
@@ -132,9 +129,7 @@ Do Login with mobile
     Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
     Sleep    8s
-    Permission notifications
-    Alarms & Reminders
-    Terms and conditions
+    
 
 Flow Until Verify
     Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}

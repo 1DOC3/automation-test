@@ -59,6 +59,7 @@ Watch Webinar validations
      FOR    ${i}    IN RANGE    3
             ${live_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${LIVE}
             ${last_webinar}=    Run Keyword And Return Status    Element Should Be Visible    ${NO_LIVE}
+            
 
             IF    ${live_visible}
                 ${element_found}=    Set Variable    LIVE
