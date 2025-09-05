@@ -13,6 +13,3 @@ Test Setup    Before Tests
 Unopened inspiration
     Do login with email    prueba0023@yopmail.com
     Sleep    8s
-    Permission notifications
-    Terms and conditions
-    Alarms & Reminders

@@ -86,7 +86,11 @@ Do login with email
     Input Verification Code     ${code}  
     Click Element    ${VERIFY_BUTTON}
     Sleep    8s
-    
+    Permission notifications
+    Sleep    8s
+    Alarms & Reminders
+    Sleep    8s
+    Terms and conditions
 
 Scroll Until Element Is Found In Safe Position
     [Arguments]  ${element_xpath}  ${start_x}=500  ${start_y}=1000  ${end_x}=500  ${end_y}=500
@@ -129,7 +133,11 @@ Do Login with mobile
     Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
     Sleep    8s
-    
+    Permission notifications
+    Sleep    8s
+    Alarms & Reminders
+    Sleep    8s
+    Terms and conditions
 
 Flow Until Verify
     Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
@@ -153,14 +161,13 @@ Aleatory
     Input Text    ${EMAIL_FIELD}    ${EMAIL_GENERATED}
 
 Permission notifications
-    ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${ALLOW_PERMISSION1}    timeout=3s
-    Run Keyword If    ${is_visible}    Click Element    ${ALLOW_PERMISSION1}
+    ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${DENY_BUTTON}    timeout=3s
+    Run Keyword If    ${is_visible}    Click Element    ${DENY_BUTTON}
 
 Terms and conditions
-    ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${TERMS_AND_CONDITIONS}    timeout=3s
+    ${is_visible}=    Run Keyword And Return Status    Wait Until Page Contains Element    ${CTA_TERMS_CONDITIONS}    timeout=3s
     Run Keyword If    ${is_visible}    Click Element    ${CTA_TERMS_CONDITIONS}
 
 Alarms & Reminders
-    Wait Until Page Contains    ${ALARMS & REMINDERS}
     ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${ALARMS & REMINDERS}    timeout=3s
     Run Keyword If    ${is_visible}    Click Element    ${ATRAS}
