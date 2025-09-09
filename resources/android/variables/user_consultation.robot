@@ -16,6 +16,7 @@ ${ADDITIONAL_DURATION}   500
 
 ${ALLOW_PERMISSION1}                //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]
 ${ALLOW_PERMISSION2}                //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]
+${DENY_BUTTON}                      //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_deny_button"]
 ${MEDICINA_BUTTON}                  //android.widget.ImageView[@content-desc="Medicina"]
 ${FOR_ME_BUTTON}                    //android.widget.ImageView[contains(@content-desc, "Para mí")]
 ${EMAIL_FIELD_MEDICINE}             //android.widget.EditText
@@ -37,3 +38,7 @@ ${OPTIONS_CONSULT}                  //android.widget.Button
 ${FINISH_CONSULT}                   //android.widget.Button[@content-desc="Finalizar"]
 ${FINISH_CONSULT_CONFIRM}           //android.view.View[@content-desc="Finalizar"]
 ${MODAL_QUEREMOS_TU_OPINION}        //android.view.View[@content-desc="Ir a una farmacia"]
+${TERMS_AND_CONDITIONS}    //android.view.View[@content-desc="Hemos actualizado nuestros Términos y Condiciones y Políticas de privacidad, te invitamos a leerlos para hacer uso de los servicios de 1DOC3."]
+${CTA_TERMS_CONDITIONS}    //android.widget.Button[@content-desc="Continuar"]
+${ALARMS & REMINDERS}  //android.widget.ScrollView/android.view.View[2]/android.view.View
+${ATRAS}  //android.widget.Button

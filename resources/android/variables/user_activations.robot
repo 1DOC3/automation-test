@@ -1,17 +1,17 @@
 *** Variables ***
 
 # Test Variables (Empresa y correo)
-${USER1_DETAILS}         tutaina@yopmail.com
-${USER1_PHONE}           kmontana@1doc3.com
-${USER_ONBOARDING}       fa1@yopmail.com
-${USER_NUMBER}           3128167733
-${USER_NUMBER_TWO}    3219005389
-${NAME_COMPANY}    LKJM
-${NAME_COMPANY_TWO}      UAT
-${NAME_COMPANY_THREE}    Momo S.A
-${NAME_COMPANY_FOUR}     1DOC3 empresa
-${NAME_NOEXIST}          Ram
-${LICENSE_NOT_EXIST}    004@yopmail.com
+${USER1_DETAILS}  tutaina@yopmail.com
+${USER1_PHONE}  kmontana@1doc3.com
+${USER_ONBOARDING}  fa1@yopmail.com
+${USER_NUMBER}  3128167733
+${USER_NUMBER_TWO}  3219005389
+${NAME_COMPANY}  LKJM
+${NAME_COMPANY_TWO}   UAT
+${NAME_COMPANY_THREE}   Momo S.A
+${NAME_COMPANY_FOUR}  1DOC3 empresa
+${NAME_NOEXIST}  Rucardi
+${LICENSE_NOT_EXIST}  004@yopmail.com
 
 
 
@@ -34,9 +34,9 @@ ${MSG_VERIFY_USER}                   //android.view.View[@content-desc="Verifica
 ${ERROR_NO_COMPANY_EXISTS}           //android.view.View[contains(@content-desc, "No encontramos esta empresa.")]
 ${ERROR_WRITING_COMPANY}             //android.view.View[contains(@content-desc,"Escribe el nombre de tu empresa para continuar.")]
 ${CLOSE}                             //android.view.View[@content-desc="Busca tu empresa"]/android.view.View[1]
-${PAGE_VERIFY_USER_EMAIL}            //android.view.View[contains(@content-desc,"Ahora, ingresa tu correo electrónico y verifícate en Empresa pruebas")]
-${PAGE_VERIFY_USER_PHONE}            //android.view.View[contains(@content-desc,"Ahora, ingresa tu número de celular y verifícate en Empresa pruebas UAT.")]
-${PAGE_VERIFY_USER_DOCUMENT}          //android.view.View[contains(@content-desc,"Ahora, ingresa tu número de documento y verifícate en Empresa pruebas regresion.")]
+${PAGE_VERIFY_USER_EMAIL}            //android.view.View[contains(@content-desc,"Ahora, ingresa tu correo electrónico y verifícate en LKJM")]
+${PAGE_VERIFY_USER_PHONE}            //android.view.View[contains(@content-desc,"Ahora, ingresa tu número de celular y verifícate en UAT.")]
+${PAGE_VERIFY_USER_DOCUMENT}          //android.view.View[contains(@content-desc,"Ahora, ingresa tu número de documento y verifícate en Momo S.A.")]
 ${ENTER_EMAIL_DATA}                  //android.view.View[@content-desc="Escribe tu correo electrónico para verificarte."]
 ${ENTER_PHONE_DATA}                  //android.view.View[@content-desc="Escribe tu número de celular para verificarte."]
 ${ENTER_DOCUMENT_DATA}               //android.view.View[@content-desc="Escribe tu número de documento para verificarte."]
@@ -51,9 +51,12 @@ ${SUPPORT_MESSAGE}                   //android.view.View[@content-desc="¿Necesi
 
 #Login Locators
 ${CONTINUE_WITH_EMAIL_BUTTON}       //android.widget.ImageView[@content-desc="Inicia sesión con correo"]
+${CONTINUE_WITH_GOOGLE_BUTTON}      //android.widget.ImageView[@content-desc="Inicia sesión con Google"]
 ${CONTINUE_WITH_MOBILE_BUTTON}      //android.widget.ImageView[@content-desc="Inicia sesión con número celular"]
 ${BTN_ACCOUNT}                      //android.widget.Button[@content-desc="Ya tengo una cuenta"]
+${BTN_GOOGLE_ACCOUNT}               xpath=(//android.widget.LinearLayout[@resource-id="com.google.android.gms:id/container"])[3]
 ${LOGIN_MOBILE_TEXT_FIELD}          //android.widget.EditText
+${LOGIN_GOOGLE_TEXT_FIELD}          //android.widget.EditText
 ${BTN_MOBILE_LOGIN}                 //android.widget.Button[@content-desc="Continuar"]
 ${ERROR_FIELD_NUMBER}               //android.view.View[@content-desc="Escribe tu número celular para continuar."]
 ${ERROR_BANNER}                     //android.view.View[@content-desc="Verifica que ingresaste un número de celular."]
