@@ -11,7 +11,7 @@ ${Title_recomendations}  //android.view.View[@content-desc="Nuestros recomendado
 ${Description_activities}  //android.view.View[@content-desc="Elige un ejercicio para comenzar tu pausa activa."]
 ${close_view}  //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[1]
 ${Back_view}  //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View
-${Activity_complete}  //android.widget.ImageView[contains(@content-desc,"¡Ejercicio hecho!)"]
+${Activity_complete}    //android.widget.ImageView[contains(@content-desc,"¡Ejercicio hecho!")]
 ${Button_is_okay}  //android.view.View[@content-desc="¡Estuvo bien por ahora!"]
 ${Modal_congratulations}  //android.widget.ImageView[@content-desc="¡Genial!\nCompletaste esta pausa activa\nRecuerda que puedes hacerla nuevamente en otro momento del día si lo consideras necesario."]
 ${Close_modal}  //android.widget.Button
