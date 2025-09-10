@@ -13,6 +13,7 @@ Test Teardown    After Tests
 *** Test Cases ***
 Active pause banner validations
     Do login with email    nnn@yopmail.com
+    Scroll Until Element Is Found In Safe Position    ${Active_banner}
     Wait until element is visible  ${Active_banner}
     Wait Until Element Is Visible  ${Button_start_break}
     Click Element  ${Button_start_break}
@@ -93,4 +94,41 @@ Banner without breaks made
     Wait until element is visible  ${Banner_not_active_break}
 
 
-    
+Completed activity
+    Do login with email  nnn@yopmail.com
+    Scroll Until Element Is Found In Safe Position    ${Active_banner}
+    Wait until element is visible  ${Active_banner}
+    Wait Until Element Is Visible  ${Button_start_break}
+    Click Element  ${Button_start_break}
+    Wait Until Element Is Visible  ${First_option}
+    Click Element    ${First_option}
+    Wait Until Element Is Visible  ${Content_first}
+    Wait Until Element Is Visible  ${Description_first_option}
+    Wait Until Element Is Visible  ${Title_recomendations}
+    Wait Until Element Is Visible  ${Description_activities}
+    ${elements}=    Get Webelements    //android.widget.ImageView
+    Click Element    ${elements}[0]
+    Wait Until Element Is Visible  xpath=(//android.view.View)[1] 
+    Click Element  xpath=(//android.view.View)[1] 
+    Wait Until Element Is Visible  xpath=(//android.view.View)[3]
+    Click Element  xpath=(//android.view.View)[3]
+    Wait Until Element Is Visible  xpath=(//android.view.View)[5]
+    Click Element    xpath=(//android.view.View)[5]
+    Wait For Video To Finish
+    Wait Until Page Contains Element  ${Activity_complete}
+    Wait Until Element Is Visible  ${Button_is_okay}
+    Click Element  ${Button_is_okay}
+    Wait Until Element Is Visible  ${Modal_congratulations}
+    Wait Until Element Is Visible  ${Close_modal}
+    Click Element  ${Close_modal}
+
+
+
+*** Keywords ***
+Wait For Video To Finish
+    [Arguments]    ${seconds}=45
+     FOR  ${index}  IN RANGE  ${seconds}
+     Log To Console    Esperando... ${index}s
+     Sleep    1s
+     END
+
