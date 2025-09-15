@@ -3,6 +3,7 @@ Library     AppiumLibrary
 Library    String
 Library    FakerLibrary
 Library    Process
+Library  DateTime
 
 
 Resource    ../variables/user_activations.robot
@@ -41,6 +42,50 @@ Open 1doc3 Application
     ...    automationName=${AUTOMATION_NAME}
     ...    autoGrantPermissions=true
 
+
+
+Measure Home Loading Time
+    [Arguments]    ${locator_home}    ${correo_o_celular}
+    ${durations}=    Create List
+
+    FOR    ${i}    IN RANGE    3
+
+        Open 1doc3 Application
+        Define login    ${correo_o_celular}
+        ${inicio}=    Get Current Date    result_format=epoch
+        Wait Until Element Is Visible    ${locator_home}    timeout=30s
+        ${fin}=    Get Current Date    result_format=epoch
+
+        ${duracion}=    Evaluate    ${fin} - ${inicio}
+        Log To Console    \n⏱ Iteración ${i + 1}: ${duracion} segundos
+        Append To List    ${durations}    ${duracion}
+
+        Close Application
+    END
+
+    ${total}=    Evaluate    sum(${durations})
+    ${count}=    Get Length    ${durations}
+    ${promedio}=    Evaluate    round(${total} / ${count}, 2)
+
+    Log To Console    \n📊 Tiempo promedio de carga del Home: ${promedio} segundos
+    [Return]    ${promedio}
+
+
+Define login
+...  [Arguments]    ${correo_o_celular}
+    ${correo_o_celular}=    Evaluate    "${correo_o_celular}".strip()
+
+    ${es_email}=    Run Keyword And Return Status    Should Contain    ${correo_o_celular}    @
+    IF    ${es_email}
+        Log To Console    \n🔑 Ejecutando login con CORREO: ${correo_o_celular}
+        Do login with email    ${correo_o_celular}
+    ELSE
+        Log To Console    \n🔑 Ejecutando login con CELULAR: ${correo_o_celular}
+        Do login with mobile    ${correo_o_celular}
+    END
+
+
+   
 
 Get Code Environment
     [Arguments]    ${data}
