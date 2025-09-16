@@ -44,31 +44,23 @@ Open 1doc3 Application
 
 
 
-Measure Home Loading Time
-    [Arguments]    ${locator_home}    ${correo_o_celular}
-    ${durations}=    Create List
+Measure App Loading Time
+    [Arguments]    ${locator_app}
+    Open 1doc3 Application
+    Close Application
+    Open 1doc3 Application
+    ${inicio}=    Get Current Date    result_format=epoch
+    Wait Until Element Is Visible    ${locator_app}    timeout=5s
+    ${fin}=    Get Current Date    result_format=epoch
 
-    FOR    ${i}    IN RANGE    3
+    ${duracion}=    Evaluate    round(${fin} - ${inicio}, 2)
+    Should Be True    ${duracion} <= 3    msg=⛔ La app se demoró demasiado en cargar (${duracion} segundos)
+    Log To Console   msg=🆗 La app se demoró en cargar (${duracion} segundos)
 
-        Open 1doc3 Application
-        Define login    ${correo_o_celular}
-        ${inicio}=    Get Current Date    result_format=epoch
-        Wait Until Element Is Visible    ${locator_home}    timeout=30s
-        ${fin}=    Get Current Date    result_format=epoch
 
-        ${duracion}=    Evaluate    ${fin} - ${inicio}
-        Log To Console    \n⏱ Iteración ${i + 1}: ${duracion} segundos
-        Append To List    ${durations}    ${duracion}
+    
 
-        Close Application
-    END
 
-    ${total}=    Evaluate    sum(${durations})
-    ${count}=    Get Length    ${durations}
-    ${promedio}=    Evaluate    round(${total} / ${count}, 2)
-
-    Log To Console    \n📊 Tiempo promedio de carga del Home: ${promedio} segundos
-    [Return]    ${promedio}
 
 
 Define login
@@ -216,3 +208,4 @@ Terms and conditions
 Alarms & Reminders
     ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${ALARMS & REMINDERS}    timeout=3s
     Run Keyword If    ${is_visible}    Click Element    ${ATRAS}
+
