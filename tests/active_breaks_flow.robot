@@ -3,6 +3,7 @@ Library           AppiumLibrary
 Library           Collections
 Resource        ../resources/android/variables/user_activations.robot
 Resource        ../resources/android/keywords/keywords.robot
+Resource        ../resources/android/keywords/Keywords_breaks_flow.robot
 Resource        ../resources/android/variables/user_active_breaks.robot
 
 
@@ -13,122 +14,36 @@ Test Teardown    After Tests
 *** Test Cases ***
 Active pause banner validations
     Do login with email    nnn@yopmail.com
-    Scroll Until Element Is Found In Safe Position    ${Active_banner}
-    Wait until element is visible  ${Active_banner}
-    Wait Until Element Is Visible  ${Button_start_break}
-    Click Element  ${Button_start_break}
-    Wait Until Element Is Visible  ${Title_break}
-    Wait Until Element Is Visible  ${Boddy_break}
-    Wait Until Element Is Visible  ${First_option}
-    Wait Until Element Is Visible  ${Second_option}
-    Wait Until Element Is Visible  ${Third_option}
-    Click Element    ${First_option}
-    Wait Until Element Is Visible  ${Content_first}
-    Wait Until Element Is Visible  ${Description_first_option}
-    Wait Until Element Is Visible  ${Title_recomendations}
-    Wait Until Element Is Visible  ${Description_activities}
-    Wait Until Element Is Visible  ${close_view}
-    Click Element  ${close_view}
-    Wait Until Element Is Visible  ${Title_break}
-    Wait Until Element Is Visible  ${Second_option}
-    Click Element  ${Second_option}
-    Wait Until Element Is Visible  ${Content_second}
-    Wait Until Element Is Visible  ${Description_second_option}
-    Wait Until Element Is Visible  ${Title_recomendations}
-    Wait Until Element Is Visible  ${Description_activities}
-    Wait Until Element Is Visible  ${close_view}
-    Click Element  ${close_view}
-    Wait Until Element Is Visible  ${Title_break}
-    Wait Until Element Is Visible  ${Third_option}
-    Click Element  ${Third_option}
-    Wait Until Element Is Visible  ${Content_third}
-    Wait Until Element Is Visible  ${Description_third_option}
-    Wait Until Element Is Visible  ${Title_recomendations}
-    Wait Until Element Is Visible  ${Description_activities}
-    Wait Until Element Is Visible  ${close_view}
-    Click Element  ${close_view}
-    Wait Until Element Is Visible  ${Title_break}
-    Wait Until Element Is Visible  ${Back_view}
-    Click Element  ${Back_view}
-    Wait until element is visible  ${Active_banner}
+    ${element_found}=    Set Variable    NONE
+    FOR    ${i}    IN RANGE  5
+            ${Banner_not_break}=    Run Keyword And Return Status    Element Should Be Visible     ${Banner_not_active_break}
+            ${Banner}=    Run Keyword And Return Status    Element Should Be Visible    ${Active_banner}
 
-Banner without breaks made
-    Do login with email  tutaina@yopmail.com
-    Wait until element is visible  ${Banner_not_active_break}
-    Wait Until Element Is Visible  ${Button_start_break}
-    Click Element  ${Button_start_break}
-    sleep  3s
-    Wait Until Element Is Visible  ${Title_break}
-    Wait Until Element Is Visible  ${Boddy_break}
-    Wait Until Element Is Visible  ${First_option}
-    Wait Until Element Is Visible  ${Second_option}
-    Wait Until Element Is Visible  ${Third_option}
-    Click Element  ${First_option}
-    Wait Until Element Is Visible  ${Content_first}
-    Wait Until Element Is Visible  ${Description_first_option}
-    Wait Until Element Is Visible  ${Title_recomendations}
-    Wait Until Element Is Visible  ${Description_activities}
-    Wait Until Element Is Visible  ${close_view}
-    Click Element  ${close_view}
-    Wait Until Element Is Visible  ${Title_break}
-    Wait Until Element Is Visible  ${Second_option}
-    Click Element  ${Second_option}
-    Wait Until Element Is Visible  ${Content_second}
-    Wait Until Element Is Visible  ${Description_second_option}
-    Wait Until Element Is Visible  ${Title_recomendations}
-    Wait Until Element Is Visible  ${Description_activities}
-    Wait Until Element Is Visible  ${close_view}
-    Click Element  ${close_view}
-    Wait Until Element Is Visible  ${Title_break}
-    Wait Until Element Is Visible  ${Third_option}
-    Click Element  ${Third_option}
-    Wait Until Element Is Visible  ${Content_third}
-    Wait Until Element Is Visible  ${Description_third_option}
-    Wait Until Element Is Visible  ${Title_recomendations}
-    Wait Until Element Is Visible  ${Description_activities}
-    Wait Until Element Is Visible  ${close_view}
-    Click Element  ${close_view}
-    Wait Until Element Is Visible  ${Title_break}
-    Wait Until Element Is Visible  ${Back_view}
-    Click Element  ${Back_view}
-    Wait until element is visible  ${Banner_not_active_break}
+            IF   ${Banner_not_break}
+                ${element_found}=    Set Variable    NOT_BRAKE
+                Exit For Loop
+            ELSE IF   ${Banner}
+                ${element_found}=    Set Variable    YES_BRAKE
+                Exit For Loop
+            ELSE
+                 Swipe By Percent    50    85    50    25    500
+                 Wait Until Keyword Succeeds    3s    0.5s    Run Keyword If    '${Banner_not_break}' or '${Banner}'    No Operation
+            END
+        END
 
+        IF    '${element_found}' == "NOT_BRAKE"
+                Log To Console  Banner not active break founded
+                Not active break
+                 
+            ELSE IF    '${element_found}' == 'YES_BRAKE'
+                Log To Console  Banner active break founded
+                Active break
+                  
+            ELSE
+            Fail    Neither banner active or not active found
+        END
+    
+    
+ 
 
-Completed activity
-    Do login with email  nnn@yopmail.com
-    Scroll Until Element Is Found In Safe Position    ${Active_banner}
-    Wait until element is visible  ${Active_banner}
-    Wait Until Element Is Visible  ${Button_start_break}
-    Click Element  ${Button_start_break}
-    Wait Until Element Is Visible  ${First_option}
-    Click Element    ${First_option}
-    Wait Until Element Is Visible  ${Content_first}
-    Wait Until Element Is Visible  ${Description_first_option}
-    Wait Until Element Is Visible  ${Title_recomendations}
-    Wait Until Element Is Visible  ${Description_activities}
-    ${elements}=    Get Webelements    //android.widget.ImageView
-    Click Element    ${elements}[0]
-    Wait Until Element Is Visible  xpath=(//android.view.View)[1] 
-    Click Element  xpath=(//android.view.View)[1] 
-    Wait Until Element Is Visible  xpath=(//android.view.View)[3]
-    Click Element  xpath=(//android.view.View)[3]
-    Wait Until Element Is Visible  xpath=(//android.view.View)[5]
-    Click Element    xpath=(//android.view.View)[5]
-    Wait For Video To Finish
-    Wait Until Page Contains Element  ${Activity_complete}
-    Wait Until Element Is Visible  ${Button_is_okay}
-    Click Element  ${Button_is_okay}
-    Wait Until Element Is Visible  ${Modal_congratulations}
-    Wait Until Element Is Visible  ${Close_modal}
-    Click Element  ${Close_modal}
-
-
-
-*** Keywords ***
-Wait For Video To Finish
-    [Arguments]    ${seconds}=45
-     FOR  ${index}  IN RANGE  ${seconds}
-     Log To Console    Esperando... ${index}s
-     Sleep    1s
-     END
 
