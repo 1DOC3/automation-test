@@ -3,6 +3,7 @@ Library     AppiumLibrary
 Library    String
 Library    FakerLibrary
 Library    Process
+Library  DateTime
 
 
 Resource    ../variables/user_activations.robot
@@ -41,6 +42,42 @@ Open 1doc3 Application
     ...    automationName=${AUTOMATION_NAME}
     ...    autoGrantPermissions=true
 
+
+
+Measure App Loading Time
+    [Arguments]    ${locator_app}
+    Open 1doc3 Application
+    Close Application
+    Open 1doc3 Application
+    ${inicio}=    Get Current Date    result_format=epoch
+    Wait Until Element Is Visible    ${locator_app}    timeout=5s
+    ${fin}=    Get Current Date    result_format=epoch
+
+    ${duracion}=    Evaluate    round(${fin} - ${inicio}, 2)
+    Should Be True    ${duracion} <= 3    msg=⛔ La app se demoró demasiado en cargar (${duracion} segundos)
+    Log To Console   msg=🆗 La app se demoró en cargar (${duracion} segundos)
+
+
+    
+
+
+
+
+Define login
+...  [Arguments]    ${correo_o_celular}
+    ${correo_o_celular}=    Evaluate    "${correo_o_celular}".strip()
+
+    ${es_email}=    Run Keyword And Return Status    Should Contain    ${correo_o_celular}    @
+    IF    ${es_email}
+        Log To Console    \n🔑 Ejecutando login con CORREO: ${correo_o_celular}
+        Do login with email    ${correo_o_celular}
+    ELSE
+        Log To Console    \n🔑 Ejecutando login con CELULAR: ${correo_o_celular}
+        Do login with mobile    ${correo_o_celular}
+    END
+
+
+   
 
 Get Code Environment
     [Arguments]    ${data}

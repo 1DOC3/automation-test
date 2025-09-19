@@ -113,4 +113,4 @@ Explorar ImageViews En Pantalla
         Log To Console    \n--> ${desc}
         Append To List    ${descripciones}    ${desc}
     END
-    [Return]    ${descripciones}
+    RETURN    ${descripciones}
