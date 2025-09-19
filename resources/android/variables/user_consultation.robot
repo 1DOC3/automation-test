@@ -20,10 +20,10 @@ ${DENY_BUTTON}                      //android.widget.Button[@resource-id="com.an
 ${MEDICINA_BUTTON}                  //android.widget.ImageView[@content-desc="Medicina"]
 ${FOR_ME_BUTTON}                    //android.widget.ImageView[contains(@content-desc, "Para mí")]
 ${EMAIL_FIELD_MEDICINE}             //android.widget.EditText
-${DESCRIPTION_MEDICINE}             Actualmente sufro de migrañas, me duele la cabeza 3 o 4 veces por semana.
+${DESCRIPTION_MEDICINE}    Actualmente sufro de migrañas, me duele la cabeza 3 o 4 veces por semana.
 ${CONTINUAR_BUTTON}                 //android.widget.Button[@content-desc="Continuar"]
 ${DOCUMENTS_MEDICINE}               //android.view.View[@content-desc=" Adjunta imágenes o documentos "]
-${DOCUMENTS_MEDICINE2}              //android.view.View[@content-desc=" Adjunta imágenes o documentos 2 "]
+${CTA_ADD_DOCUMENTS}    //android.view.View[@content-desc="Adjuntar"]
 ${ADD_DOCUMENT}                     //android.view.View[@content-desc="Documento"]
 ${ADD_IMAGE_CAMARA}                 //android.view.View[@content-desc="Cámara"]
 ${ADD_IMAGE_GALERY}                 //android.view.View[@content-desc="Galería"]
@@ -42,3 +42,5 @@ ${TERMS_AND_CONDITIONS}    //android.view.View[@content-desc="Hemos actualizado 
 ${CTA_TERMS_CONDITIONS}    //android.widget.Button[@content-desc="Continuar"]
 ${ALARMS & REMINDERS}  //android.widget.ScrollView/android.view.View[2]/android.view.View
 ${ATRAS}  //android.widget.Button
+${INFORMED_CONSENT}    //android.view.View[@content-desc="Consentimiento para atención por teleorientación y telemedicina en 1DOC3"]
+${CTA_INFORMED_CONSENT}    //android.widget.Button[@content-desc="Continuar"]
