@@ -67,7 +67,6 @@ Not active break
     Wait Until Element Is Visible  xpath=(//android.view.View)[5]
     Click Element    xpath=(//android.view.View)[5]
     Wait For Video To Finish
-    
 
 
 Active break
@@ -142,3 +141,5 @@ Wait For Video To Finish
     Wait Until Element Is Visible    ${Close_modal}
     Click Element                    ${Close_modal}
     Wait Until Element Is Visible    ${Modal_congratulations}
+
+   
