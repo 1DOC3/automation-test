@@ -67,12 +67,7 @@ Not active break
     Wait Until Element Is Visible  xpath=(//android.view.View)[5]
     Click Element    xpath=(//android.view.View)[5]
     Wait For Video To Finish
-    Wait Until Page Contains Element  ${Activity_complete}
-    Wait Until Element Is Visible  ${Button_is_okay}
-    Click Element  ${Button_is_okay}
-    Wait Until Element Is Visible  ${Modal_congratulations}
-    Wait Until Element Is Visible  ${Close_modal}
-    Click Element  ${Close_modal}
+    
 
 
 Active break
@@ -130,17 +125,20 @@ Active break
     Wait Until Element Is Visible  xpath=(//android.view.View)[5]
     Click Element    xpath=(//android.view.View)[5]
     Wait For Video To Finish
-    Wait Until Page Contains Element  ${Activity_complete}
-    Wait Until Element Is Visible  ${Button_is_okay}
-    Click Element  ${Button_is_okay}
-    Wait Until Element Is Visible  ${Modal_congratulations}
-    Wait Until Element Is Visible  ${Close_modal}
-    Click Element  ${Close_modal}
-
+    
 
 Wait For Video To Finish
-    [Arguments]    ${seconds}=45
-     FOR  ${index}  IN RANGE  ${seconds}
-     Log To Console    Esperando... ${index}s
-     Sleep    1s
-     END
+    ${video_presente}=    Run Keyword And Return Status    Page Should Contain Element    xpath=(//android.view.View)[5]
+
+    IF    ${video_presente}
+        Log To Console    "Waiting for video ending..."
+       
+        Wait Until Element Is Visible    ${Activity_complete}   
+    ELSE
+        Log To Console    "Not found video, continue..."
+        Wait Until Element Is Visible     ${Activity_complete}    
+    END
+
+    Wait Until Element Is Visible    ${Close_modal}
+    Click Element                    ${Close_modal}
+    Wait Until Element Is Visible    ${Modal_congratulations}
