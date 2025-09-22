@@ -12,10 +12,9 @@ Resource    ../keywords/keywords.robot
 *** Keywords ***
 
 Not active break
-...  Wait until element is visible  ${Banner_not_active_break}
-    Wait Until Element Is Visible  ${Button_start_break}
-    Click Element  ${Button_start_break}
-    sleep  3s
+    ${visible}=  Run Keyword And Return Status    Element Should Be Visible     ${Button_start_break}
+   Run Keyword If    ${visible}    Click Element  ${Button_start_break}
+   Run Keyword If    not ${visible}    Click Element    ${Banner_not_active_break}
     Wait Until Element Is Visible  ${Title_break}
     Wait Until Element Is Visible  ${Boddy_break}
     Wait Until Element Is Visible  ${First_option}
@@ -70,9 +69,9 @@ Not active break
 
 
 Active break
-   Wait until element is visible  ${Active_banner}
-    Wait Until Element Is Visible  ${Button_start_break}
-    Click Element  ${Button_start_break}
+   ${visible}=  Run Keyword And Return Status    Element Should Be Visible     ${Button_start_break}
+   Run Keyword If    ${visible}    Click Element  ${Button_start_break}
+   Run Keyword If    not ${visible}      Click Element    ${Active_banner}
     Wait Until Element Is Visible  ${Title_break}
     Wait Until Element Is Visible  ${Boddy_break}
     Wait Until Element Is Visible  ${First_option}
