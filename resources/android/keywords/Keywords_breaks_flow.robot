@@ -48,9 +48,9 @@ Not active break
     Wait Until Element Is Visible  ${Title_break}
     Wait Until Element Is Visible  ${Back_view}
     Click Element  ${Back_view}
-    Wait until element is visible  ${Banner_not_active_break}
-    Wait Until Element Is Visible  ${Button_start_break}
-    Click Element  ${Button_start_break}
+    ${visible}=  Run Keyword And Return Status    Element Should Be Visible     ${Button_start_break}
+   Run Keyword If    ${visible}    Click Element  ${Button_start_break}
+   Run Keyword If    not ${visible}    Click Element    ${Banner_not_active_break}
     Wait Until Element Is Visible  ${First_option}
     Click Element    ${First_option}
     Wait Until Element Is Visible  ${Content_first}
@@ -105,9 +105,9 @@ Active break
     Wait Until Element Is Visible  ${Title_break}
     Wait Until Element Is Visible  ${Back_view}
     Click Element  ${Back_view}
-    Wait until element is visible  ${Active_banner}
-    Wait Until Element Is Visible  ${Button_start_break}
-    Click Element  ${Button_start_break}
+    ${visible}=  Run Keyword And Return Status    Element Should Be Visible     ${Button_start_break}
+    Run Keyword If    ${visible}    Click Element  ${Button_start_break}
+    Run Keyword If    not ${visible}      Click Element    ${Active_banner}
     Wait Until Element Is Visible  ${First_option}
     Click Element    ${First_option}
     Wait Until Element Is Visible  ${Content_first}
