@@ -64,3 +64,4 @@ Handle Terms And Location
     # Manejar Location si aparece
     ${location_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${LOCATION}
     Run Keyword If    ${location_visible}    Click Element    ${LOCATION}
+
