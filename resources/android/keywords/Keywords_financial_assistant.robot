@@ -11,9 +11,9 @@ Resource    ../keywords/keywords.robot
 
 *** Keywords ***
 
-Ejecutar Flujo De Consulta Legal
+Run Financial Inquiry Workflow
     [Arguments]    ${TIPO_CONSULTA}    ${DETALLE_CONSULTA}
-    Seleccionar Tipo De Consulta    ${TIPO_CONSULTA}
+    Select type of consultation    ${TIPO_CONSULTA}
     Wait Until Element Is Visible    ${INPUT_DETAIL}
     Input Text    ${INPUT_DETAIL}    ${DETALLE_CONSULTA}
     Wait Until Element Is Visible    ${CONTINUE_BUTTON}
@@ -35,15 +35,27 @@ Ejecutar Flujo De Consulta Legal
     Click Element    ${CTA_CLOSE}
     
 
-Volver A Menu De Orientacion Legal
+Return to Financial Guidance Menu
     Sleep    1s
-    Wait Until Element Is Visible    ${LEGAL_ASSISTANT_SERVICE} 
-    Click Element    ${LEGAL_ASSISTANT_SERVICE} 
+    Wait Until Element Is Visible    ${FINANCIAL_ASSISTANT_SERVICE} 
+    Click Element    ${FINANCIAL_ASSISTANT_SERVICE} 
     Wait Until Element Is Visible    ${TO_CONSULT}    
     Click Element    ${TO_CONSULT}  
 
-Seleccionar Tipo De Consulta
+Select type of consultation
     [Arguments]    ${TIPO_CONSULTA}
     Scroll Until Element Is Found In Safe Position    ${TIPO_CONSULTA}  
     Wait Until Element Is Visible    ${TIPO_CONSULTA}
     Click Element    ${TIPO_CONSULTA}
+
+Handle Terms Or Consult
+    ${visible}=    Run Keyword And Return Status    Element Should Be Visible    ${TERMS_AND_CONDITIONS}
+    Run Keyword If    ${visible}    Click Element    ${TERMS_AND_CONDITIONS}
+    Run Keyword If    not ${visible}    Wait Until Element Is Visible    ${TO_CONSULT}
+    Run Keyword If    not ${visible}    Click Element    ${TO_CONSULT}
+
+Handle location
+...  ${visible}=    Run Keyword And Return Status    Element Should Be Visible   ${LOCATION} 
+    Run Keyword If    ${visible}    Click Element    ${LOCATION} 
+   
+   

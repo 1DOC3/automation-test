@@ -12,9 +12,9 @@ Resource    ../keywords/keywords.robot
 
 *** Keywords ***
 
-Ejecutar Flujo De Consulta Legal
+Run Legal Inquiry Workflow
     [Arguments]    ${TIPO_CONSULTA}    ${DETALLE_CONSULTA}
-    Seleccionar Tipo De Consulta    ${TIPO_CONSULTA}
+    Select type of consultation    ${TIPO_CONSULTA}
     Wait Until Element Is Visible    ${INPUT_DETAIL}
     Input Text    ${INPUT_DETAIL}    ${DETALLE_CONSULTA}
     Wait Until Element Is Visible    ${CONTINUE_BUTTON}
@@ -36,14 +36,14 @@ Ejecutar Flujo De Consulta Legal
     Click Element    ${CTA_CLOSE}
     
 
-Volver A Menu De Orientacion Legal
+Return to Legal Guidance Menu
     Sleep    1s
     Wait Until Element Is Visible    ${SERVICE_LEGAL_GUIDANCE}
     Click Element    ${SERVICE_LEGAL_GUIDANCE}
     Wait Until Element Is Visible    ${TO_CONSULT}    
     Click Element    ${TO_CONSULT}  
 
-Seleccionar Tipo De Consulta
+Select type of consultation
     [Arguments]    ${TIPO_CONSULTA}
     Scroll Until Element Is Found In Safe Position    ${TIPO_CONSULTA}  
     Wait Until Element Is Visible    ${TIPO_CONSULTA}

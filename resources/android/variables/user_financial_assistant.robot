@@ -6,8 +6,9 @@ ${RUTA_IMAGEN_PC}         C:/Users/Daza/Documents/fotos de pruebas/Foto_financie
 ${RUTA_IMAGEN_ANDROID}    /sdcard/Download/Foto_financiera.png
 
 
-${LEGAL_ASSISTANT_SERVICE}      //android.view.View[@content-desc="IA\nAsistente\nFinanciero"]
+${FINANCIAL_ASSISTANT_SERVICE}      //android.view.View[@content-desc="IA\nAsistente\nFinanciero"]
 ${TERMS_AND_CONDITIONS }       //android.widget.Button[@content-desc="Continuar"]
+${LOCATION}  //android.widget.Button[@content-desc="Continuar"]
 ${TO_CONSULT}                 //android.widget.ImageView[contains(@content-desc,"Para mí")]
 ${AHORRO_CONSULTATION}       //android.view.View[@content-desc="Ahorro\nOrientación para ahorrar y planificar tus metas."]
 ${DEUDAS_CONSULTATION}      //android.view.View[@content-desc="Manejo de deudas\nAprende a gestionar tus deudas de manera efectiva."]

@@ -5,7 +5,7 @@
 
 ${SERVICE_LEGAL_GUIDANCE}                  //android.view.View[@content-desc="IA\nAsistente\nLegal"]
 ${TERMS_AND_CONDITIONS }                  //android.widget.Button[@content-desc="Continuar"]
-${TO_CONSULT}                            //android.widget.ImageView[@content-desc="Para mí\nNicolas López"]
+${TO_CONSULT}  //android.widget.ImageView[contains(@content-desc,"Para mí")]
 ${PENAL_CONSULTATION}                   //android.view.View[@content-desc="Penal\nFaltas como robos o agresiones."]
 ${CIVIL_CONSULTATION}                  //android.view.View[@content-desc="Civil\nContratos o disputas entre personas o empresas."]
 ${INMOBILIARIA_CONSULTATION}          //android.view.View[@content-desc="Inmobiliaria\nBienes raíces, compraventa o alquileres."]
@@ -47,7 +47,7 @@ ${DOWNLOADS}      //android.widget.ListView[@resource-id="com.google.android.doc
 
 ${FINISH}               //android.widget.Button[@content-desc="Finalizar"]
 ${FINISH2}             //android.view.View[@content-desc="Finalizar"]
-${WOULD_HAVE_DONE}    //android.view.View[@content-desc="Consultar en internet"]
+${WOULD_HAVE_DONE}    //android.view.View[contains(@content-desc,"Consultar en internet")]
 ${WOULD_HAVE_DONE2}      //android.view.View[@content-desc="Preguntar a un amigo"]
 ${WOULD_HAVE_DONE3}     //android.view.View[@content-desc="Contratar un profesional"]
 ${WOULD_HAVE_DONE4}    //android.view.View[@content-desc="Quedarme con la duda"]

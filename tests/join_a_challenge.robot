@@ -9,13 +9,29 @@ Resource        ../resources/android/keywords/keywords.robot
 
 Suite Setup     Setting timeouts
 Test Setup      Before Tests
+Test Teardown    After Tests
 
    
 
 *** Test Cases ***    
+
+Flujo Insignias ganadas 
+    Do login with email    nuevamafe@yopmail.com
+    Scroll Until Element Is Found In Safe Position    ${JOIN_CHALLENGE}   
+    ...    start_y=1400    
+    ...    end_y=400
+    ...    duration=500
+    Wait Until Element Is Visible    ${JOIN_CHALLENGE}
+    Click Element    ${SEE_MORE}
+    Wait Until Element Is Visible    ${BADGES}
+    Click Element    ${BADGES}
+    Sleep    3s
+    Wait Until Element Is Visible    ${AWARDED_BADGES}
+    ${descripciones}=    Explorar ImageViews En Pantalla
+    Log    Descripciones encontradas: ${descripciones}
+    
 Flujo Unete A Un Reto 
     Do login with email    beta010@yopmail.com
-    Sleep    8s
     Scroll Until Element Is Found In Safe Position    ${JOIN_CHALLENGE}   
     ...    start_y=1400    
     ...    end_y=400
@@ -30,7 +46,9 @@ Flujo Unete A Un Reto
     Click Element    ${YES_CHANGE} 
     Wait Until Element Is Visible    ${CONNECT_ACTIVITY}  
     Click Element    ${CONNECT_ACTIVITY}
-    Seleccionar Flujo De Inicio
+    Seleccionar Flujo De Inicio  
+
+
 
 *** Keywords ***
 Seleccionar Flujo De Inicio
@@ -81,27 +99,6 @@ Conectar Flujo Comun
     Click Element    ${SEND_BUTTON} 
 
 
-
-
-*** Test Cases ***
-Flujo Insignias ganadas 
-    Do login with email    nuevamafe@yopmail.com
-    Sleep    8s
-    Scroll Until Element Is Found In Safe Position    ${JOIN_CHALLENGE}   
-    ...    start_y=1400    
-    ...    end_y=400
-    ...    duration=500
-    Wait Until Element Is Visible    ${JOIN_CHALLENGE}
-    Click Element    ${SEE_MORE}
-    Wait Until Element Is Visible    ${BADGES}
-    Click Element    ${BADGES}
-    Sleep    3s
-    Wait Until Element Is Visible    ${AWARDED_BADGES}
-    ${descripciones}=    Explorar ImageViews En Pantalla
-    Log    Descripciones encontradas: ${descripciones}
-
-
-*** Keywords ***
 Explorar ImageViews En Pantalla
     ${imagenes}=    Get WebElements    //android.widget.ImageView
     ${cantidad}=    Get Length    ${imagenes}
