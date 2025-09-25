@@ -47,7 +47,7 @@ ${DOWNLOADS}      //android.widget.ListView[@resource-id="com.google.android.doc
 
 ${FINISH}               //android.widget.Button[@content-desc="Finalizar"]
 ${FINISH2}             //android.view.View[@content-desc="Finalizar"]
-${WOULD_HAVE_DONE}    //android.view.View[contains(@content-desc,"Consultar en internet")]
+${WOULD_HAVE_DONE}  //android.view.View[contains(@content-desc,"Consultar en internet")]
 ${WOULD_HAVE_DONE2}      //android.view.View[@content-desc="Preguntar a un amigo"]
 ${WOULD_HAVE_DONE3}     //android.view.View[@content-desc="Contratar un profesional"]
 ${WOULD_HAVE_DONE4}    //android.view.View[@content-desc="Quedarme con la duda"]
