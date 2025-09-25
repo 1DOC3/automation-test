@@ -214,3 +214,9 @@ Informed consent
     ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${CTA_INFORMED_CONSENT}    timeout=3s
     Run Keyword If    ${is_visible}    Click Element    ${CTA_INFORMED_CONSENT}
 
+Modal location
+    ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${MODAL_LOCATION}   5s
+    Run Keyword If    ${is_visible}    Click Element    ${MODAL_LOCATION}
+    ...    ELSE    Log    Modal no encontrada, continuar flujo
+  
+  
