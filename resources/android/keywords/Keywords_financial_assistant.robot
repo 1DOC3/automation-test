@@ -48,14 +48,20 @@ Select type of consultation
     Wait Until Element Is Visible    ${TIPO_CONSULTA}
     Click Element    ${TIPO_CONSULTA}
 
-Handle Terms Or Consult
-    ${visible}=    Run Keyword And Return Status    Element Should Be Visible    ${TERMS_AND_CONDITIONS}
-    Run Keyword If    ${visible}    Click Element    ${TERMS_AND_CONDITIONS}
-    Run Keyword If    not ${visible}    Wait Until Element Is Visible    ${TO_CONSULT}
-    Run Keyword If    not ${visible}    Click Element    ${TO_CONSULT}
+Handle Terms And Location
+    # Manejar Términos si aparecen
+    ${terms_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${TERMS_AND_CONDITIONS}
+    Run Keyword If    ${terms_visible}    Click Element    ${TERMS_AND_CONDITIONS}
 
-Handle location
-...  ${visible}=    Run Keyword And Return Status    Element Should Be Visible   ${LOCATION} 
-    Run Keyword If    ${visible}    Click Element    ${LOCATION} 
-   
-   
+    # Si no aparecieron términos, ir directo a Consultar
+    Run Keyword If    not ${terms_visible}    Run Keywords
+    ...    Wait Until Element Is Visible    ${TO_CONSULT}    timeout=5s
+    ...    AND    Click Element    ${TO_CONSULT}
+
+    # Dar un pequeño tiempo para que cargue la siguiente vista (puede aparecer Location)
+    Sleep    2s
+
+    # Manejar Location si aparece
+    ${location_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${LOCATION}
+    Run Keyword If    ${location_visible}    Click Element    ${LOCATION}
+
