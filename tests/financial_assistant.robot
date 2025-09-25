@@ -23,6 +23,7 @@ Financial Assistant Workflow
     Wait Until Element Is Visible    ${FINANCIAL_ASSISTANT_SERVICE}
     Click Element    ${FINANCIAL_ASSISTANT_SERVICE}
     Handle Terms And Location
+
   
 
     @{CONSULTAS}=    Create List
