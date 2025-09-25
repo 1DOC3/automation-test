@@ -44,3 +44,4 @@ ${ALARMS & REMINDERS}  //android.widget.ScrollView/android.view.View[2]/android.
 ${ATRAS}  //android.widget.Button
 ${INFORMED_CONSENT}    //android.view.View[@content-desc="Consentimiento para atención por teleorientación y telemedicina en 1DOC3"]
 ${CTA_INFORMED_CONSENT}    //android.widget.Button[@content-desc="Continuar"]
+${MODAL_LOCATION}     //android.widget.Button[@content-desc="Continuar"]
