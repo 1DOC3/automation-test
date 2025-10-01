@@ -8,7 +8,7 @@ Library    FakerLibrary
 Suite Setup     Setting timeouts
 
 Test Setup    Before Tests
-#Test Teardown    After Tests
+Test Teardown    After Tests
 
 *** Test Cases ***
 Unopened inspiration

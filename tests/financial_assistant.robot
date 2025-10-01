@@ -9,21 +9,21 @@ Resource        ../resources/android/keywords/Keywords_financial_assistant.robot
 
 Suite Setup     Setting timeouts
 Test Setup       Before Tests
+Test Teardown    After Tests
 
 *** Test Cases ***
 
 
-Flujo De Asistente finaciero 
+Financial Assistant Workflow 
     Do login with email    nuevamafe@yopmail.com
-    Sleep    8s
-    Scroll Until Element Is Found In Safe Position    ${LEGAL_ASSISTANT_SERVICE}   
+    Scroll Until Element Is Found In Safe Position    ${FINANCIAL_ASSISTANT_SERVICE}   
     ...    start_y=1400    
     ...    end_y=400
     ...    duration=500
-    Wait Until Element Is Visible    $${LEGAL_ASSISTANT_SERVICE}
-    Click Element    $${LEGAL_ASSISTANT_SERVICE}
-    Wait Until Element Is Visible    ${TO_CONSULT}    
-    Click Element    ${TO_CONSULT}  
+    Wait Until Element Is Visible    ${FINANCIAL_ASSISTANT_SERVICE}
+    Click Element    ${FINANCIAL_ASSISTANT_SERVICE}
+    Handle Terms And Location
+  
 
     @{CONSULTAS}=    Create List
     ...    ${AHORRO_CONSULTATION} 
@@ -37,6 +37,6 @@ Flujo De Asistente finaciero
 
         FOR    ${CONSULTA}    IN    @{CONSULTAS}
         ${DETALLE}=    Get From Dictionary    ${CONSULTATION_DETAILS1}    ${CONSULTA}
-        Ejecutar Flujo De Consulta Legal    ${CONSULTA}    ${DETALLE}
-        Volver A Menu De Orientacion Legal
+        Run Financial Inquiry Workflow  ${CONSULTA}    ${DETALLE}
+        Return to Financial Guidance Menu
     END

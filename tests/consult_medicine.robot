@@ -10,14 +10,15 @@ Test Teardown    After Tests
 
 *** Test Cases ***
 Set medicina general
-    Do login with email  feli@yopmail.com
+    Do login with email  gloria@yopmail.com	
     Sleep    3s
     Scroll Until Element Is Found In Safe Position    ${MEDICINA_BUTTON}
     Wait Until Element Is Visible    ${MEDICINA_BUTTON}
     Click Element    ${MEDICINA_BUTTON}
     Informed consent
-    Wait Until Element Is Visible    ${FOR_ME_BUTTON}    
+    Wait Until Element Is Visible    ${FOR_ME_BUTTON}   timeout=5s  
     Click Element    ${FOR_ME_BUTTON}
+    Modal location
     Wait Until Page Contains Element    ${EMAIL_FIELD_MEDICINE}
     Click Element    ${EMAIL_FIELD_MEDICINE}
     Input Text       ${EMAIL_FIELD_MEDICINE}     ${DESCRIPTION_MEDICINE}
