@@ -52,17 +52,16 @@ Validation Medical History From Tab bar and choosing consultations
     Click Element   ${BUTTON_CANCEL}
     Page Should Contain Element  ${OPTION_LEGAL_ASSISTANT}
     Click Element  ${OPTION_LEGAL_ASSISTANT}
-    Wait Until Element Is Visible  ${PEDIATRICS}
-    Click Element   ${PEDIATRICS}
-    Page Should Contain Element  ${OPTION_PEDIATRICS}
-    Click Element  ${OPTION_PEDIATRICS}
-    Click Element  ${BACK}
-    Click Element  ${OPTION_PEDIATRICS}
     Wait Until Element Is Visible        ${GENERAL_MEDICINE} 
     Click Element    ${GENERAL_MEDICINE} 
     Wait Until Page Contains Element    ${TITLE_CONSULTATIONS}
     Page Should Contain Element  ${OPTION_GENERAL_MEDICINE}
     Click Element  ${OPTION_GENERAL_MEDICINE}
+    Wait Until Element Is Visible  ${PEDIATRICS}
+    Click Element  ${PEDIATRICS}
+    Page Should Contain Element  ${OPTION_PEDIATRICS}
+    Click Element  ${OPTION_PEDIATRICS}
+    Click Element  ${BACK}
      Wait Until Element Is Visible        ${MENTAL_HEALTH} 
     Click Element    ${MENTAL_HEALTH} 
     Wait Until Page Contains Element    ${TITLE_CONSULTATIONS}
