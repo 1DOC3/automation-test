@@ -16,7 +16,7 @@ Set medicina general
     Wait Until Element Is Visible    ${MEDICINA_BUTTON}
     Click Element    ${MEDICINA_BUTTON}
     Informed consent
-    Wait Until Element Is Visible    ${FOR_ME_BUTTON}    
+    Wait Until Element Is Visible    ${FOR_ME_BUTTON}   timeout=5s  
     Click Element    ${FOR_ME_BUTTON}
     Modal location
     Wait Until Page Contains Element    ${EMAIL_FIELD_MEDICINE}
