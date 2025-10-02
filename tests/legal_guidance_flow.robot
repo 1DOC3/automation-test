@@ -25,6 +25,8 @@ Flujo De Orientación Legal Para Todas Las Consultas
     Wait Until Element Is Visible    ${SERVICE_LEGAL_GUIDANCE}
     Click Element    ${SERVICE_LEGAL_GUIDANCE}
     Handle Terms And Location
+    Handle Terms And Location
+
 
     @{CONSULTAS}=    Create List
     ...    ${PENAL_CONSULTATION}
