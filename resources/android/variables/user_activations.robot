@@ -16,38 +16,38 @@ ${LICENSE_NOT_EXIST}  004@yopmail.com
 
 
 # Continua Con Empresa Locators
-${LOGIN_SUBMIT_CONTINUACONEMPRESA}   //android.widget.Button[@content-desc="Continúa con tu empresa"]
+${LOGIN_SUBMIT_CONTINUACONEMPRESA}   accessibility_id=Continúa con tu empresa
 ${LOGIN_COMPANY_FIELD}               //android.widget.EditText
-${LOGIN_SUBMIT_BUTTON_CONTINUAR}     //android.widget.Button[@content-desc="Continuar"]
-${COMPANY_SELECTOR}                  //android.widget.ImageView[@content-desc="LKJM"]
-${COMPANY_SELECTOR_PHONE}            //android.widget.ImageView[@content-desc="UAT"]
-${COMPANY_SELECTOR_DOCUMENT}         //android.widget.ImageView[@content-desc="Momo S.A"]
-${COMPANY_SELECTOR_EMAIL}            //android.widget.ImageView[@content-desc="1DOC3 empresa"]
+${LOGIN_SUBMIT_BUTTON_CONTINUAR}     accessibility_id=Continuar
+${COMPANY_SELECTOR}                  accessibility_id=LKJM
+${COMPANY_SELECTOR_PHONE}            accessibility_id=UAT
+${COMPANY_SELECTOR_DOCUMENT}         accessibility_id=Momo S.A
+${COMPANY_SELECTOR_EMAIL}            accessibility_id=1DOC3 empresa
 ${EMAIL_FIELD}                       //android.widget.EditText  
 ${NUMBER_FIELD}                      //android.widget.EditText
 ${DOCUMENT_FIELD}                    //android.widget.EditText
 ${VERIFY_BUTTON}                     //android.widget.Button[@content-desc="Verificar"]
 ${LOG_IN_BUTTON}                      //android.widget.Button[@content-desc="Iniciar sesión"]
-${ERROR_SELECT_COMPANY1}             //android.view.View[@content-desc="Selecciona una empresa"]
-${ERROR_SELECT_COMPANY2}             //android.view.View[@content-desc="Para continuar selecciona de la lista el nombre de la empresa a la que perteneces."]
-${MSG_VERIFY_USER}                   //android.view.View[@content-desc="Verifica tu usuario"]
+${ERROR_SELECT_COMPANY1}             accessibility_id=Selecciona una empresa
+${ERROR_SELECT_COMPANY2}             accessibility_id=Para continuar selecciona de la lista el nombre de la empresa a la que perteneces.
+${MSG_VERIFY_USER}                   accessibility_id=Verifica tu usuario
 ${ERROR_NO_COMPANY_EXISTS}           //android.view.View[contains(@content-desc, "No encontramos esta empresa.")]
 ${ERROR_WRITING_COMPANY}             //android.view.View[contains(@content-desc,"Escribe el nombre de tu empresa para continuar.")]
 ${CLOSE}                             //android.view.View[@content-desc="Busca tu empresa"]/android.view.View[1]
 ${PAGE_VERIFY_USER_EMAIL}            //android.view.View[contains(@content-desc,"Ahora, ingresa tu correo electrónico y verifícate en LKJM")]
 ${PAGE_VERIFY_USER_PHONE}            //android.view.View[contains(@content-desc,"Ahora, ingresa tu número de celular y verifícate en UAT.")]
 ${PAGE_VERIFY_USER_DOCUMENT}          //android.view.View[contains(@content-desc,"Ahora, ingresa tu número de documento y verifícate en Momo S.A.")]
-${ENTER_EMAIL_DATA}                  //android.view.View[@content-desc="Escribe tu correo electrónico para verificarte."]
-${ENTER_PHONE_DATA}                  //android.view.View[@content-desc="Escribe tu número de celular para verificarte."]
-${ENTER_DOCUMENT_DATA}               //android.view.View[@content-desc="Escribe tu número de documento para verificarte."]
+${ENTER_EMAIL_DATA}                  accessibility_id=Escribe tu correo electrónico para verificarte.
+${ENTER_PHONE_DATA}                  accessibility_id=Escribe tu número de celular para verificarte.
+${ENTER_DOCUMENT_DATA}               accessibility_id=Escribe tu número de documento para verificarte.
 ${CODE_VERIFICATION_FIELD}           //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[4]
 ${BTN_CONTACT_SUPPORT}               //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View/android.view.View/android.view.View
 ${VERIFICATION_FIELD}                //android.widget.EditText
 ${VERIFY_BUTTON_CONTINUAR}           //android.widget.Button[@content-desc="Continuar"]
 ${BUTTON_BACK}                       //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]
-${PAGE_FOUND_COMPANY}                //android.view.View[@content-desc="Busca tu empresa"]
-${BUTTON_LOGIN}                      //android.widget.Button[@content-desc="Iniciar sesión"]
-${SUPPORT_MESSAGE}                   //android.view.View[@content-desc="¿Necesitas ayuda? \nContacta a soporte"]
+${PAGE_FOUND_COMPANY}                accessibility_id=Busca tu empresa
+${BUTTON_LOGIN}                      accessibility_id=Iniciar sesión
+${SUPPORT_MESSAGE}                   accessibility_id=¿Necesitas ayuda? \nContacta a soporte
 
 #Login Locators
 ${CONTINUE_WITH_EMAIL_BUTTON}       //android.widget.ImageView[@content-desc="Inicia sesión con correo"]
