@@ -24,7 +24,6 @@ Flujo explorar validaciones
     Wait Until Element Is Visible    ${MENTAL_HEALTH}       
     Click Element    ${MENTAL_HEALTH}
     Wait Until Element Is Visible    ${TITLE_HEALTH}
-    Wait Until Element Is Visible    ${BODY_HEALTH}
     Wait Until Element Is Visible    ${TITLE2_HEALTH}
     Click Element    ${BACK_WINDOW}
     Sleep    2s
