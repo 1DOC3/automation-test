@@ -34,7 +34,7 @@ Validation Medical History From Tab bar and choosing consultations
     Wait Until Element Is Visible  ${READ_CHAT}
     Click Element  ${BUTTON_BACK_CONSULTATION}
     Wait Until Page Contains Element    ${TITLE_CONSULTATIONS}
-    Page Should Contain Element  ${OPTION_FINANCIAL_ASSISTANT}
+    Wait Until Element Is Visible  ${OPTION_FINANCIAL_ASSISTANT}
     Click Element                ${OPTION_FINANCIAL_ASSISTANT}
     Wait Until Element Is Visible  ${LEGAL_ASSISTANT}
     Click Element    ${LEGAL_ASSISTANT}
@@ -46,36 +46,36 @@ Validation Medical History From Tab bar and choosing consultations
     Wait Until Element Is Visible  ${READ_CHAT}
     Click Element  ${BUTTON_BACK_CONSULTATION}
     Wait Until Page Contains Element    ${TITLE_CONSULTATIONS}
-    Page Should Contain Element  ${OPTION_LEGAL_ASSISTANT}
+    Wait Until Element Is Visible  ${OPTION_LEGAL_ASSISTANT}
     Click Element  ${OPTION_LEGAL_ASSISTANT}
     Wait Until Element is visible  ${BUTTON_CANCEL}
     Click Element   ${BUTTON_CANCEL}
-    Page Should Contain Element  ${OPTION_LEGAL_ASSISTANT}
+    Wait Until Element Is Visible  ${OPTION_LEGAL_ASSISTANT}
     Click Element  ${OPTION_LEGAL_ASSISTANT}
     Wait Until Element Is Visible        ${GENERAL_MEDICINE} 
     Click Element    ${GENERAL_MEDICINE} 
     Wait Until Page Contains Element    ${TITLE_CONSULTATIONS}
-    Page Should Contain Element  ${OPTION_GENERAL_MEDICINE}
+    Wait Until Element Is Visible  ${OPTION_GENERAL_MEDICINE}
     Click Element  ${OPTION_GENERAL_MEDICINE}
     Wait Until Element Is Visible  ${PEDIATRICS}
     Click Element  ${PEDIATRICS}
-    Page Should Contain Element  ${OPTION_PEDIATRICS}
+    Wait Until Element Is Visible  ${OPTION_PEDIATRICS}
     Click Element  ${OPTION_PEDIATRICS}
     Click Element  ${BACK}
      Wait Until Element Is Visible        ${MENTAL_HEALTH} 
     Click Element    ${MENTAL_HEALTH} 
     Wait Until Page Contains Element    ${TITLE_CONSULTATIONS}
-     Page Should Contain Element  ${OPTION_MENTAL_HEALTH}
+    Wait Until Element Is Visible  ${OPTION_MENTAL_HEALTH}
     Click Element  ${OPTION_MENTAL_HEALTH}
     Wait Until Element Is Visible        ${SEXUAL_HEALTH} 
     Click Element    ${SEXUAL_HEALTH} 
     Wait Until Page Contains Element    ${TITLE_CONSULTATIONS}
-    Page Should Contain Element  ${OPTION_SEXUAL_HEALTH}
+    Wait Until Element Is Visible  ${OPTION_SEXUAL_HEALTH}
     Click Element  ${OPTION_SEXUAL_HEALTH}
     Wait Until Element Is Visible        ${VETERINARY} 
     Click Element   ${VETERINARY} 
     Wait Until Page Contains Element    ${TITLE_CONSULTATIONS}
-    Page Should Contain Element  ${OPTION_VETERINARY}
+    Wait Until Element Is Visible  ${OPTION_VETERINARY}
     Click Element  ${OPTION_VETERINARY}
 
 Validation Medical History From Tab bar without consultations
