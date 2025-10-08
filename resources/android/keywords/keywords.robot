@@ -155,6 +155,20 @@ Scroll Until Element Is Found In Safe Position
     Run Keyword If  '${additional_scroll}' == 'True'
     ...    Swipe  ${additional_start_x}  ${additional_start_y}  ${additional_end_x}  ${additional_end_y}  ${additional_duration}
 
+
+Verify prefix locator 
+     # Obtiene el valor actual del atributo content-desc
+    ${valor_actual}=    Get Element Attribute    ${PREFIX_LOCATOR}    content-desc
+    Log To Console    El prefijo actual es: ${valor_actual}
+
+    # Compara si es diferente a +57
+    IF    '${valor_actual}' != '${VALOR_ESPERADO}'
+        Log To Console    ⚠️ Prefijo diferente, se cambiará a ${VALOR_ESPERADO}
+        Click Element    ${PREFIX_LOCATOR}
+        Click Element    accessibility_id=+57 - Colombia
+    ELSE
+        Log To Console    ✅ El prefijo ya es ${VALOR_ESPERADO}, no se hace nada
+    END
 Do Login with mobile
    [Arguments]    ${data} 
     Sleep    8s
@@ -162,6 +176,7 @@ Do Login with mobile
     Wait Until Element Is Visible    ${CONTINUE_WITH_MOBILE_BUTTON}    30s
     Click Element    ${CONTINUE_WITH_MOBILE_BUTTON}
     Wait Until Element Is Visible    ${LOGIN_MOBILE_TEXT_FIELD}
+    Verify prefix locator
     Input Text    ${LOGIN_MOBILE_TEXT_FIELD}    ${data} 
     Wait Until Element Is Visible    ${BTN_MOBILE_LOGIN}
     Click Element    ${BTN_MOBILE_LOGIN}

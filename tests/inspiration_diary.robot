@@ -23,7 +23,7 @@ Unopened inspiration
     Press Keycode    4
     Wait Until Page Contains Element    ${KEEP}
     Click Element    ${KEEP}
-    Wait Until Page Contains Element    ${RETURN_IMAGE}
+    Wait Until Element Is Visible    ${RETURN_IMAGE}    timeout=180s  error=No se encontró el botón de retorno después de 3 minutos
     Click Element    ${RETURN_IMAGE}
 
 

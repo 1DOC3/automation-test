@@ -13,8 +13,8 @@ Login with email Local
     Open 1doc3 Application
     Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
-    Wait Until Page Contains Element    ${LOGIN_COMPANY_FIELD}
-    Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
+    Wait Until Element Is Visible  ${LOGIN_COMPANY_FIELD}
+    Input Text       ${LOGIN_COMPANY_FIELD}  ${NAME_COMPANY}
     Click Element    ${COMPANY_SELECTOR}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${EMAIL_FIELD}
@@ -38,7 +38,8 @@ Login with mobile Local
     Open 1doc3 Application
     Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
-    Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
+    Input Text       ${LOGIN_COMPANY_FIELD}  ${NAME_COMPANY}
+    Wait Until Element Is Visible  ${COMPANY_SELECTOR}
     Click Element    ${COMPANY_SELECTOR}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${EMAIL_FIELD}
@@ -49,9 +50,11 @@ Login with mobile Local
     Wait Until Page Contains Element    ${CONTINUE_WITH_MOBILE_BUTTON}
     Click Element    ${CONTINUE_WITH_MOBILE_BUTTON}
     Wait Until Page Contains Element    ${NUMBER_FIELD}
-    Input Text       ${EMAIL_FIELD}     ${USER_NUMBER}
-    Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
-    Wait Until Page Contains Element    ${CODE_VERIFICATION_FIELD}    timeout=10s
+    Verify prefix locator
+    Click Element  ${EMAIL_FIELD}
+    Input Text  ${EMAIL_FIELD}     ${USER_NUMBER}
+    Click Element  ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
+    Wait Until Element Is Visible  ${CODE_VERIFICATION_FIELD}    timeout=10s
     ${code}=    Get Code Environment   ${USER_NUMBER}
     Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
