@@ -25,6 +25,7 @@ Activate licences Happy Path
     Wait Until Page Contains Element    ${INVALID_DATA_CTA}
     Click Element    ${INVALID_DATA_CTA}
     Wait Until Page Contains Element    ${PHONE_INFO}
+    Verify prefix locator
     Click Element    ${PHONE_INFO}
     Input Text    ${PHONE_INFO}    ${USER_NUMBER_TWO}
     Wait Until Page Contains Element    ${SEND_CTA}
@@ -40,7 +41,7 @@ Activate licences Happy Path
 Activate licences validations
     Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
-    Wait Until Page Contains Element    ${VERIFY_BUTTON_CONTINUAR}
+    Wait Until Element Is Visible  ${VERIFY_BUTTON_CONTINUAR}
     Click Element    ${VERIFY_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${ERROR_WRITING_COMPANY}
     Sleep    3s
@@ -71,6 +72,7 @@ Activate licences validations
     Click Element    ${SEND_CTA}
     Wait Until Page Contains Element    ${PHONE_LICENCES}
     Wait Until Page Contains Element    ${PHONE_INFO}
+    Verify prefix locator
     Click Element    ${PHONE_INFO}
     Input Text    ${PHONE_INFO}    ${USER_NUMBER_TWO}
     Wait Until Page Contains Element    ${SEND_CTA}

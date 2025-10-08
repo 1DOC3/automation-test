@@ -63,7 +63,8 @@ ${ERROR_BANNER}                     //android.view.View[@content-desc="Verifica 
 ${ERROR_VERIFY_CODE}                //android.view.View[@content-desc="Escribe el código de verificación para continuar."]
 ${FORWARD_WPP}                      //android.widget.Button[@content-desc="Recibir un código nuevo por WhatsApp"]
 ${WPP_BANNER_CODE}                  //android.view.View[@content-desc="Ya te enviamos un nuevo código a tu teléfono."]
-
+${PREFIX_LOCATOR}  xpath=//android.view.View[starts-with(@content-desc, "+")]
+${VALOR_ESPERADO}  +57
 
 # Main Page Locator (Notificaciones)
 ${NOTIFICATION_BUTTON}    //android.widget.Button[@resource-id="com.android.permissioncontroller:id/permission_allow_button"]

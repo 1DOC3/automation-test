@@ -25,6 +25,8 @@ Login With Phone
     ${content_desc}=    Get Element Attribute    ${ERROR_BANNER}    content-desc
     Should Be Equal As Strings    ${content_desc}    Verifica que ingresaste un número de celular.
     Clear Text    ${LOGIN_MOBILE_TEXT_FIELD}
+    Verify prefix locator
+    Click Element  ${LOGIN_MOBILE_TEXT_FIELD}
     Input Text    ${LOGIN_MOBILE_TEXT_FIELD}    ${USER_NUMBER}
     Click Element    ${BTN_MOBILE_LOGIN}
     Wait Until Element Is Visible    ${VERIFY_BUTTON}    8s
