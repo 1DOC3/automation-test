@@ -38,6 +38,7 @@ Field validations
     Click Element     ${WOMEN_OPTION}
     Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
     Click Element  ${FIELD_DATE_OF_BIRTH}
+    sleep  5s
     Seleccionar Fecha    5   abril  1996
     Wait Until Element Is Visible  ${BTN_SAVED}
     Click Element  ${BTN_SAVED}
@@ -56,9 +57,6 @@ Field validations
     Wait Until Element Is Visible       ${BTN_ENABLE_NOTIFICATIONS}
     Wait Until Element Is Visible       ${BTN_SKIP_NOTIFICATIONS}
     Click Element                       ${BTN_SKIP_NOTIFICATIONS}
-    Seleccionar Cantidad De Pasos    5.000  
-    Wait Until Element Is Visible    ${BTN_CONTINUAR_PASOS}  
-    Click Element    ${BTN_CONTINUAR_PASOS}
     Wait Until Element Is Visible    ${BTN_GOOGLE_FIT}    5s
     Click Element                    ${BTN_GOOGLE_FIT}
     Sleep  5s

@@ -33,6 +33,7 @@ Validation of non-existent company
     Open 1doc3 Application
     Wait Until Element Is Visible   ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+    Wait Until Element Is Visible  ${LOGIN_COMPANY_FIELD}
     Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_NOEXIST}
     Wait Until Element is visible    ${ERROR_NO_COMPANY_EXISTS}
     Close Application

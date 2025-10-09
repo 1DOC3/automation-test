@@ -102,27 +102,8 @@ Seleccionar Fecha
 
     Log To Console    ✅ Fecha seleccionada: ${dia_deseado} ${mes_deseado} ${anio_deseado}
 
-*** Keywords ***
-
-Seleccionar Cantidad De Pasos
-    [Arguments]    ${pasos_deseados}
-    FOR    ${i}    IN RANGE    20
-        ${actual}=    Obtener Paso Actual
-        ${actual}=    Strip String    ${actual}
-        ${deseado}=    Strip String    ${pasos_deseados}
-        Log To Console    ➤ Actual=${actual} | Deseado=${deseado}
-
-        Exit For Loop If    '${actual}' == '${deseado}'
-
-        Swipe Element    ${LOCATOR_PASO}    arriba
-        Sleep    1s
-    END
-
-    Click Element    ${BTN_CONTINUAR_PASOS}
 
 
-Obtener Paso Actual
-    # Este busca el primer número de pasos visible dentro del scroll
-    ${items}=    Get Webelements    xpath=//android.widget.ScrollView//android.view.View[contains(@content-desc,".000")]
-    ${primer_visible}=    Get Element Attribute    ${items[0]}    content-desc
-    RETURN    ${primer_visible}
+
+
+

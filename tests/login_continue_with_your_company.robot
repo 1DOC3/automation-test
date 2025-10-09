@@ -46,13 +46,14 @@ Login with mobile Local
     Input Text       ${EMAIL_FIELD}     ${USER1_DETAILS}
     Click Element    ${VERIFY_BUTTON}
     Wait Until Element Is Visible    ${LOG_IN_BUTTON}
-    Click Element    ${LOG_IN_BUTTON} 
+    Click Element  ${LOG_IN_BUTTON} 
     Wait Until Page Contains Element    ${CONTINUE_WITH_MOBILE_BUTTON}
     Click Element    ${CONTINUE_WITH_MOBILE_BUTTON}
-    Wait Until Page Contains Element    ${NUMBER_FIELD}
     Verify prefix locator
-    Click Element  ${EMAIL_FIELD}
-    Input Text  ${EMAIL_FIELD}     ${USER_NUMBER}
+    Wait Until Page Contains Element    ${NUMBER_FIELD}
+    Click Element  ${NUMBER_FIELD}
+    Input Text  ${NUMBER_FIELD}     ${USER_NUMBER}
+    Wait Until Element Is Visible  ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Click Element  ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Element Is Visible  ${CODE_VERIFICATION_FIELD}    timeout=10s
     ${code}=    Get Code Environment   ${USER_NUMBER}
