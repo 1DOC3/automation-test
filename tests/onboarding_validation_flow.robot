@@ -20,7 +20,7 @@ Field validations
     Input Text       ${EMAIL_FIELD}  bictor3@yopmail.com
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    ${code}=    Get Code Environment   ${USER_ONBOARDING}
+    ${code}=    Get Code Environment  bictor3@yopmail.com
     Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
     Wait Until Page Contains Element  ${COPY_TITLE}
