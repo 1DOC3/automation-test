@@ -26,14 +26,15 @@ Login With Phone
     Should Be Equal As Strings    ${content_desc}    Verifica que ingresaste un número de celular.
     Clear Text    ${LOGIN_MOBILE_TEXT_FIELD}
     Verify prefix locator
+    Wait Until Element Is Visible  ${LOGIN_MOBILE_TEXT_FIELD}
     Click Element  ${LOGIN_MOBILE_TEXT_FIELD}
     Input Text    ${LOGIN_MOBILE_TEXT_FIELD}    ${USER_NUMBER}
     Click Element    ${BTN_MOBILE_LOGIN}
     Wait Until Element Is Visible    ${VERIFY_BUTTON}    8s
     Click Element    ${VERIFY_BUTTON}
     Wait Until Element Is Visible    ${ERROR_VERIFY_CODE}    5s
-    ${code}=    Get Code Environment    ${USER_NUMBER}
-    Input Verification Code    ${code}
+    ${code}=    Get Code Environment   ${USER_NUMBER}
+    Input Verification Code     ${code}
     #Reenviar Código por WPP
     Sleep    15s
     Wait Until Element Is Visible    ${FORWARD_WPP}    

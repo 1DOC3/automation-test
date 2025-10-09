@@ -157,6 +157,8 @@ Scroll Until Element Is Found In Safe Position
 
 
 Verify prefix locator 
+    # Esperar un tiempo
+    Wait Until Page Contains Element    ${PREFIX_LOCATOR}    10s  error=❌ No se encontró el prefijo en ${TIMEOUT}
      # Obtiene el valor actual del atributo content-desc
     ${valor_actual}=    Get Element Attribute    ${PREFIX_LOCATOR}    content-desc
     Log To Console    El prefijo actual es: ${valor_actual}
@@ -165,6 +167,7 @@ Verify prefix locator
     IF    '${valor_actual}' != '${VALOR_ESPERADO}'
         Log To Console    ⚠️ Prefijo diferente, se cambiará a ${VALOR_ESPERADO}
         Click Element    ${PREFIX_LOCATOR}
+        Wait Until Element Is Visible  accessibility_id=+57 - Colombia
         Click Element    accessibility_id=+57 - Colombia
     ELSE
         Log To Console    ✅ El prefijo ya es ${VALOR_ESPERADO}, no se hace nada

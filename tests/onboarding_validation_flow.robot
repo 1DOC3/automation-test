@@ -17,7 +17,7 @@ Field validations
     Click Element    ${BTN_ACCOUNT}
     Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
     Click Element    ${CONTINUE_WITH_EMAIL_BUTTON}
-    Input Text       ${EMAIL_FIELD}     ${USER_ONBOARDING}
+    Input Text       ${EMAIL_FIELD}  bictor3@yopmail.com
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
     ${code}=    Get Code Environment   ${USER_ONBOARDING}
@@ -38,6 +38,7 @@ Field validations
     Click Element     ${WOMEN_OPTION}
     Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
     Click Element  ${FIELD_DATE_OF_BIRTH}
+    sleep  3s
     Seleccionar Fecha    5   abril  1996
     Wait Until Element Is Visible  ${BTN_SAVED}
     Click Element  ${BTN_SAVED}
@@ -48,9 +49,11 @@ Field validations
     Click Element  //android.view.View[@content-desc="Hombre"]
     Click Element  ${UNDETERMINED OPTION}
     Click Element    //android.view.View[@content-desc="05/04/1996"]
+    sleep  3s
     Seleccionar Fecha    5   abril  2023
     Click Element  ${BTN_SAVED}
     Wait Until Page Contains Element    ${ERROR_AGE_USER}
+    sleep  3s
     Seleccionar Fecha    5   abril  1996
     Click Element  ${BTN_SAVED}
     Wait Until Element Is Visible    xpath=//*[contains(@content-desc, "Continuar")]    20s
@@ -68,9 +71,6 @@ Field validations
     Wait Until Element Is Visible       ${BTN_ENABLE_NOTIFICATIONS}
     Wait Until Element Is Visible       ${BTN_SKIP_NOTIFICATIONS}
     Click Element                       ${BTN_SKIP_NOTIFICATIONS}
-    Seleccionar Cantidad De Pasos    6.000  
-    Wait Until Element Is Visible    ${BTN_CONTINUAR_PASOS}  
-    Click Element    ${BTN_CONTINUAR_PASOS}
     Wait Until Element Is Visible    ${BTN_GOOGLE_FIT}    5s
     Click Element                    ${BTN_GOOGLE_FIT}
     Sleep  5s
