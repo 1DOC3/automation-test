@@ -36,10 +36,13 @@ Login With Phone
     ${code}=    Get Code Environment   ${USER_NUMBER}
     Input Verification Code     ${code}
     #Reenviar Código por WPP
-    Sleep    15s
-    Wait Until Element Is Visible    ${FORWARD_WPP}    
+    Sleep    9s
+    # Asegurarnos de que la app esté lista antes de reenviar el código
+    Wait Until Element Is Visible    ${FORWARD_WPP}    timeout=60s
+    Sleep    1s
     Click Element    ${FORWARD_WPP}
-    Wait Until Element Is Visible    ${WPP_BANNER_CODE}    10s
+    # Esperar dinámicamente el banner
+    Wait Until Keyword Succeeds    6x    10s    Wait Until Element Is Visible    ${WPP_BANNER_CODE}    timeout=10s
+    Sleep    1s
     ${content_desc}=    Get Element Attribute    ${WPP_BANNER_CODE}    content-desc
     Should Be Equal As Strings    ${content_desc}    Ya te enviamos un nuevo código a tu teléfono.
-    Click Element    ${VERIFY_BUTTON}

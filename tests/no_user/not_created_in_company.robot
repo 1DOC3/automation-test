@@ -49,7 +49,8 @@ Activate licences validations
     Click Element    ${LOGIN_COMPANY_FIELD}
     Sleep    3s
     Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
-    Click Element    ${VERIFY_BUTTON_CONTINUAR}
+    Wait Until Element Is Visible  ${VERIFY_BUTTON_CONTINUAR}
+    Click Element  ${VERIFY_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${ERROR_SELECT_COMPANY2}
     Click Element    ${COMPANY_SELECTOR}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
