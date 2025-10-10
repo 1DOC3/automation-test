@@ -16,15 +16,30 @@ Unopened inspiration
     Sleep    8s
     Click Inspiration Banner
     Wait Until Page Contains Element    ${SHARE}
+
+    Log To Console    📸 Compartiendo inspiración...
     Click Element    ${SHARE}
     Wait Until Page Contains Element    ${SHARING_IMAGE}
     Wait Until Page Contains Element    ${CLOSE_SHARING_IMAGE}
     Click Element    ${CLOSE_SHARING_IMAGE}
+
     Press Keycode    4
-    Wait Until Page Contains Element    ${KEEP}    timeout=20s
+    Log To Console    🕐 Esperando que aparezca botón KEEP...
+    Wait Until Element Is Visible    ${KEEP}    timeout=20s
+
+    Log To Console    🖱️ Haciendo clic en KEEP...
     Click Element    ${KEEP}
-    Wait Until Keyword Succeeds    5x    10s    Wait Until Element Is Visible    ${RETURN_IMAGE}    timeout=20s
     Sleep    2s
+
+    # Validación inmediata para detectar si el clic funcionó
+    ${after_keep}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${RETURN_IMAGE}    timeout=10s
+    IF    not ${after_keep}
+        Log To Console    ⚠️ El clic en KEEP no produjo cambio de pantalla o el elemento RETURN_IMAGE no apareció.
+        Capture Page Screenshot
+        Fail    No se detectó transición tras hacer clic en KEEP.
+    END
+
+    Log To Console    ✅ RETURN_IMAGE visible. Continuando flujo...
     Click Element    ${RETURN_IMAGE}
 
 

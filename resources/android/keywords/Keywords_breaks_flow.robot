@@ -120,7 +120,7 @@ Active break
     Click Element  xpath=(//android.view.View)[1] 
     Wait Until Element Is Visible  xpath=(//android.view.View)[3]
     Click Element  xpath=(//android.view.View)[3]
-    Wait Until Element Is Visible  xpath=(//android.view.View)[5]
+    Wait Until Element Is Visible  xpath=(//android.view.View)[5]  20s
     Click Element    xpath=(//android.view.View)[5]
     Wait For Video To Finish
     
