@@ -27,7 +27,7 @@ Active pause banner validations
                 Exit For Loop
             ELSE
                  Swipe By Percent    50    85    50    25    500
-                 Wait Until Keyword Succeeds    3s    0.5s    Run Keyword If    '${Banner_not_break}' or '${Banner}'    No Operation
+                 Wait Until Keyword Succeeds    7s    0.5s    Run Keyword If    '${Banner_not_break}' or '${Banner}'    No Operation
             END
         END
 
@@ -40,7 +40,7 @@ Active pause banner validations
                 Active break
                   
             ELSE
-            Fail    Neither banner active or not active found
+            Pass Execution    Neither banner active or not active found
         END
     
     

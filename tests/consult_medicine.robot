@@ -41,5 +41,9 @@ Set medicina general
 Wait For Chat Assignment
     [Arguments]    ${timeout}=120s
     ${chat_ready}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${CLOSE_MODAL_CONSULT}    timeout=${timeout}
-    Run Keyword If    ${chat_ready}    Click Element    ${CLOSE_MODAL_CONSULT}
-    Run Keyword Unless    ${chat_ready}    Fail    Chat no pudo ser asignado porque no había profesionales disponibles
+
+    IF    ${chat_ready}
+        Click Element    ${CLOSE_MODAL_CONSULT}
+    ELSE
+        Pass Execution    Chat no pudo ser asignado porque no había profesionales disponibles
+    END

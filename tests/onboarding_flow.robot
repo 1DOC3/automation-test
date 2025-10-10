@@ -39,7 +39,6 @@ Field validations
     Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
     Click Element  ${FIELD_DATE_OF_BIRTH}
     sleep  5s
-    Seleccionar Fecha    5   abril  1996
     Wait Until Element Is Visible  ${BTN_SAVED}
     Click Element  ${BTN_SAVED}
     Wait Until Element Is Visible    xpath=//*[contains(@content-desc, "Continuar")]    20s

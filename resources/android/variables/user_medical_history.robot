@@ -32,7 +32,7 @@ ${BACK}                 accessibility_id=Sombreado
 
 ${FIRTS_CONSULTATIONS_FINANCIAL}  //android.widget.ImageView[contains(@content-desc,"Asistente Financiero\nIA\nCalificación pendiente\nConsulta para: Kevin Danilo")]
 ${TITLE_CONSULTATION_FINANCIAL}   accessibility_id=Consulta Financiera
-${REASON_FOR_CONSULTATIONN_FINANCIAL}          //android.view.View[@content-desc="Julio 18, 2025\nConsulta para: Kevin Danilo\nMotivo de consulta\nPuedes indicarme de inversiones de alto riesgo para jóvenes"]
+${REASON_FOR_CONSULTATIONN_FINANCIAL}  xpath=//android.view.View[contains(@content-desc, "Kevin Danilo")]
 ${CONSULTATION_SUMMARY_FINANCIAL}            //android.view.View[@content-desc="Recuerda usar estas recomendaciones como guía inicial. Verifica siempre la información antes de actuar y consulta a un profesional si es necesario.\n¡Si necesitas más ayuda, estaré aquí para..."]
 ${CONSULTATION_RATING}              accessibility_id=Califica tu consulta
 ${READ_CHAT}                        accessibility_id=Leer chat
