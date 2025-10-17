@@ -61,8 +61,8 @@ ${BTN_MOBILE_LOGIN}                 //android.widget.Button[@content-desc="Conti
 ${ERROR_FIELD_NUMBER}               //android.view.View[@content-desc="Escribe tu número celular para continuar."]
 ${ERROR_BANNER}                     //android.view.View[@content-desc="Verifica que ingresaste un número de celular."]
 ${ERROR_VERIFY_CODE}                //android.view.View[@content-desc="Escribe el código de verificación para continuar."]
-${FORWARD_WPP}                      //android.widget.Button[@content-desc="Recibir un código nuevo por WhatsApp"]
-${WPP_BANNER_CODE}                  //android.view.View[@content-desc="Ya te enviamos un nuevo código a tu teléfono."]
+${FORWARD_WPP}                      accessibility_id=Recibir un código nuevo por WhatsApp
+${WPP_BANNER_CODE}                  accessibility_id=Ya te enviamos un nuevo código a tu teléfono.
 ${PREFIX_LOCATOR}  xpath=//android.view.View[starts-with(@content-desc, "+")]
 ${VALOR_ESPERADO}  +57
 

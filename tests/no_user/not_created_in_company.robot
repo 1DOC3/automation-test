@@ -15,42 +15,41 @@ Activate licences validations
     Wait Until Element Is Visible  ${VERIFY_BUTTON_CONTINUAR}  4s
     Click Element    ${VERIFY_BUTTON_CONTINUAR}
     Wait Until Page Contains Element    ${ERROR_WRITING_COMPANY}
-    Sleep    3s
-    Wait Until Page Contains Element    ${LOGIN_COMPANY_FIELD}
+    Wait Until Element Is Visible    ${LOGIN_COMPANY_FIELD}
     Click Element    ${LOGIN_COMPANY_FIELD}
-    Sleep    3s
     Input Text       ${LOGIN_COMPANY_FIELD}    ${NAME_COMPANY}
     Wait Until Element Is Visible  ${VERIFY_BUTTON_CONTINUAR}
     Click Element  ${VERIFY_BUTTON_CONTINUAR}
-    Wait Until Page Contains Element    ${ERROR_SELECT_COMPANY2}
+    Wait Until Element Is Visible    ${ERROR_SELECT_COMPANY2}
+    Wait Until Element Is Visible  ${COMPANY_SELECTOR}
     Click Element    ${COMPANY_SELECTOR}
+    Wait Until Element Is Visible  ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
-    Wait Until Page Contains Element    ${VERIFY_BUTTON}
+    Wait Until Element Is Visible  ${VERIFY_BUTTON}
     Click Element    ${VERIFY_BUTTON}
     Wait Until Page Contains Element    ${ENTER_EMAIL_DATA}
-    Wait Until Page Contains Element    ${EMAIL_FIELD}
+    Wait Until Element Is Visible   ${EMAIL_FIELD}
     Click Element    ${EMAIL_FIELD}
     Aleatory
     Click Element    ${VERIFY_BUTTON}
-    Wait Until Page Contains Element    ${INVALID_DATA_CTA}
+    Wait Until Element Is Visible    ${INVALID_DATA_CTA}
     Click Element    ${TAP_OUTSIDE}
-    Wait Until Page Contains Element    ${EMAIL_FIELD}
+    Wait Until Element Is Visible    ${EMAIL_FIELD}
     Click Element    ${EMAIL_FIELD}
     Aleatory
     Click Element    ${VERIFY_BUTTON}
-    Wait Until Page Contains Element    ${INVALID_DATA_CTA}
+    Wait Until Element Is Visible  ${INVALID_DATA_CTA}
     Click Element    ${INVALID_DATA_CTA}
-    Wait Until Page Contains Element    ${SEND_CTA}
+    Wait Until Element Is Visible  ${SEND_CTA}
     Click Element    ${SEND_CTA}
     Wait Until Page Contains Element    ${PHONE_LICENCES}
-    Wait Until Page Contains Element    ${PHONE_INFO}
+    Wait Until Element Is Visible  ${PHONE_INFO}
     Verify prefix locator
     Click Element    ${PHONE_INFO}
     Input Text    ${PHONE_INFO}    ${USER_NUMBER_TWO}
-    Wait Until Page Contains Element    ${SEND_CTA}
+    Wait Until Element Is Visible  ${SEND_CTA}
     Click Element    ${SEND_CTA}
-    Sleep    5s
-    Wait Until Page Contains Element    ${CONFIRMATION_MESSAGE}
+    Wait Until Element Is Visible    ${CONFIRMATION_MESSAGE}
     Close Application
     
 Activate licences Happy Path

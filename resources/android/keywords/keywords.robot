@@ -29,7 +29,8 @@ Before Tests
     Open 1doc3 Application
     Wait Until Page Contains Element    ${BTN_ACCOUNT}
 After Tests
-    Close Application
+    Run Keyword And Ignore Error  Close Application
+    Sleep    3s
 
 
 Open 1doc3 Application
@@ -41,6 +42,8 @@ Open 1doc3 Application
     ...    app=${APP_PATH}
     ...    automationName=${AUTOMATION_NAME}
     ...    autoGrantPermissions=true
+    ...    enforceXPath1=${True}
+    Sleep    3s
 
 
 

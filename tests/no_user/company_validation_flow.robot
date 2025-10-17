@@ -130,9 +130,10 @@ Validation active account with email
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Click Element    ${VERIFY_BUTTON}
     Wait Until Element is visible    ${ENTER_EMAIL_DATA}
+    Wait Until Element Is Visible  ${VERIFICATION_FIELD}
     Input Text       ${VERIFICATION_FIELD}  ${USER1_DETAILS}        
     Click Element    ${VERIFY_BUTTON}
-    ${ACTIVE_LICENSE_FOUND}  Get Element Attribute    xpath=//android.view.View[contains(@content-desc,"Ya tienes una cuenta activa")]    content-desc
+    ${ACTIVE_LICENSE_FOUND}=    Get Element Attribute    xpath=//android.view.View[contains(@content-desc, "Ya tienes una cuenta activa") and contains(@content-desc, "correo:")]    content-desc
     Log To Console    El texto obtenido es: ${ACTIVE_LICENSE_FOUND}
     Wait Until Element is visible  ${BUTTON_LOGIN} 
     Wait Until Element Is Visible    ${SUPPORT_MESSAGE}  
@@ -153,10 +154,11 @@ Validation active account with phone
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Click Element    ${VERIFY_BUTTON}
     Wait Until Element is visible    ${ENTER_EMAIL_DATA}
+    Wait Until Element is visible  ${VERIFICATION_FIELD}
     Input Text       ${VERIFICATION_FIELD}  ${USER1_PHONE}        
     Click Element    ${VERIFY_BUTTON}
-    ${ACTIVE_LICENSE_FOUND}  Get Element Attribute    xpath=//android.view.View[contains(@content-desc,"Ya tienes una cuenta activa\nInicia sesión con este celular:\n30438*****")]    content-desc
-    Log To Console    El texto obtenido es: ${ACTIVE_LICENSE_FOUND}
+    ${ACTIVE_LICENSE_FOUND}   Get Element Attribute  xpath=//android.view.View[contains(@content-desc, "Ya tienes una cuenta activa") and contains(@content-desc, "celular:")]  content-desc
+     Log To Console    El texto obtenido es: ${ACTIVE_LICENSE_FOUND}
     Wait Until Element is visible  ${BUTTON_LOGIN} 
     Wait Until Element Is Visible    ${SUPPORT_MESSAGE}  
     Should Be Equal    ${ACTIVE_LICENSE_FOUND}   Ya tienes una cuenta activa\nInicia sesión con este celular:\n30438*****
