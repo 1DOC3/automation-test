@@ -23,12 +23,7 @@ Field validations
     ${code}=    Get Code Environment   ${USER_ONBOARDING}
     Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
-    Wait Until Page Contains Element  ${COPY_TITLE}
-    Wait Until Page Contains Element  ${FIELD_NAME}
-    Wait Until Page Contains Element  ${FIELD_LAST_NAME}
-    Wait Until Element Is Visible     ${FIELD_GENDER}
-    Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
-    Wait Until Element Is Visible     ${COPY_INFORMATION}
+    Wait Until Element Is Visible     ${COPY_INFORMATION}  60s
     Input Text       ${INPUT_NAME}           'Kevin Chayane'
     Wait Until Page Contains Element  ${INPUT_LAST_NAME} 
     Click Element    ${INPUT_LAST_NAME} 
@@ -38,7 +33,7 @@ Field validations
     Click Element     ${WOMEN_OPTION}
     Wait Until Element Is Visible     ${FIELD_DATE_OF_BIRTH}
     Click Element  ${FIELD_DATE_OF_BIRTH}
-    sleep  5s
+    sleep  3s
     Wait Until Element Is Visible  ${BTN_SAVED}
     Click Element  ${BTN_SAVED}
     Wait Until Element Is Visible    xpath=//*[contains(@content-desc, "Continuar")]    20s

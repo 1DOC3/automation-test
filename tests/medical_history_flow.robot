@@ -13,7 +13,6 @@ Test Teardown    After Tests
 
 Validation Medical History From Tab bar and choosing consultations
     Do login with email  tutaina@yopmail.com
-
     # Access from Tab Bar
     Wait Until Element Is Visible       ${BUTTON_CONSULTATION}
     Click Element                       ${BUTTON_CONSULTATION}

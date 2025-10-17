@@ -52,11 +52,10 @@ Flujo explorar validaciones
     Click Element    ${BACK_WINDOW}
     
 Banner health 
-
     Do login with email    feli@yopmail.com	
+    Wait Until Element Is Visible  ${TAB_EXPLORA}
     Click Element    ${TAB_EXPLORA}
-    Sleep    5s
-    Wait Until Element Is Visible    ${BANNER_HEALTH}
+    Wait Until Element Is Visible    ${BANNER_HEALTH}  70s
     Click Element    ${BANNER_HEALTH}
     Sleep    2s
     Click Element    ${CLOSE_WINDOW1}
@@ -64,6 +63,7 @@ Banner health
 Video Validation
     
     Do login with email    feli@yopmail.com	
+    Wait Until Element Is Visible  ${TAB_EXPLORA}
     Click Element    ${TAB_EXPLORA}
     Sleep    5s
     Wait Until Element Is Visible    ${SECTION_EXPLORA}

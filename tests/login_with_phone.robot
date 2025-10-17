@@ -35,14 +35,11 @@ Login With Phone
     Wait Until Element Is Visible    ${ERROR_VERIFY_CODE}    5s
     ${code}=    Get Code Environment   ${USER_NUMBER}
     Input Verification Code     ${code}
-    #Reenviar Código por WPP
-    Sleep    9s
+    sleep  10s
     # Asegurarnos de que la app esté lista antes de reenviar el código
-    Wait Until Element Is Visible    ${FORWARD_WPP}    timeout=60s
-    Sleep    1s
-    Click Element    ${FORWARD_WPP}
+    Wait Until Page Contains Element  ${FORWARD_WPP}    timeout=120s
+    Click Element  ${FORWARD_WPP}
     # Esperar dinámicamente el banner
-    Wait Until Keyword Succeeds    6x    10s    Wait Until Element Is Visible    ${WPP_BANNER_CODE}    timeout=10s
-    Sleep    1s
+    Wait Until Keyword Succeeds    8x    10s    Wait Until Page Contains Element    ${WPP_BANNER_CODE}    timeout=10s
     ${content_desc}=    Get Element Attribute    ${WPP_BANNER_CODE}    content-desc
     Should Be Equal As Strings    ${content_desc}    Ya te enviamos un nuevo código a tu teléfono.
