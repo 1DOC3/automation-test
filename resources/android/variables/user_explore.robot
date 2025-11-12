@@ -30,5 +30,4 @@ ${BANNER_HEALTH}      accessibility_id=COMPLETA TU PERFIL DE SALUD\n+ 30
 ${CLOSE_WINDOW1}     //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View
 ${SECTION_EXPLORA}     xpath=(//android.view.View[contains(@content-desc, "Video")])[1]
 ${BUTTON_CLOSE}      //android.widget.FrameLayout[@resource-id="android:id/content"]/android.widget.FrameLayout/android.view.View/android.view.View/android.view.View/android.view.View[1]
-
-
+${HELP}    //android.view.View[@content-desc="AYUDA"]

@@ -8,8 +8,10 @@ Library  DateTime
 
 Resource    ../variables/user_activations.robot
 Resource    ../variables/user_consultation.robot
+Resource    ../variables/user_daily_inspiration.robot
 Resource    Keywords_onboarding_flow.robot
 Resource    code_requests_email.robot
+Resource    ../variables/user_explore.robot
 
 *** Variables ***
 ${APPIUM_SERVER}     %{APPIUM_SERVER}
@@ -18,7 +20,7 @@ ${DEVICE_NAME}       %{DEVICE_NAME}
 ${AUTOMATION_NAME}   %{AUTOMATION_NAME}
 ${APP_PATH}          %{APP_PATH}
 ${ENVIRONMENT}       %{EXEC_ENV}
-${API_KEY}           %{API_KEY} 
+${API_KEY}           %{API_KEY}
 
 
 *** Keywords ***
@@ -29,9 +31,7 @@ Before Tests
     Open 1doc3 Application
     Wait Until Page Contains Element    ${BTN_ACCOUNT}
 After Tests
-    Run Keyword And Ignore Error  Close Application
-    Sleep    3s
-
+    Log    Finalizando pruebas sin cerrar la app
 
 Open 1doc3 Application
     [Documentation]    Abre la aplicación de 1doc3 basandose en las variables de entorno.
@@ -59,11 +59,6 @@ Measure App Loading Time
     ${duracion}=    Evaluate    round(${fin} - ${inicio}, 2)
     Should Be True    ${duracion} <= 3    msg=⛔ La app se demoró demasiado en cargar (${duracion} segundos)
     Log To Console   msg=🆗 La app se demoró en cargar (${duracion} segundos)
-
-
-    
-
-
 
 
 Define login
@@ -239,5 +234,20 @@ Modal location
     ${is_visible}=    Run Keyword And Return Status    Element Should Be Visible    ${MODAL_LOCATION}   5s
     Run Keyword If    ${is_visible}    Click Element    ${MODAL_LOCATION}
     ...    ELSE    Log    Modal no encontrada, continuar flujo
-  
-  
+    ...    
+
+
+Return To Home
+    [Documentation]    Retrocede hasta que aparezca un elemento del home sin cerrar la app.
+    Log    Iniciando teardown sin cerrar la app
+    Wait Until Keyword Succeeds    5x    2s    Navigate To Home
+
+Navigate To Home
+    ${visible}=    Run Keyword And Return Status    Page Should Contain Element    ${HELP} 
+    IF    ${visible}
+        Log    Ya estamos en el home
+        RETURN
+    END
+    Press Keycode    4    # Botón atrás
+    Sleep    1s
+    Page Should Contain Element    ${HELP}
