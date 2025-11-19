@@ -5,21 +5,39 @@ Proyecto de automatización móvil para la app 1DOC3 utilizando Robot Framework 
 **Estructura del proyecto**
 
 
-├── docs/                          → Documentación del proyecto
+```bash
+├── docs/                                # Documentación del proyecto
 ├── resources/
 │   └── android/
-│       ├── keywords/              → Keywords de Robot Framework reutilizables
-│       ├── variables/             → Variables por módulo funcional o tipo de usuario
-│       └── scripts/               → Scripts auxiliares para ejecución en Device Farm
+│       ├── keywords/                    # Keywords de Robot Framework reutilizables
+│       └── variables/                   # Variables por módulo o tipo de usuario
+├── scripts/
+│   └── device_farm_upload.sh            # Script para subir pruebas a DeviceFarm
 ├── tests/
-│   ├── isolated_tests/            → Pruebas que deben ejecutarse de forma independiente
-│   │   ├── onboarding_flow.robot
+│   ├── isolated_tests/                  # Pruebas independientes
+│   │   ├── __init__.robot
 │   │   ├── medical_history_flow.robot
-│   │   └── ...
-│   ├── no_user/                   → Casos de prueba para flujos sin usuario autenticado
-│   └── with_user/                 → Casos de prueba para flujos con usuario autenticado
-└── .gitignore
+│   │   ├── onboarding_flow.robot
+│   │   ├── onboarding_validation_flow.robot
+│   │   └── share_badges.robot
+│   ├── no_user/                         # Flujos sin autenticación
+│   │   ├── __init__.robot
+│   │   ├── charging_time.robot
+│   │   ├── company_validation_flow.robot
+│   │   ├── login_continue_with_your_company.robot
+│   │   └── login_with_phone.robot
+│   └── with_user/                       # Flujos con usuario autenticado
+│       ├── __init__.robot
+│       ├── active_breaks_flow.robot
+│       ├── consult_medicine.robot
+│       ├── explore_validation_flow.robot
+│       ├── financial_assistant.robot
+│       ├── inspiration_diary.robot
+│       ├── legal_guidance.robot
+│       └── webinars_flow.robot
+├── .gitignore
 └── README.md
+```
 
 
 **Requisitos**  
