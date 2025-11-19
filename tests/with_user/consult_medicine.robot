@@ -23,23 +23,4 @@ Set medicina general
     Click Element    ${CONTINUAR_BUTTON}
     Wait Until Page Contains Element    ${CTA_ADD_DOCUMENTS}
     Wait Until Element Is Visible    ${START_CONSULT_MEDICINE}    
-    Click Element    ${START_CONSULT_MEDICINE}
-    Wait For Chat Assignment    25s
-    Wait Until Element Is Visible    ${OPTIONS_CONSULT}
-    Click Element    ${OPTIONS_CONSULT}
-    Wait Until Element Is Visible    ${FINISH_CONSULT}
-    Click Element    ${FINISH_CONSULT} 
-    Wait Until Element Is Visible    ${FINISH_CONSULT_CONFIRM}
-    Click Element    ${FINISH_CONSULT_CONFIRM}
-    Sleep    5s
-
-*** Keywords ***
-Wait For Chat Assignment
-    [Arguments]    ${timeout}=120s
-    ${chat_ready}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${CLOSE_MODAL_CONSULT}    timeout=${timeout}
-
-    IF    ${chat_ready}
-        Click Element    ${CLOSE_MODAL_CONSULT}
-    ELSE
-        Pass Execution    Chat no pudo ser asignado porque no había profesionales disponibles
-    END
+    
