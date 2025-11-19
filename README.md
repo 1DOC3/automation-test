@@ -1,6 +1,6 @@
 **Pruebas automatizadas de la app de 1doc3 con Robot Framework y Appium.**
 
-Proyecto de automatización móvil para la app 1DOC3 utilizando Robot Framework y Appium, con el objetivo de validar flujos críticos de usuario y asegurar calidad en releases.
+Proyecto de automatización móvil para la app 1DOC3 utilizando Robot Framework y Appium, con el objetivo de validar flujos críticos de usuario y asegurar calidad en releases. Las pruebas están organizadas por módulo y tipo de usuario, permitiendo escalabilidad y ejecución independiente.
 
 **Estructura del proyecto**
 
