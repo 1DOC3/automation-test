@@ -1,23 +1,20 @@
 *** Settings ***
 Library         AppiumLibrary
 Library         Collections
-Resource        ../resources/android/variables/user_legal_guidance.robot
-Resource        ../resources/android/keywords/keywords.robot
-Resource        ../resources/android/keywords/legal_guidance_keywords.robot
-Resource        ../resources/android/keywords/Keywords_financial_assistant.robot
+Resource        ../../resources/android/variables/user_legal_guidance.robot
+Resource        ../../resources/android/keywords/keywords.robot
+Resource        ../../resources/android/keywords/legal_guidance_keywords.robot
+Resource        ../../resources/android/keywords/Keywords_financial_assistant.robot
 
 
 
-Suite Setup     Setting timeouts
-Test Setup       Before Tests
-Test Teardown    After Tests
+
 
 
 *** Test Cases ***
 
 
 Flujo De Orientación Legal Para Todas Las Consultas
-    Do login with email    nuevamafe@yopmail.com
     Scroll Until Element Is Found In Safe Position    ${SERVICE_LEGAL_GUIDANCE}    
     ...    start_y=1400    
     ...    end_y=400

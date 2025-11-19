@@ -1,21 +1,16 @@
 *** Settings ***
 Library         AppiumLibrary
-Resource        ../resources/android/variables/user_activations.robot 
-Resource        ../resources/android/keywords/keywords.robot
-Resource        ../resources/android/variables/user_daily_inspiration.robot
+Resource        ../../resources/android/variables/user_activations.robot 
+Resource        ../../resources/android/keywords/keywords.robot
+Resource        ../../resources/android/variables/user_daily_inspiration.robot
 
 Library    FakerLibrary
 Library    Process
 
-Suite Setup     Setting timeouts
 
-Test Setup    Before Tests
-
-Test Teardown    Return To Home
 
 *** Test Cases ***
 Unopened inspiration
-    Do login with email    durant@yopmail.com
     Click Inspiration Banner
     Wait Until Page Contains Element    ${SHARE}
     Log To Console    📸 Compartiendo inspiración...

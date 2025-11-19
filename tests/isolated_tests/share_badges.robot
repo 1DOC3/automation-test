@@ -1,14 +1,11 @@
 *** Settings ***
 Library           AppiumLibrary
 Library           Collections
-Resource        ../resources/android/variables/user_activations.robot
-Resource        ../resources/android/keywords/keywords.robot
-Resource        ../resources/android/variables/user_badges.robot
+Resource        ../../resources/android/variables/user_activations.robot
+Resource        ../../resources/android/keywords/keywords.robot
+Resource        ../../resources/android/variables/user_badges.robot
 
 
-Suite Setup     Setting timeouts
-Test Setup       Before Tests
-Test Teardown    After Tests
 
 *** Test Cases ***
 sharing badges
@@ -34,28 +31,27 @@ sharing badges
     Wait Until Element Is Visible  ${BTN_SHARE}
     Click Element  ${BTN_SHARE}
     Wait Until Element Is Visible    ${MODAL_SHARE}
-    Press Keycode    4  #cerrar la modal con el back de android 
-    Wait Until Element Is Visible    ${BTN_BACK_BADGE} 
-    Click Element    ${BTN_BACK_BADGE} 
+    Return To Share Badges 
     Wait Until Element Is Visible    ${BTN_THIRD_BADGE}
     Click Element  ${BTN_THIRD_BADGE}
     Element Should Be Visible   ${CONTENT_THIRD_BADGE}
     Wait Until Element Is Visible  ${BTN_SHARE}
     Click Element  ${BTN_SHARE}
     Wait Until Element Is Visible    ${MODAL_SHARE}
-    Press Keycode    4  #cerrar la modal con el back de android
-    Wait Until Element Is Visible    ${BTN_BACK_BADGE} 
-    Click Element    ${BTN_BACK_BADGE} 
+    Return To Share Badges 
     Wait Until Element Is Visible    ${BTN_FOURTH_BADGE}
     Click Element  ${BTN_FOURTH_BADGE}
     Element Should Be Visible   ${CONTENT_FOURTH_BADGE}
     Wait Until Element Is Visible  ${BTN_SHARE}
     Click Element  ${BTN_SHARE}
     Wait Until Element Is Visible    ${MODAL_SHARE}
-    Press Keycode    4  #cerrar la modal con el back de android
-    Wait Until Element Is Visible    ${BTN_BACK_BADGE} 
-    Click Element    ${BTN_BACK_BADGE} 
+    Return To Share Badges 
     Sleep  5s
 
-
-
+*** Keywords ***
+Return To Share Badges
+    Log    [NAV] Regresando a pantalla de Share Badges
+    Execute Adb Shell    com.app1doc3.app1doc3/com.app1doc3.app1doc3.MainActivity
+    Sleep    2s
+    Wait Until Element Is Visible  ${BTN_BACK_BADGE}    10s
+    Click Element  ${BTN_THIRD_BADGE}

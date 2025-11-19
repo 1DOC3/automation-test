@@ -2,18 +2,15 @@
 Library           AppiumLibrary
 Library           Collections
 Library           DateTime
-Resource        ../resources/android/variables/user_activations.robot
-Resource        ../resources/android/keywords/keywords.robot
-Resource        ../resources/android/variables/user_webinars.robot
+Resource        ../../resources/android/variables/user_activations.robot
+Resource        ../../resources/android/keywords/keywords.robot
+Resource        ../../resources/android/variables/user_webinars.robot
 
 
-Suite Setup     Setting timeouts
-Test Setup       Before Tests
-Test Teardown    After Tests
+
 
 *** Test Cases ***
 Watch Webinar validations
-    Do login with email    ingelizgiraldo@icloud.com
     Sleep    2s
     ${today}=    Get Current Date    result_format=%A
     Log To Console    Today is: ${today}

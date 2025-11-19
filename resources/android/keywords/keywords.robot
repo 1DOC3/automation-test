@@ -13,6 +13,8 @@ Resource    Keywords_onboarding_flow.robot
 Resource    code_requests_email.robot
 Resource    ../variables/user_explore.robot
 
+
+
 *** Variables ***
 ${APPIUM_SERVER}     %{APPIUM_SERVER}
 ${PLATFORM_NAME}     %{PLATFORM_NAME}
@@ -31,19 +33,30 @@ Before Tests
     Open 1doc3 Application
     Wait Until Page Contains Element    ${BTN_ACCOUNT}
 After Tests
-    Log    Finalizando pruebas sin cerrar la app
+    Close Application
 
+
+Initialize Session
+    Open 1doc3 Application
+    Do login with email  fa1@yopmail.com
+    Setting timeouts
+  
+    
 Open 1doc3 Application
-    [Documentation]    Abre la aplicación de 1doc3 basandose en las variables de entorno.
+
     Open Application
     ...    ${APPIUM_SERVER}
     ...    platformName=${PLATFORM_NAME}
     ...    deviceName=${DEVICE_NAME}
     ...    app=${APP_PATH}
     ...    automationName=${AUTOMATION_NAME}
-    ...    autoGrantPermissions=true
+    ...    autoGrantPermissions=${True}
     ...    enforceXPath1=${True}
-    Sleep    3s
+    ...    adbExecTimeout=60000
+    ...    uiautomator2ServerLaunchTimeout= 60000
+
+    Sleep    3
+
 
 
 
@@ -133,25 +146,20 @@ Scroll Until Element Is Found In Safe Position
     ...  ${additional_start_x}=500  ${additional_start_y}=800
     ...  ${additional_end_x}=500  ${additional_end_y}=300  ${additional_duration}=500
 
-
-
     WHILE  True
-        Log    Trying to find element...
+        Log    Trying to find element...    level=INFO
         ${element_found}=  Run Keyword And Ignore Error  Wait Until Element Is Visible  ${element_xpath}  ${timeout}
         ${status}=  Set Variable  ${element_found[0]}
         Run Keyword If  '${status}' == 'PASS'  Exit For Loop
-        Log    Element not found, scrolling...
+        Log    Element not found, scrolling...    level=INFO
         Swipe  ${start_x}  ${start_y}  ${end_x}  ${end_y}  ${duration}
     END
 
-
-
-    Log  Element found!
-
-
+    Log    Element found!    level=INFO
 
     Run Keyword If  '${additional_scroll}' == 'True'
     ...    Swipe  ${additional_start_x}  ${additional_start_y}  ${additional_end_x}  ${additional_end_y}  ${additional_duration}
+
 
 
 Verify prefix locator 
@@ -236,18 +244,39 @@ Modal location
     ...    ELSE    Log    Modal no encontrada, continuar flujo
     ...    
 
+Return To Home Public
+    ${is_running}=    Run Keyword And Return Status    App Should Be Running    com.app1doc3.app1doc3
+
+    IF    not ${is_running}
+        Activate Application    com.app1doc3.app1doc3
+    ELSE
+        Terminate Application    com.app1doc3.app1doc3
+        Sleep    1s
+        Activate Application    com.app1doc3.app1doc3
+    END
+
+    Wait Until Keyword Succeeds    30s    1s    Page Should Contain Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
+
+
 
 Return To Home
-    [Documentation]    Retrocede hasta que aparezca un elemento del home sin cerrar la app.
-    Log    Iniciando teardown sin cerrar la app
-    Wait Until Keyword Succeeds    5x    2s    Navigate To Home
+    ${is_running}=    Run Keyword And Return Status    App Should Be Running    com.app1doc3.app1doc3
 
-Navigate To Home
-    ${visible}=    Run Keyword And Return Status    Page Should Contain Element    ${HELP} 
-    IF    ${visible}
-        Log    Ya estamos en el home
-        RETURN
+    IF    not ${is_running}
+        Activate Application    com.app1doc3.app1doc3
+    ELSE
+        Terminate Application    com.app1doc3.app1doc3
+        Sleep    1s
+        Activate Application    com.app1doc3.app1doc3
     END
-    Press Keycode    4    # Botón atrás
-    Sleep    1s
-    Page Should Contain Element    ${HELP}
+
+    Wait Until Keyword Succeeds    30s    1s    Page Should Contain Element    ${HELP}
+
+
+App Should Be Running
+    [Arguments]    ${package}
+    ${output}=    Run Process    adb    shell    pidof ${package}    stdout=YES    stderr=NO
+    Should Not Be Empty    ${output.stdout}
+    
+
+

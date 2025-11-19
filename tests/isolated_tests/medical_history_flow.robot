@@ -1,12 +1,10 @@
 *** Settings ***
 Library         AppiumLibrary
 Library         OperatingSystem
-Resource        ../resources/android/variables/user_medical_history.robot
-Resource        ../resources/android/keywords/keywords.robot
+Resource        ../../resources/android/variables/user_medical_history.robot
+Resource        ../../resources/android/keywords/keywords.robot
 
-Suite Setup     Setting timeouts
-Test Setup       Before Tests
-Test Teardown    After Tests
+
 
 *** Test Cases ***
 

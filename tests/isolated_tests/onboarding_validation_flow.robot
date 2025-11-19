@@ -2,14 +2,12 @@
 Library           AppiumLibrary
 Library           Collections
 Library           DateTime
-Resource        ../resources/android/variables/user_activations.robot
-Resource        ../resources/android/variables/user_onboarding.robot
-Resource        ../resources/android/keywords/keywords.robot
-Resource        ../resources/android/keywords/Keywords_onboarding_flow.robot
+Resource        ../../resources/android/variables/user_activations.robot
+Resource        ../../resources/android/variables/user_onboarding.robot
+Resource        ../../resources/android/keywords/keywords.robot
+Resource        ../../resources/android/keywords/Keywords_onboarding_flow.robot
 
-Suite Setup     Setting timeouts
-Test Setup       Before Tests
-Test Teardown    After Tests
+
 
 *** Test Cases ***
 Field validations

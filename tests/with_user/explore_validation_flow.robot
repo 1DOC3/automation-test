@@ -1,18 +1,13 @@
 *** Settings ***
 Library         AppiumLibrary
-Resource        ../resources/android/variables/user_activations.robot
-Resource        ../resources/android/variables/user_explore.robot 
-Resource        ../resources/android/keywords/keywords.robot
+Resource        ../../resources/android/variables/user_activations.robot
+Resource        ../../resources/android/variables/user_explore.robot 
+Resource        ../../resources/android/keywords/keywords.robot
 
-Suite Setup     Setting timeouts
 
-Test Setup    Before Tests
-Test Teardown    After Tests
 
 *** Test Cases ***   
 Flujo explorar validaciones
-
-    Do login with email    feli@yopmail.com	
     Click Element    ${TAB_EXPLORA}
     Sleep    5s
     Wait Until Element Is Visible     ${TITLE_EXPLORA}
@@ -34,7 +29,7 @@ Flujo explorar validaciones
     Click Element    ${BACK_WINDOW}
     Sleep    2s
     Click Element    ${RELATIONS}
-    Wait Until Element Is Visible    ${TITLE_RELATIONS} 
+    Wait Until Element Is Visible    ${TITLE_RELATIONS}   
     Wait Until Element Is Visible    ${BODY_RELATIONS} 
     Wait Until Element Is Visible    ${TITLE2_RELATIONS}
     Click Element    ${BACK_WINDOW}
@@ -52,7 +47,6 @@ Flujo explorar validaciones
     Click Element    ${BACK_WINDOW}
     
 Banner health 
-    Do login with email    feli@yopmail.com	
     Wait Until Element Is Visible  ${TAB_EXPLORA}
     Click Element    ${TAB_EXPLORA}
     Wait Until Element Is Visible    ${BANNER_HEALTH}  70s
@@ -61,8 +55,6 @@ Banner health
     Click Element    ${CLOSE_WINDOW1}
 
 Video Validation
-    
-    Do login with email    feli@yopmail.com	
     Wait Until Element Is Visible  ${TAB_EXPLORA}
     Click Element    ${TAB_EXPLORA}
     Sleep    5s

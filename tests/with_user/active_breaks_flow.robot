@@ -1,19 +1,17 @@
 *** Settings ***
 Library           AppiumLibrary
 Library           Collections
-Resource        ../resources/android/variables/user_activations.robot
-Resource        ../resources/android/keywords/keywords.robot
-Resource        ../resources/android/keywords/Keywords_breaks_flow.robot
-Resource        ../resources/android/variables/user_active_breaks.robot
+Resource        ../../resources/android/variables/user_activations.robot
+Resource        ../../resources/android/keywords/keywords.robot
+Resource        ../../resources/android/keywords/Keywords_breaks_flow.robot
+Resource        ../../resources/android/variables/user_active_breaks.robot
 
 
-Suite Setup     Setting timeouts
-Test Setup       Before Tests
-Test Teardown    After Tests
+
+
 
 *** Test Cases ***
 Active pause banner validations
-    Do login with email    nnn@yopmail.com
     ${element_found}=    Set Variable    NONE
     FOR    ${i}    IN RANGE  5
             ${Banner_not_break}=    Run Keyword And Return Status    Element Should Be Visible     ${Banner_not_active_break}

@@ -2,14 +2,12 @@
 Library           AppiumLibrary
 Library           Collections
 Library           DateTime
-Resource        ../resources/android/variables/user_activations.robot
-Resource        ../resources/android/variables/user_onboarding.robot
-Resource        ../resources/android/keywords/keywords.robot
-Resource        ../resources/android/keywords/Keywords_onboarding_flow.robot
+Resource        ../../resources/android/variables/user_activations.robot
+Resource        ../../resources/android/variables/user_onboarding.robot
+Resource        ../../resources/android/keywords/keywords.robot
+Resource        ../../resources/android/keywords/Keywords_onboarding_flow.robot
 
-Suite Setup     Setting timeouts
-Test Setup       Before Tests
-Test Teardown    After Tests
+
 
 *** Test Cases ***
 Field validations
@@ -17,10 +15,10 @@ Field validations
     Click Element    ${BTN_ACCOUNT}
     Wait Until Page Contains Element    ${CONTINUE_WITH_EMAIL_BUTTON}
     Click Element    ${CONTINUE_WITH_EMAIL_BUTTON}
-    Input Text       ${EMAIL_FIELD}     ${USER_ONBOARDING}
+    Input Text       ${EMAIL_FIELD}  pedi@yopmail.com
     Click Element    ${LOGIN_SUBMIT_BUTTON_CONTINUAR}
     Wait Until Page Contains Element   ${CODE_VERIFICATION_FIELD}
-    ${code}=    Get Code Environment   ${USER_ONBOARDING}
+    ${code}=    Get Code Environment  pedi@yopmail.com
     Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
     Wait Until Element Is Visible     ${COPY_INFORMATION}  60s

@@ -1,16 +1,44 @@
 **Pruebas automatizadas de la app de 1doc3 con Robot Framework y Appium.**
 
-Este proyecto contiene una suite de pruebas automatizadas para la aplicación móvil de 1DOC3  utilizando  **Robot Framework** y  **Appium**. Las pruebas de momento verifican el Happy path del login y las validaciones de la opción Continua con tu empresa. Su ejecución puede hacerse en dispositivos Android. 
+Proyecto de automatización móvil para la app 1DOC3 utilizando Robot Framework y Appium, con el objetivo de validar flujos críticos de usuario y asegurar calidad en releases. Las pruebas están organizadas por módulo y tipo de usuario, permitiendo escalabilidad y ejecución independiente.
 
 **Estructura del proyecto**
 
-/[docs](https://github.com/1DOC3/automation-test/tree/main/docs) :  Contiene la documentación del proyecto 
 
-/[resources](https://github.com/1DOC3/automation-test/tree/main/resources) : Contiene las Keywords y variables que utilizamos para android y para ios
+```bash
+├── docs/                                # Documentación del proyecto
+├── resources/
+│   └── android/
+│       ├── keywords/                    # Keywords de Robot Framework reutilizables
+│       └── variables/                   # Variables por módulo o tipo de usuario
+├── scripts/
+│   └── device_farm_upload.sh            # Script para subir pruebas a DeviceFarm
+├── tests/
+│   ├── isolated_tests/                  # Pruebas independientes
+│   │   ├── __init__.robot
+│   │   ├── medical_history_flow.robot
+│   │   ├── onboarding_flow.robot
+│   │   ├── onboarding_validation_flow.robot
+│   │   └── share_badges.robot
+│   ├── no_user/                         # Flujos sin autenticación
+│   │   ├── __init__.robot
+│   │   ├── charging_time.robot
+│   │   ├── company_validation_flow.robot
+│   │   ├── login_continue_with_your_company.robot
+│   │   └── login_with_phone.robot
+│   └── with_user/                       # Flujos con usuario autenticado
+│       ├── __init__.robot
+│       ├── active_breaks_flow.robot
+│       ├── consult_medicine.robot
+│       ├── explore_validation_flow.robot
+│       ├── financial_assistant.robot
+│       ├── inspiration_diary.robot
+│       ├── legal_guidance.robot
+│       └── webinars_flow.robot
+├── .gitignore
+└── README.md
+```
 
-/[results](https://github.com/1DOC3/automation-test/tree/main/results) : Contiene los resultados de las pruebas
-
-/[tests](https://github.com/1DOC3/automation-test/tree/main/tests) :  Casos de prueba agrupados por funcionalidades o módulos de la aplicación.
 
 **Requisitos**  
 Antes de ejecutar las pruebas, asegúrate de cumplir con los siguientes requisitos: 

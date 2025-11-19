@@ -1,16 +1,15 @@
 *** Settings ***
 Library         AppiumLibrary
-Resource        ../resources/android/variables/user_activations.robot 
-Resource        ../resources/android/keywords/keywords.robot
+Resource        ../../resources/android/variables/user_activations.robot 
+Resource        ../../resources/android/keywords/keywords.robot
 
-Suite Setup     Setting timeouts
+
 
 
 *** Test Cases ***
 Login with email Local
     [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en un dispositivo local.
     [Tags]    smoke
-    Open 1doc3 Application
     Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Wait Until Element Is Visible  ${LOGIN_COMPANY_FIELD}
@@ -30,12 +29,11 @@ Login with email Local
     ${code}=    Get Code Environment   ${USER1_DETAILS}
     Input Verification Code    ${code}
     Click Element    ${VERIFY_BUTTON}
-    Close Application
+
 
 Login with mobile Local
     [Documentation]    Verifica que el usuario puede iniciar sesión con su empresa en un dispositivo local.
     [Tags]    smoke
-    Open 1doc3 Application
     Wait Until Page Contains Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Click Element    ${LOGIN_SUBMIT_CONTINUACONEMPRESA}
     Input Text       ${LOGIN_COMPANY_FIELD}  ${NAME_COMPANY}
@@ -59,5 +57,5 @@ Login with mobile Local
     ${code}=    Get Code Environment   ${USER_NUMBER}
     Input Verification Code     ${code}
     Click Element    ${VERIFY_BUTTON}
-    Close Application
+    
 
