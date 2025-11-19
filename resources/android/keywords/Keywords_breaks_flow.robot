@@ -131,7 +131,7 @@ Wait For Video To Finish
     IF    ${video_presente}
         Log To Console    "Waiting for video ending..."
        
-        Wait Until Element Is Visible    ${Activity_complete}   
+        Wait Until Element Is Visible    ${Activity_complete}  60s   
     ELSE
         Log To Console    "Not found video, continue..."
         Wait Until Element Is Visible     ${Activity_complete}    

@@ -30,7 +30,7 @@ Run Legal Inquiry Workflow
     Click Element    ${FINISH}  
     Wait Until Element Is Visible    ${FINISH2}  
     Click Element    ${FINISH2}  
-    Wait Until Element Is Visible  ${WOULD_HAVE_DONE}    20s
+    Wait Until Element Is Visible  ${WOULD_HAVE_DONE}    30s
     Click Element  ${WOULD_HAVE_DONE} 
     Wait Until Element Is Visible  ${CTA_CLOSE}
     Click Element  ${CTA_CLOSE}
